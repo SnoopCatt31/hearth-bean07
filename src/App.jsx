@@ -11,6 +11,12 @@ const REWARD_THRESHOLD = 5;
 const REWARD_ITEMS = ["filter", "donut"];
 const TABLE_COUNT = 12;
 
+/* Café staff login. Change these to your own before going live.
+   NOTE: this is a front-end gate — good enough to keep customers out of the
+   admin panel, but not bank-grade security. Real protection needs a backend. */
+const STAFF_EMAIL = "admin@hearthbean.co";
+const STAFF_PASSWORD = "cafe1234";
+
 const CATS = [{ key: "hot" }, { key: "cold" }, { key: "shots" }, { key: "fruit" }, { key: "shakes" }, { key: "dessert" }];
 const CAT_TINT = { hot: "#efe0c6", cold: "#d8e6e2", shots: "#e7dccd", fruit: "#f0e0d6", shakes: "#ecdfe8", dessert: "#f1e4cf" };
 
@@ -148,6 +154,7 @@ const STR = {
     t_promo_queued: "Promo queued to {n} customer(s) (demo)",
     nav_orders: "Orders", nav_tables: "Tables", nav_menu: "Menu", nav_gallery: "Gallery", nav_brand: "Brand", nav_stats: "Statistics", nav_customers: "Customers",
     brand_title: "Brand & theme", brand_sub: "Pick a look for your café — colors and shapes update everywhere instantly.", theme_applied: "{name} theme applied", current_theme: "Current",
+    staff_login_title: "Staff login", staff_login_sub: "This area is for café staff only.", staff_password: "Password", staff_signin: "Sign in", staff_wrong: "Wrong email or password", staff_signout: "Sign out", staff_back_customer: "← Back to customer view",
     staff_counter: "Staff · Counter", reset_demo: "Reset demo",
     live_orders: "Live orders", live_orders_sub: "Tickets arrive the moment a guest sends them. Tap to move an order along.",
     n_new: "{n} new", f_active: "Active", f_new: "New", f_preparing: "Preparing", f_served: "Served", f_all: "All",
@@ -237,6 +244,7 @@ const STR = {
     t_promo_queued: "Promosyon {n} müşteriye sıraya alındı (demo)",
     nav_orders: "Siparişler", nav_tables: "Masalar", nav_menu: "Menü", nav_gallery: "Galeri", nav_brand: "Marka", nav_stats: "İstatistik", nav_customers: "Müşteriler",
     brand_title: "Marka ve tema", brand_sub: "Kafen için bir görünüm seç — renkler ve şekiller her yerde anında güncellenir.", theme_applied: "{name} teması uygulandı", current_theme: "Geçerli",
+    staff_login_title: "Personel girişi", staff_login_sub: "Bu alan yalnızca kafe personeli içindir.", staff_password: "Şifre", staff_signin: "Giriş yap", staff_wrong: "Hatalı e-posta veya şifre", staff_signout: "Çıkış yap", staff_back_customer: "← Müşteri görünümüne dön",
     staff_counter: "Personel · Kasa", reset_demo: "Demoyu sıfırla",
     live_orders: "Canlı siparişler", live_orders_sub: "Misafir gönderir göndermez fişler buraya düşer. İlerletmek için dokun.",
     n_new: "{n} yeni", f_active: "Aktif", f_new: "Yeni", f_preparing: "Hazırlanıyor", f_served: "Servis edildi", f_all: "Tümü",
@@ -326,6 +334,7 @@ const STR = {
     t_promo_queued: "Промо поставлено в очередь для {n} клиент(ов) (демо)",
     nav_orders: "Заказы", nav_tables: "Столы", nav_menu: "Меню", nav_gallery: "Галерея", nav_brand: "Бренд", nav_stats: "Статистика", nav_customers: "Клиенты",
     brand_title: "Бренд и тема", brand_sub: "Выберите стиль для своего кафе — цвета и формы обновятся везде мгновенно.", theme_applied: "Тема «{name}» применена", current_theme: "Текущая",
+    staff_login_title: "Вход для персонала", staff_login_sub: "Этот раздел только для сотрудников кафе.", staff_password: "Пароль", staff_signin: "Войти", staff_wrong: "Неверная почта или пароль", staff_signout: "Выйти", staff_back_customer: "← Назад к виду клиента",
     staff_counter: "Персонал · Касса", reset_demo: "Сбросить демо",
     live_orders: "Текущие заказы", live_orders_sub: "Чеки появляются сразу после отправки гостем. Нажмите, чтобы продвинуть заказ.",
     n_new: "{n} новых", f_active: "Активные", f_new: "Новые", f_preparing: "Готовятся", f_served: "Поданы", f_all: "Все",
@@ -415,6 +424,7 @@ const STR = {
     t_promo_queued: "Promo für {n} Kund(en) eingereiht (Demo)",
     nav_orders: "Bestellungen", nav_tables: "Tische", nav_menu: "Karte", nav_gallery: "Galerie", nav_brand: "Marke", nav_stats: "Statistik", nav_customers: "Kunden",
     brand_title: "Marke & Theme", brand_sub: "Wähle einen Look für dein Café — Farben und Formen aktualisieren sich überall sofort.", theme_applied: "Theme „{name}“ angewendet", current_theme: "Aktuell",
+    staff_login_title: "Mitarbeiter-Login", staff_login_sub: "Dieser Bereich ist nur für Café-Personal.", staff_password: "Passwort", staff_signin: "Anmelden", staff_wrong: "Falsche E-Mail oder Passwort", staff_signout: "Abmelden", staff_back_customer: "← Zurück zur Kundenansicht",
     staff_counter: "Personal · Theke", reset_demo: "Demo zurücksetzen",
     live_orders: "Live-Bestellungen", live_orders_sub: "Bons erscheinen, sobald ein Gast sendet. Tippe, um eine Bestellung weiterzuschalten.",
     n_new: "{n} neu", f_active: "Aktiv", f_new: "Neu", f_preparing: "In Zubereitung", f_served: "Serviert", f_all: "Alle",
@@ -504,6 +514,7 @@ const STR = {
     t_promo_queued: "تم وضع العرض في قائمة الإرسال لـ {n} عميل (عرض)",
     nav_orders: "الطلبات", nav_tables: "الطاولات", nav_menu: "القائمة", nav_gallery: "المعرض", nav_brand: "الهوية", nav_stats: "الإحصاءات", nav_customers: "العملاء",
     brand_title: "الهوية والتصميم", brand_sub: "اختر مظهرًا لمقهاك — تتحدّث الألوان والأشكال في كل مكان فورًا.", theme_applied: "تم تطبيق تصميم {name}", current_theme: "الحالي",
+    staff_login_title: "دخول الموظفين", staff_login_sub: "هذه المنطقة لموظفي المقهى فقط.", staff_password: "كلمة المرور", staff_signin: "تسجيل الدخول", staff_wrong: "البريد أو كلمة المرور غير صحيحة", staff_signout: "تسجيل الخروج", staff_back_customer: "← العودة إلى عرض العميل",
     staff_counter: "الموظفون · الكاشير", reset_demo: "إعادة ضبط العرض",
     live_orders: "الطلبات المباشرة", live_orders_sub: "تصل الفواتير لحظة إرسال الضيف. اضغط لتحريك الطلب.",
     n_new: "{n} جديدة", f_active: "نشطة", f_new: "جديدة", f_preparing: "قيد التحضير", f_served: "مُقدّمة", f_all: "الكل",
@@ -570,6 +581,7 @@ const K_MENU = "hb:menu:v2";
 const K_SLIDES = "hb:slides";
 const K_LANG = "hb:lang";
 const K_THEME = "hb:theme";
+const K_STAFF = "hb:staff_session";
 const hasStore = typeof window !== "undefined" && window.storage;
 async function loadJSON(key, fallback) {
   if (!hasStore) return fallback;
@@ -809,6 +821,13 @@ const CSS = `
 .eb-modal h3{font-size:21px;font-weight:600;margin-bottom:4px;}
 .eb-sep{height:1px;background:var(--line-2);margin:16px 0;}
 .eb-link{color:var(--pine);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.eb-login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg-pattern, none) var(--bg);}
+.eb-login-card{width:100%;max-width:380px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:30px 26px;box-shadow:var(--shadow-lg);}
+.eb-login-card .lock{width:54px;height:54px;border-radius:50%;background:var(--pine);color:var(--pine-ink);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;}
+.eb-login-card h1{font-size:22px;font-weight:600;text-align:center;margin:0 0 4px;}
+.eb-login-card p.sub{font-size:13px;color:var(--ink-soft);text-align:center;margin:0 0 22px;}
+.eb-login-card .err{background:#f6dfe4;color:#7a2336;font-size:13px;font-weight:600;padding:9px 12px;border-radius:10px;margin-bottom:14px;text-align:center;}
+.eb-staffbar{display:flex;align-items:center;gap:6px;}
 @media(prefers-reduced-motion:reduce){.eb-app *{animation:none!important;transition:none!important;}.eb-track{scroll-behavior:auto;}}
 
 /* Shape personality — varies by theme, layered on top of the base rounded look */
@@ -839,7 +858,6 @@ const CSS = `
 
 
 export default function App() {
-  const [mode, setMode] = useState("customer");
   const [orders, setOrders] = useState([]);
   const [customers, setCustomers] = useState({});
   const [menu, setMenu] = useState(DEFAULT_MENU);
@@ -849,6 +867,14 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [toast, setToast] = useState(null);
 
+  // Which side of the app to show is decided by the URL, not a toggle.
+  // A normal QR scan (?table=4) is always the customer view.
+  // Staff reach the admin panel only via ?staff (or ?admin) and must log in.
+  const isStaffRoute = useMemo(() => {
+    try { const p = new URLSearchParams(window.location.search); return p.has("staff") || p.has("admin"); } catch { return false; }
+  }, []);
+  const [staffAuthed, setStaffAuthed] = useState(false);
+
   useEffect(() => {
     (async () => {
       setOrders(await loadJSON(K_ORDERS, []));
@@ -857,6 +883,7 @@ export default function App() {
       setSlides(await loadJSON(K_SLIDES, DEFAULT_SLIDES));
       setLang(await loadJSON(K_LANG, "en"));
       setThemeId(await loadJSON(K_THEME, "hearth"));
+      setStaffAuthed(await loadJSON(K_STAFF, false) === true);
       setLoaded(true);
     })();
   }, []);
@@ -866,6 +893,7 @@ export default function App() {
   useEffect(() => { if (loaded) saveJSON(K_SLIDES, slides); }, [slides, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_LANG, lang); }, [lang, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_THEME, themeId); }, [themeId, loaded]);
+  useEffect(() => { if (loaded) saveJSON(K_STAFF, staffAuthed); }, [staffAuthed, loaded]);
 
   const t = useMemo(() => makeT(lang), [lang]);
   const dir = useMemo(() => (LANGS.find((l) => l.code === lang)?.dir || "ltr"), [lang]);
@@ -883,20 +911,23 @@ export default function App() {
     flash(t("t_reset"));
   };
 
+  const goCustomer = () => {
+    try { window.location.href = window.location.pathname; } catch { /* noop */ }
+  };
+  const signOutStaff = () => { setStaffAuthed(false); goCustomer(); };
+
   return (
     <LangCtx.Provider value={{ lang, setLang, dir, t }}>
       <ThemeCtx.Provider value={{ themeId, setThemeId }}>
         <div className="eb-app" dir={dir} data-shape={theme.shape} style={themeStyle}>
           <style>{CSS}</style>
-          {mode === "customer" ? (
+          {!isStaffRoute ? (
             <CustomerApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} slides={slides} flash={flash} />
+          ) : staffAuthed ? (
+            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
           ) : (
-            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} flash={flash} resetDemo={resetDemo} />
+            <StaffLogin onSuccess={() => setStaffAuthed(true)} onBack={goCustomer} />
           )}
-          <div className="eb-switch" role="tablist" aria-label="Demo view">
-            <button className={mode === "customer" ? "on" : ""} onClick={() => setMode("customer")}>Customer</button>
-            <button className={mode === "admin" ? "on" : ""} onClick={() => setMode("admin")}>Café Admin</button>
-          </div>
           {toast && <div className="eb-toast">🔔 {toast}</div>}
         </div>
       </ThemeCtx.Provider>
@@ -1301,7 +1332,36 @@ function AccountScreen({ user, record, stamps, hasReward, orders, reorder, back,
 }
 
 
-function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, flash, resetDemo }) {
+function StaffLogin({ onSuccess, onBack }) {
+  const { t } = useT();
+  const [email, setEmail] = useState("");
+  const [pw, setPw] = useState("");
+  const [err, setErr] = useState(false);
+  const submit = () => {
+    if (email.trim().toLowerCase() === STAFF_EMAIL.toLowerCase() && pw === STAFF_PASSWORD) { setErr(false); onSuccess(); }
+    else setErr(true);
+  };
+  const onKey = (e) => { if (e.key === "Enter") submit(); };
+  return (
+    <div className="eb-login">
+      <div className="eb-login-card">
+        <div className="lock">🔒</div>
+        <h1 className="eb-serif">{t("staff_login_title")}</h1>
+        <p className="sub">{t("staff_login_sub")}</p>
+        {err && <div className="err">{t("staff_wrong")}</div>}
+        <label className="eb-label">{t("email")}</label>
+        <input className="eb-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={onKey} placeholder="admin@hearthbean.co" autoComplete="username" />
+        <div style={{ height: 14 }} />
+        <label className="eb-label">{t("staff_password")}</label>
+        <input className="eb-input" type="password" value={pw} onChange={(e) => setPw(e.target.value)} onKeyDown={onKey} autoComplete="current-password" />
+        <button className="eb-btn" style={{ marginTop: 20, fontSize: 15, padding: 14 }} onClick={submit}>{t("staff_signin")}</button>
+        <button className="eb-link" style={{ display: "block", margin: "16px auto 0", fontSize: 13 }} onClick={onBack}>{t("staff_back_customer")}</button>
+      </div>
+    </div>
+  );
+}
+
+function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, flash, resetDemo, onSignOut }) {
   const { t } = useT();
   const [tab, setTab] = useState("orders");
   const newCount = orders.filter((o) => o.status === "new").length;
@@ -1323,6 +1383,7 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
         <LangPicker dark />
         <span style={{ fontSize: 12.5, color: "#cfd8cf", whiteSpace: "nowrap" }}>{t("staff_counter")}</span>
         <button className="eb-atab" onClick={resetDemo} title={t("reset_demo")}>↻</button>
+        <button className="eb-atab" onClick={onSignOut} title={t("staff_signout")}>⎋</button>
       </div>
       <div className="eb-awrap">
         {tab === "orders" && <AdminOrders orders={orders} setStatus={setStatus} setPaid={setPaid} />}
