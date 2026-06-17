@@ -126,6 +126,10 @@ const STR = {
     use_reward: "Use your free reward", reward_applied: "Reward applied", reward_free_item: "{name} is on us", reward_add_item: "Add a filter coffee or donut to redeem",
     subtotal: "Subtotal", club_reward: "Bean Club reward", total: "Total",
     guest_1: "Ordering as a guest.", guest_2: "to earn a stamp on this order.", send_order: "Send order to kitchen",
+    quick_order: "Order now", review_basket: "Review basket",
+    pay_title: "Pay the bill", pay_full_cta: "Pay the full bill", or_split: "or split it", choose_split: "How would you like to pay?", split_whole: "Pay the whole table", split_whole_d: "Settle everything that's owed on this table", split_mine: "Pay only my orders", split_mine_d: "Just the items you ordered", split_even: "Split evenly", split_even_d: "Divide the table bill into equal shares", split_custom: "Enter an amount", split_custom_d: "Type exactly how much you'd like to pay",
+    how_many_people: "How many people?", per_person: "{amt} per person", your_share: "Your share", enter_amount: "Amount to pay", of_remaining: "of {amt} remaining",
+    add_tip: "Add a tip", tip_none: "No tip", tip_custom: "Custom", subtotal_label: "Subtotal", tip_label: "Tip", to_pay: "To pay", continue_btn: "Continue", pay_now: "Pay {amt}", confirm_payment: "Confirm payment", payment_sent: "Payment recorded", payment_sent_d: "Your payment of {amt} has been sent to staff for Table {n}.", pay_at_register_note: "Online payment is coming soon. For now this notifies staff of your amount — settle at the counter or with your server.", back_to_options: "← Back to options", nothing_to_pay: "Nothing left to pay on this table.", paying_amount: "You're paying", remaining_after: "Remaining after this: {amt}",
     order_sent: "Order sent!", getting_ready: "We're getting it ready for Table {n}.", order_id: "Order {id}",
     step_received: "Received", step_preparing: "Preparing", step_served: "Served",
     status_updates: "Status updates here as the kitchen works. (Switch to Café Admin below to move it along.)",
@@ -181,7 +185,7 @@ const STR = {
     statistics: "Statistics", stats_sub: "A read on the day so far.", stats_sub2: "Numbers fill in as orders come through.",
     no_data_t: "No data yet", no_data_b: "Place a few orders from the customer view to see your stats come alive.",
     revenue: "Revenue", outstanding: "Outstanding", orders_stat: "Orders", avg_order: "Avg. order", members: "Members",
-    repeat_guests: "Repeat guests", peak_hour: "Peak hour", best_sellers: "Best sellers", busiest_tables: "Busiest tables", orders_by_hour: "Orders by hour",
+    tips_collected: "Tips", repeat_guests: "Repeat guests", peak_hour: "Peak hour", best_sellers: "Best sellers", busiest_tables: "Busiest tables", orders_by_hour: "Orders by hour",
     customers: "Customers", customers_sub: "Your Bean Club members and their history. Email them about promotions and holidays.", customers_sub2: "Members who sign up while ordering show up here.",
     no_members_t: "No members yet", no_members_b: "When a guest joins the Bean Club from the customer view, you'll see them — with their email — right here.",
     email_all: "Email all members", col_name: "Name", col_email: "Email", col_orders: "Orders", col_stamps: "Stamps", col_spent: "Spent", col_joined: "Joined",
@@ -216,6 +220,10 @@ const STR = {
     use_reward: "Ücretsiz ödülünü kullan", reward_applied: "Ödül uygulandı", reward_free_item: "{name} bizden", reward_add_item: "Kullanmak için filtre kahve veya donut ekle",
     subtotal: "Ara toplam", club_reward: "Bean Club ödülü", total: "Toplam",
     guest_1: "Misafir olarak sipariş veriyorsun.", guest_2: "bu siparişte damga kazanmak için.", send_order: "Siparişi mutfağa gönder",
+    quick_order: "Hemen sipariş ver", review_basket: "Sepeti gözden geçir",
+    pay_title: "Hesabı öde", pay_full_cta: "Tüm hesabı öde", or_split: "ya da böl", choose_split: "Nasıl ödemek istersin?", split_whole: "Masanın tamamını öde", split_whole_d: "Bu masada borçlu olan her şeyi kapat", split_mine: "Sadece kendi siparişlerimi öde", split_mine_d: "Yalnızca senin sipariş ettiklerin", split_even: "Eşit böl (Alman usulü)", split_even_d: "Masa hesabını eşit paylara böl", split_custom: "Tutar gir", split_custom_d: "Tam olarak ne kadar ödeyeceğini yaz",
+    how_many_people: "Kaç kişi?", per_person: "Kişi başı {amt}", your_share: "Senin payın", enter_amount: "Ödenecek tutar", of_remaining: "/ kalan {amt}",
+    add_tip: "Bahşiş ekle", tip_none: "Bahşiş yok", tip_custom: "Özel", subtotal_label: "Ara toplam", tip_label: "Bahşiş", to_pay: "Ödenecek", continue_btn: "Devam et", pay_now: "{amt} öde", confirm_payment: "Ödemeyi onayla", payment_sent: "Ödeme kaydedildi", payment_sent_d: "{amt} tutarındaki ödemen Masa {n} için personele iletildi.", pay_at_register_note: "Online ödeme yakında geliyor. Şimdilik bu, tutarını personele bildirir — kasada veya garsonla öde.", back_to_options: "← Seçeneklere dön", nothing_to_pay: "Bu masada ödenecek bir şey kalmadı.", paying_amount: "Ödüyorsun", remaining_after: "Bundan sonra kalan: {amt}",
     order_sent: "Sipariş gönderildi!", getting_ready: "Masa {n} için hazırlıyoruz.", order_id: "Sipariş {id}",
     step_received: "Alındı", step_preparing: "Hazırlanıyor", step_served: "Servis edildi",
     status_updates: "Durum mutfak çalıştıkça burada güncellenir. (İlerletmek için aşağıdan Kafe Yönetimi'ne geç.)",
@@ -271,7 +279,7 @@ const STR = {
     statistics: "İstatistik", stats_sub: "Günün şu ana kadarki özeti.", stats_sub2: "Siparişler geldikçe sayılar dolar.",
     no_data_t: "Henüz veri yok", no_data_b: "İstatistiklerin canlanması için müşteri görünümünden birkaç sipariş ver.",
     revenue: "Ciro", outstanding: "Bekleyen", orders_stat: "Sipariş", avg_order: "Ort. sipariş", members: "Üyeler",
-    repeat_guests: "Tekrar gelen", peak_hour: "Yoğun saat", best_sellers: "En çok satanlar", busiest_tables: "En yoğun masalar", orders_by_hour: "Saate göre siparişler",
+    tips_collected: "Bahşiş", repeat_guests: "Tekrar gelen", peak_hour: "Yoğun saat", best_sellers: "En çok satanlar", busiest_tables: "En yoğun masalar", orders_by_hour: "Saate göre siparişler",
     customers: "Müşteriler", customers_sub: "Bean Club üyelerin ve geçmişleri. Promosyon ve bayram e-postaları gönder.", customers_sub2: "Sipariş verirken kaydolan üyeler burada görünür.",
     no_members_t: "Henüz üye yok", no_members_b: "Bir misafir müşteri görünümünden Bean Club'a katılınca onları — e-postasıyla — burada görürsün.",
     email_all: "Tüm üyelere e-posta", col_name: "Ad", col_email: "E-posta", col_orders: "Sipariş", col_stamps: "Damga", col_spent: "Harcama", col_joined: "Katıldı",
@@ -306,6 +314,10 @@ const STR = {
     use_reward: "Использовать награду", reward_applied: "Награда применена", reward_free_item: "{name} за наш счёт", reward_add_item: "Добавьте фильтр-кофе или пончик, чтобы списать",
     subtotal: "Подытог", club_reward: "Награда Bean Club", total: "Итого",
     guest_1: "Заказ как гость.", guest_2: "чтобы получить штамп за этот заказ.", send_order: "Отправить на кухню",
+    quick_order: "Заказать сейчас", review_basket: "Проверить корзину",
+    pay_title: "Оплата счёта", pay_full_cta: "Оплатить весь счёт", or_split: "или разделить", choose_split: "Как хотите оплатить?", split_whole: "Оплатить весь стол", split_whole_d: "Погасить всё, что причитается по столу", split_mine: "Оплатить только мои заказы", split_mine_d: "Только то, что вы заказали", split_even: "Разделить поровну", split_even_d: "Поделить счёт стола на равные части", split_custom: "Ввести сумму", split_custom_d: "Укажите, сколько именно хотите оплатить",
+    how_many_people: "Сколько человек?", per_person: "{amt} с человека", your_share: "Ваша доля", enter_amount: "Сумма к оплате", of_remaining: "из {amt} остатка",
+    add_tip: "Добавить чаевые", tip_none: "Без чаевых", tip_custom: "Своя сумма", subtotal_label: "Подытог", tip_label: "Чаевые", to_pay: "К оплате", continue_btn: "Продолжить", pay_now: "Оплатить {amt}", confirm_payment: "Подтвердить оплату", payment_sent: "Платёж записан", payment_sent_d: "Ваш платёж {amt} отправлен персоналу для стола {n}.", pay_at_register_note: "Онлайн-оплата скоро появится. Пока это уведомляет персонал о вашей сумме — рассчитайтесь на кассе или у официанта.", back_to_options: "← Назад к вариантам", nothing_to_pay: "По этому столу платить больше нечего.", paying_amount: "Вы оплачиваете", remaining_after: "Останется после этого: {amt}",
     order_sent: "Заказ отправлен!", getting_ready: "Готовим для стола {n}.", order_id: "Заказ {id}",
     step_received: "Принят", step_preparing: "Готовится", step_served: "Подан",
     status_updates: "Статус обновляется по ходу работы кухни. (Переключитесь на «Админ кафе» внизу, чтобы продвинуть заказ.)",
@@ -361,7 +373,7 @@ const STR = {
     statistics: "Статистика", stats_sub: "Срез по дню.", stats_sub2: "Цифры заполняются по мере заказов.",
     no_data_t: "Данных пока нет", no_data_b: "Оформите несколько заказов из вида клиента, чтобы статистика ожила.",
     revenue: "Выручка", outstanding: "К оплате", orders_stat: "Заказы", avg_order: "Средний чек", members: "Участники",
-    repeat_guests: "Повторные гости", peak_hour: "Пиковый час", best_sellers: "Хиты продаж", busiest_tables: "Самые активные столы", orders_by_hour: "Заказы по часам",
+    tips_collected: "Чаевые", repeat_guests: "Повторные гости", peak_hour: "Пиковый час", best_sellers: "Хиты продаж", busiest_tables: "Самые активные столы", orders_by_hour: "Заказы по часам",
     customers: "Клиенты", customers_sub: "Участники Bean Club и их история. Пишите им о промо и праздниках.", customers_sub2: "Участники, зарегистрировавшиеся при заказе, появятся здесь.",
     no_members_t: "Участников пока нет", no_members_b: "Когда гость вступит в Bean Club из вида клиента, вы увидите его — с почтой — здесь.",
     email_all: "Письмо всем участникам", col_name: "Имя", col_email: "Почта", col_orders: "Заказы", col_stamps: "Штампы", col_spent: "Потрачено", col_joined: "Регистрация",
@@ -396,6 +408,10 @@ const STR = {
     use_reward: "Gratis-Belohnung einlösen", reward_applied: "Belohnung angewendet", reward_free_item: "{name} geht auf uns", reward_add_item: "Filterkaffee oder Donut hinzufügen zum Einlösen",
     subtotal: "Zwischensumme", club_reward: "Bean-Club-Belohnung", total: "Summe",
     guest_1: "Bestellung als Gast.", guest_2: "um einen Stempel für diese Bestellung zu erhalten.", send_order: "An die Küche senden",
+    quick_order: "Jetzt bestellen", review_basket: "Korb prüfen",
+    pay_title: "Rechnung zahlen", pay_full_cta: "Ganze Rechnung zahlen", or_split: "oder aufteilen", choose_split: "Wie möchtest du zahlen?", split_whole: "Ganzen Tisch zahlen", split_whole_d: "Alles Offene an diesem Tisch begleichen", split_mine: "Nur meine Bestellungen", split_mine_d: "Nur was du bestellt hast", split_even: "Gleichmäßig teilen", split_even_d: "Die Tischrechnung in gleiche Teile teilen", split_custom: "Betrag eingeben", split_custom_d: "Gib genau ein, wie viel du zahlen möchtest",
+    how_many_people: "Wie viele Personen?", per_person: "{amt} pro Person", your_share: "Dein Anteil", enter_amount: "Zu zahlender Betrag", of_remaining: "von {amt} offen",
+    add_tip: "Trinkgeld geben", tip_none: "Kein Trinkgeld", tip_custom: "Eigen", subtotal_label: "Zwischensumme", tip_label: "Trinkgeld", to_pay: "Zu zahlen", continue_btn: "Weiter", pay_now: "{amt} zahlen", confirm_payment: "Zahlung bestätigen", payment_sent: "Zahlung erfasst", payment_sent_d: "Deine Zahlung von {amt} wurde dem Personal für Tisch {n} gemeldet.", pay_at_register_note: "Online-Zahlung kommt bald. Vorerst meldet dies dem Personal deinen Betrag — zahle an der Theke oder beim Kellner.", back_to_options: "← Zurück zu den Optionen", nothing_to_pay: "An diesem Tisch ist nichts mehr zu zahlen.", paying_amount: "Du zahlst", remaining_after: "Danach offen: {amt}",
     order_sent: "Bestellung gesendet!", getting_ready: "Wir bereiten sie für Tisch {n} vor.", order_id: "Bestellung {id}",
     step_received: "Erhalten", step_preparing: "In Zubereitung", step_served: "Serviert",
     status_updates: "Der Status aktualisiert sich hier, während die Küche arbeitet. (Unten zu Café-Admin wechseln, um weiterzuschalten.)",
@@ -451,7 +467,7 @@ const STR = {
     statistics: "Statistik", stats_sub: "Ein Blick auf den bisherigen Tag.", stats_sub2: "Die Zahlen füllen sich mit eingehenden Bestellungen.",
     no_data_t: "Noch keine Daten", no_data_b: "Gib ein paar Bestellungen aus der Kundenansicht auf, damit die Statistik lebendig wird.",
     revenue: "Umsatz", outstanding: "Offen", orders_stat: "Bestellungen", avg_order: "Ø Bestellung", members: "Mitglieder",
-    repeat_guests: "Stammgäste", peak_hour: "Stoßzeit", best_sellers: "Bestseller", busiest_tables: "Aktivste Tische", orders_by_hour: "Bestellungen nach Stunde",
+    tips_collected: "Trinkgeld", repeat_guests: "Stammgäste", peak_hour: "Stoßzeit", best_sellers: "Bestseller", busiest_tables: "Aktivste Tische", orders_by_hour: "Bestellungen nach Stunde",
     customers: "Kunden", customers_sub: "Deine Bean-Club-Mitglieder und ihr Verlauf. Maile ihnen zu Promos und Feiertagen.", customers_sub2: "Mitglieder, die beim Bestellen beitreten, erscheinen hier.",
     no_members_t: "Noch keine Mitglieder", no_members_b: "Wenn ein Gast aus der Kundenansicht dem Bean Club beitritt, siehst du ihn — mit E-Mail — genau hier.",
     email_all: "E-Mail an alle Mitglieder", col_name: "Name", col_email: "E-Mail", col_orders: "Bestellungen", col_stamps: "Stempel", col_spent: "Ausgegeben", col_joined: "Beigetreten",
@@ -486,6 +502,10 @@ const STR = {
     use_reward: "استخدم مكافأتك المجانية", reward_applied: "تم تطبيق المكافأة", reward_free_item: "{name} على حسابنا", reward_add_item: "أضف قهوة فلتر أو دونات للاستبدال",
     subtotal: "المجموع الفرعي", club_reward: "مكافأة نادي Bean", total: "الإجمالي",
     guest_1: "الطلب كضيف.", guest_2: "لكسب ختم على هذا الطلب.", send_order: "أرسل الطلب إلى المطبخ",
+    quick_order: "اطلب الآن", review_basket: "مراجعة السلة",
+    pay_title: "دفع الفاتورة", pay_full_cta: "ادفع الفاتورة كاملة", or_split: "أو قسّمها", choose_split: "كيف تريد الدفع؟", split_whole: "ادفع الطاولة كاملة", split_whole_d: "سدّد كل المستحق على هذه الطاولة", split_mine: "ادفع طلباتي فقط", split_mine_d: "فقط ما طلبته أنت", split_even: "قسّم بالتساوي", split_even_d: "قسّم فاتورة الطاولة إلى حصص متساوية", split_custom: "أدخل مبلغًا", split_custom_d: "اكتب بالضبط كم تريد أن تدفع",
+    how_many_people: "كم عدد الأشخاص؟", per_person: "{amt} للشخص", your_share: "حصتك", enter_amount: "المبلغ المراد دفعه", of_remaining: "من {amt} المتبقّي",
+    add_tip: "أضف بقشيشًا", tip_none: "بدون بقشيش", tip_custom: "مخصص", subtotal_label: "المجموع الفرعي", tip_label: "بقشيش", to_pay: "للدفع", continue_btn: "متابعة", pay_now: "ادفع {amt}", confirm_payment: "تأكيد الدفع", payment_sent: "تم تسجيل الدفع", payment_sent_d: "تم إرسال دفعتك البالغة {amt} إلى الموظفين للطاولة {n}.", pay_at_register_note: "الدفع الإلكتروني قريبًا. حاليًا يُعلِم هذا الموظفين بمبلغك — ادفع عند الكاشير أو مع النادل.", back_to_options: "← العودة إلى الخيارات", nothing_to_pay: "لا يوجد ما يُدفع على هذه الطاولة.", paying_amount: "أنت تدفع", remaining_after: "المتبقّي بعد ذلك: {amt}",
     order_sent: "تم إرسال الطلب!", getting_ready: "نحضّره للطاولة {n}.", order_id: "طلب {id}",
     step_received: "تم الاستلام", step_preparing: "قيد التحضير", step_served: "تم التقديم",
     status_updates: "يتم تحديث الحالة هنا أثناء عمل المطبخ. (انتقل إلى إدارة المقهى بالأسفل لتحريك الطلب.)",
@@ -541,7 +561,7 @@ const STR = {
     statistics: "الإحصاءات", stats_sub: "نظرة على اليوم حتى الآن.", stats_sub2: "تمتلئ الأرقام مع ورود الطلبات.",
     no_data_t: "لا بيانات بعد", no_data_b: "أنشئ بعض الطلبات من عرض العميل لتنبض إحصاءاتك بالحياة.",
     revenue: "الإيراد", outstanding: "المستحق", orders_stat: "الطلبات", avg_order: "متوسط الطلب", members: "الأعضاء",
-    repeat_guests: "الزوار المتكررون", peak_hour: "ساعة الذروة", best_sellers: "الأكثر مبيعًا", busiest_tables: "أكثر الطاولات ازدحامًا", orders_by_hour: "الطلبات حسب الساعة",
+    tips_collected: "البقشيش", repeat_guests: "الزوار المتكررون", peak_hour: "ساعة الذروة", best_sellers: "الأكثر مبيعًا", busiest_tables: "أكثر الطاولات ازدحامًا", orders_by_hour: "الطلبات حسب الساعة",
     customers: "العملاء", customers_sub: "أعضاء نادي Bean وسجلهم. راسلهم بالعروض والأعياد.", customers_sub2: "يظهر هنا الأعضاء الذين يسجّلون أثناء الطلب.",
     no_members_t: "لا أعضاء بعد", no_members_b: "عندما ينضم ضيف إلى نادي Bean من عرض العميل، ستراه — مع بريده — هنا.",
     email_all: "راسل كل الأعضاء", col_name: "الاسم", col_email: "البريد", col_orders: "الطلبات", col_stamps: "الأختام", col_spent: "أنفق", col_joined: "انضم",
@@ -579,6 +599,7 @@ const K_ORDERS = "hb:orders";
 const K_CUSTOMERS = "hb:customers";
 const K_MENU = "hb:menu:v2";
 const K_SLIDES = "hb:slides";
+const K_PAYMENTS = "hb:payments";
 const K_LANG = "hb:lang";
 const K_THEME = "hb:theme";
 const K_STAFF = "hb:staff_session";
@@ -596,11 +617,11 @@ const K_STAFF = "hb:staff_session";
 
 // Supabase bağlantı bilgileri. supabase.com → projen → Settings → API
 // sayfasından alacaksın ve buraya yapıştıracaksın.
-const SUPABASE_URL = "https://lmxgdsjiatkmwounikvk.supabase.co";       // örn: https://abcdxyz.supabase.co
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxteGdkc2ppYXRrbXdvdW5pa3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MzMzNjQsImV4cCI6MjA5NzIwOTM2NH0.ENft4QX2JZ1rBf_yokbYvgzkyJrJ4VRMOoApvouSHt0";   // uzun "anon public" anahtarı
+const SUPABASE_URL = "BURAYA_PROJE_URL";       // örn: https://abcdxyz.supabase.co
+const SUPABASE_ANON_KEY = "BURAYA_ANON_KEY";   // uzun "anon public" anahtarı
 
 const SUPA_READY = !/BURAYA_/.test(SUPABASE_URL) && !/BURAYA_/.test(SUPABASE_ANON_KEY);
-const SHARED_KEYS = [K_ORDERS, K_CUSTOMERS, K_MENU, K_SLIDES];
+const SHARED_KEYS = [K_ORDERS, K_CUSTOMERS, K_MENU, K_SLIDES, K_PAYMENTS];
 const LOCAL_KEYS = [K_LANG, K_THEME, K_STAFF];
 
 function supaHeaders() {
@@ -931,6 +952,7 @@ export default function App() {
   const [customers, setCustomers] = useState({});
   const [menu, setMenu] = useState(DEFAULT_MENU);
   const [slides, setSlides] = useState(DEFAULT_SLIDES);
+  const [payments, setPayments] = useState({});
   const [lang, setLang] = useState("en");
   const [themeId, setThemeId] = useState("hearth");
   const [loaded, setLoaded] = useState(false);
@@ -950,6 +972,7 @@ export default function App() {
       setCustomers(await loadJSON(K_CUSTOMERS, {}));
       setMenu(await loadJSON(K_MENU, DEFAULT_MENU));
       setSlides(await loadJSON(K_SLIDES, DEFAULT_SLIDES));
+      setPayments(await loadJSON(K_PAYMENTS, {}));
       setLang(await loadJSON(K_LANG, "en"));
       setThemeId(await loadJSON(K_THEME, "hearth"));
       setStaffAuthed(await loadJSON(K_STAFF, false) === true);
@@ -967,6 +990,7 @@ export default function App() {
       else if (key === K_CUSTOMERS) setCustomers(value || {});
       else if (key === K_MENU) setMenu(value || DEFAULT_MENU);
       else if (key === K_SLIDES) setSlides(value || DEFAULT_SLIDES);
+      else if (key === K_PAYMENTS) setPayments(value || {});
       setTimeout(() => { applyingRemote.current = false; }, 0);
     });
     return unsub;
@@ -976,6 +1000,7 @@ export default function App() {
   useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_CUSTOMERS, customers); }, [customers, loaded]);
   useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_MENU, menu); }, [menu, loaded]);
   useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_SLIDES, slides); }, [slides, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_PAYMENTS, payments); }, [payments, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_LANG, lang); }, [lang, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_THEME, themeId); }, [themeId, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_STAFF, staffAuthed); }, [staffAuthed, loaded]);
@@ -1007,9 +1032,9 @@ export default function App() {
         <div className="eb-app" dir={dir} data-shape={theme.shape} style={themeStyle}>
           <style>{CSS}</style>
           {!isStaffRoute ? (
-            <CustomerApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} slides={slides} flash={flash} />
+            <CustomerApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} slides={slides} payments={payments} setPayments={setPayments} flash={flash} />
           ) : staffAuthed ? (
-            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
+            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} payments={payments} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
           ) : (
             <StaffLogin onSuccess={() => setStaffAuthed(true)} onBack={goCustomer} />
           )}
@@ -1021,7 +1046,7 @@ export default function App() {
 }
 
 
-function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides, flash }) {
+function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides, payments, setPayments, flash }) {
   const { t } = useT();
   const [screen, setScreen] = useState("scan");
   const [table, setTable] = useState(null);
@@ -1077,6 +1102,28 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
     if (added) { flash(t("t_to_basket")); setScreen("cart"); } else flash(t("t_unavailable"));
   };
   const tableOrders = orders.filter((o) => o.table === table);
+  const tablePayments = (payments && payments[table]) || [];
+  const paidViaOrders = tableOrders.filter((o) => o.paid).reduce((s, o) => s + o.total, 0);
+  const paidViaPartial = tablePayments.reduce((s, p) => s + (p.amount || 0), 0);
+  const tableGrand = tableOrders.reduce((s, o) => s + o.total, 0);
+  const tableDue = Math.max(0, tableGrand - paidViaOrders - paidViaPartial);
+  const myUnpaid = tableOrders.filter((o) => !o.paid && user && o.customerEmail === user).reduce((s, o) => s + o.total, 0);
+
+  // Bir ödemeyi kaydet. amount: anapara, tip: bahşiş. coversOrderIds verilirse o siparişler
+  // doğrudan "ödendi" işaretlenir; aksi halde kısmi ödeme olarak tabloya yazılır.
+  const recordPayment = ({ amount, tip = 0, coversOrderIds = null }) => {
+    if (coversOrderIds && coversOrderIds.length) {
+      setOrders((os) => os.map((o) => (coversOrderIds.includes(o.id) ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
+    }
+    setPayments((pm) => {
+      const list = (pm && pm[table]) || [];
+      const entry = { amount: amount || 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: coversOrderIds ? "orders" : "partial" };
+      // coversOrderIds yöntemi tutarı zaten "paid order" olarak düşürdüğü için partial'a yazmıyoruz
+      const nextList = coversOrderIds ? [...list, { ...entry, amount: 0 }] : [...list, entry];
+      return { ...pm, [table]: nextList };
+    });
+    flash(t("payment_sent_d", { amt: money((amount || 0) + (tip || 0)), n: table }));
+  };
 
   const signIn = (email, name) => {
     const key = email.trim().toLowerCase();
@@ -1090,9 +1137,10 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
         <div className="eb-phone-bar"><i /></div>
         {screen === "scan" && <ScanScreen onDetect={(tb) => { setTable(tb); setScreen("home"); }} />}
         {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} menu={menu} slides={slides} tableOrders={tableOrders} go={setScreen} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
-        {screen === "menu" && <MenuScreen menu={menu} cart={cart} add={add} dec={dec} cartCount={cartCount} total={subtotal} back={() => setScreen("home")} toCart={() => setScreen("cart")} />}
+        {screen === "menu" && <MenuScreen menu={menu} cart={cart} add={add} dec={dec} cartCount={cartCount} total={subtotal} back={() => setScreen("home")} toCart={() => setScreen("cart")} place={placeOrder} />}
         {screen === "cart" && <CartScreen cartList={cartList} add={add} dec={dec} setNote={setNote} subtotal={subtotal} total={total} discount={discount} rewardItem={rewardItem} hasReward={hasReward} useReward={useReward} setUseReward={setUseReward} user={user} table={table} back={() => setScreen("menu")} place={placeOrder} toAuth={() => setScreen("auth")} />}
-        {screen === "bill" && <BillScreen table={table} orders={tableOrders} requestBill={requestBill} back={() => setScreen("home")} toMenu={() => setScreen("menu")} />}
+        {screen === "bill" && <BillScreen table={table} orders={tableOrders} due={tableDue} requestBill={requestBill} back={() => setScreen("home")} toMenu={() => setScreen("menu")} toPay={() => setScreen("pay")} />}
+        {screen === "pay" && <PayScreen table={table} due={tableDue} myUnpaid={myUnpaid} unpaidOrders={tableOrders.filter((o) => !o.paid)} user={user} recordPayment={recordPayment} back={() => setScreen("bill")} done={() => setScreen("bill")} />}
         {screen === "placed" && <PlacedScreen order={orders.find((o) => o.id === lastOrderId)} table={table} user={user} stamps={stamps} hasReward={hasReward} backToMenu={() => setScreen("menu")} toAccount={() => setScreen("account")} toAuth={() => setScreen("auth")} toBill={() => setScreen("bill")} />}
         {screen === "auth" && <AuthScreen onSignIn={signIn} back={() => setScreen(cartCount ? "cart" : "home")} />}
         {screen === "account" && <AccountScreen user={user} record={record} stamps={stamps} hasReward={hasReward} orders={orders.filter((o) => o.customerEmail === user)} reorder={reorder} back={() => setScreen("home")} signOut={() => { setUser(null); setScreen("home"); }} toAuth={() => setScreen("auth")} />}
@@ -1220,7 +1268,7 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
   );
 }
 
-function MenuScreen({ menu, cart, add, dec, cartCount, total, back, toCart }) {
+function MenuScreen({ menu, cart, add, dec, cartCount, total, back, toCart, place }) {
   const { t } = useT();
   return (
     <div className="eb-screen">
@@ -1242,7 +1290,12 @@ function MenuScreen({ menu, cart, add, dec, cartCount, total, back, toCart }) {
           </div>
         ); })}
       </div>
-      {cartCount > 0 && <div className="eb-bar"><button className="eb-btn honey" onClick={toCart} style={{ justifyContent: "space-between", padding: "15px 18px" }}><span>{t("view_basket")} · {cartCount} {cartCount > 1 ? t("items") : t("item")}</span><span>{money(total)} →</span></button></div>}
+      {cartCount > 0 && (
+        <div className="eb-bar" style={{ display: "flex", gap: 10 }}>
+          <button className="eb-btn ghost" onClick={toCart} style={{ flex: "0 0 auto", padding: "15px 16px", width: "auto" }}>🧺 {cartCount}</button>
+          <button className="eb-btn honey" onClick={() => place("")} style={{ flex: 1, justifyContent: "space-between", padding: "15px 18px" }}><span>{t("quick_order")}</span><span>{money(total)} →</span></button>
+        </div>
+      )}
     </div>
   );
 }
@@ -1290,12 +1343,11 @@ function CartScreen({ cartList, add, dec, setNote, subtotal, total, discount, re
 }
 
 
-function BillScreen({ table, orders, requestBill, back, toMenu }) {
+function BillScreen({ table, orders, due, requestBill, back, toMenu, toPay }) {
   const { t } = useT();
   const sorted = [...orders].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
   const grand = orders.reduce((s, o) => s + o.total, 0);
-  const due = orders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
-  const paidAmt = grand - due;
+  const paidAmt = Math.max(0, grand - due);
   const requested = orders.some((o) => !o.paid && o.billRequested);
   return (
     <div className="eb-screen">
@@ -1319,8 +1371,9 @@ function BillScreen({ table, orders, requestBill, back, toMenu }) {
           </div>
           {due > 0 ? (
             <>
-              <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 14 }}><span className="eb-chip" style={{ background: "var(--line-2)", color: "var(--ink)" }}>💵 {t("pay_at_counter")}</span></div>
-              <button className="eb-btn honey" disabled={requested} style={{ marginTop: 12, fontSize: 16, padding: 16, opacity: requested ? .6 : 1 }} onClick={requestBill}>{requested ? "✓ " + t("server_notified") : "🔔 " + t("ask_bill")}</button>
+              <button className="eb-btn honey" style={{ marginTop: 14, fontSize: 16, padding: 16 }} onClick={toPay}>💳 {t("pay_title")} · {money(due)}</button>
+              <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 12 }}><span className="eb-chip" style={{ background: "var(--line-2)", color: "var(--ink)" }}>💵 {t("pay_at_counter")}</span></div>
+              <button className="eb-btn ghost" disabled={requested} style={{ marginTop: 10, fontSize: 15, padding: 14, opacity: requested ? .6 : 1 }} onClick={requestBill}>{requested ? "✓ " + t("server_notified") : "🔔 " + t("ask_bill")}</button>
               <p style={{ fontSize: 12, color: "var(--ink-soft)", textAlign: "center", marginTop: 10 }}>{requested ? t("someone_over", { n: table }) : t("ask_bill_hint")}</p>
             </>
           ) : <div className="eb-reward-banner" style={{ marginTop: 16, justifyContent: "center" }}><span style={{ fontSize: 24 }}>✅</span><b>{t("all_settled_thanks")}</b></div>}
@@ -1331,6 +1384,201 @@ function BillScreen({ table, orders, requestBill, back, toMenu }) {
 }
 
 const STATUS_STEPS = [{ key: "new", icon: "✓", lbl: "step_received" }, { key: "preparing", icon: "👨‍🍳", lbl: "step_preparing" }, { key: "served", icon: "🍽️", lbl: "step_served" }];
+
+function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, back, done }) {
+  const { t } = useT();
+  const [stage, setStage] = useState("choose"); // choose → amount → confirm → sent
+  const [method, setMethod] = useState(null);
+  const [people, setPeople] = useState(2);
+  const [customAmount, setCustomAmount] = useState("");
+  const [base, setBase] = useState(0);           // ödenecek anapara
+  const [coversIds, setCoversIds] = useState(null);
+  const [tipPct, setTipPct] = useState(null);     // seçili yüzde
+  const [tipCustom, setTipCustom] = useState(""); // elle bahşiş
+  const TIP_PCTS = [10, 15, 20];
+
+  if (due <= 0) {
+    return (
+      <div className="eb-screen">
+        <div className="eb-pad" style={{ paddingTop: 6, display: "flex", alignItems: "center", gap: 12 }}><button onClick={back} style={{ fontSize: 22 }}>‹</button><h2 className="eb-serif" style={{ fontSize: 22, fontWeight: 600 }}>{t("pay_title")}</h2></div>
+        <div className="eb-empty"><div className="em">✅</div><h3>{t("all_settled_thanks")}</h3><p>{t("nothing_to_pay")}</p></div>
+      </div>
+    );
+  }
+
+  const startMethod = (m) => {
+    setMethod(m);
+    if (m === "whole") { setBase(due); setCoversIds(unpaidOrders.map((o) => o.id)); setStage("tip"); }
+    else if (m === "mine") {
+      const mine = unpaidOrders.filter((o) => user && o.customerEmail === user);
+      setBase(mine.reduce((s, o) => s + o.total, 0)); setCoversIds(mine.map((o) => o.id)); setStage("tip");
+    }
+    else if (m === "even") { setCoversIds(null); setStage("amount"); }
+    else if (m === "custom") { setCoversIds(null); setStage("amount"); }
+  };
+
+  const evenShare = Math.round((due / Math.max(1, people)) * 100) / 100;
+  const tipAmount = tipPct != null ? Math.round(base * tipPct) / 100 : (parseFloat(tipCustom) || 0);
+  const grandPay = base + tipAmount;
+
+  const confirmPay = () => {
+    recordPayment({ amount: base, tip: tipAmount, coversOrderIds: coversIds });
+    setStage("sent");
+  };
+
+  const header = (title) => (
+    <div className="eb-pad" style={{ paddingTop: 6, display: "flex", alignItems: "center", gap: 12 }}>
+      <button onClick={() => { if (stage === "choose") back(); else if (stage === "tip") setStage(method === "even" || method === "custom" ? "amount" : "choose"); else if (stage === "amount") setStage("choose"); else back(); }} style={{ fontSize: 22 }}>‹</button>
+      <h2 className="eb-serif" style={{ fontSize: 22, fontWeight: 600 }}>{title}</h2>
+    </div>
+  );
+
+  // STAGE: yöntem seçimi
+  if (stage === "choose") {
+    const splitOpts = [
+      ...(user && myUnpaid > 0 ? [{ id: "mine", icon: "🙋", title: t("split_mine") }] : []),
+      { id: "even", icon: "👥", title: t("split_even") },
+      { id: "custom", icon: "✏️", title: t("split_custom") },
+    ];
+    return (
+      <div className="eb-screen">
+        {header(t("pay_title"))}
+        <div className="eb-pad">
+          <div className="eb-stampcard" style={{ marginBottom: 18, textAlign: "center", paddingTop: 22, paddingBottom: 22 }}>
+            <div style={{ fontSize: 12.5, color: "var(--ink-soft)", letterSpacing: ".04em", textTransform: "uppercase", fontWeight: 600 }}>{t("amount_due")}</div>
+            <div className="eb-serif" style={{ fontSize: 40, fontWeight: 700, lineHeight: 1.1, marginTop: 4 }}>{money(due)}</div>
+            <div style={{ fontSize: 12.5, color: "var(--ink-soft)", marginTop: 2 }}>{t("table_n", { n: table })}</div>
+          </div>
+          {/* Birincil eylem: tüm hesabı öde — en sık kullanılan, öne çıkar */}
+          <button className="eb-btn honey" onClick={() => startMethod("whole")} style={{ fontSize: 16, padding: 17, justifyContent: "space-between" }}>
+            <span>🍽️ {t("pay_full_cta")}</span><span>{money(due)} →</span>
+          </button>
+          {/* İkincil: bölme seçenekleri — daha sakin, ayrı bir grup */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "20px 2px 12px" }}>
+            <div style={{ flex: 1, height: 1, background: "var(--line)" }} />
+            <span style={{ fontSize: 11.5, color: "var(--ink-soft)", fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase" }}>{t("or_split")}</span>
+            <div style={{ flex: 1, height: 1, background: "var(--line)" }} />
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {splitOpts.map((o) => (
+              <button key={o.id} onClick={() => startMethod(o.id)} style={{ display: "flex", alignItems: "center", gap: 12, width: "100%", textAlign: "start", padding: "13px 15px", borderRadius: 13, border: "1.5px solid var(--line)", background: "transparent", transition: ".14s" }}>
+                <span style={{ fontSize: 18, opacity: .9 }}>{o.icon}</span>
+                <span style={{ flex: 1, fontSize: 14.5, fontWeight: 600 }}>{o.title}</span>
+                <span style={{ fontSize: 18, color: "var(--ink-soft)" }}>›</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // STAGE: tutar (even/custom)
+  if (stage === "amount") {
+    const valid = method === "even" ? evenShare > 0 : (parseFloat(customAmount) > 0 && parseFloat(customAmount) <= due + 0.01);
+    return (
+      <div className="eb-screen">
+        {header(method === "even" ? t("split_even") : t("split_custom"))}
+        <div className="eb-pad">
+          {method === "even" ? (
+            <>
+              <label className="eb-label">{t("how_many_people")}</label>
+              <div className="eb-qty" style={{ width: "fit-content", background: "var(--line-2)", marginBottom: 18 }}>
+                <button onClick={() => setPeople((p) => Math.max(1, p - 1))} style={{ color: "var(--ink)" }}>−</button>
+                <span style={{ color: "var(--ink)", minWidth: 28 }}>{people}</span>
+                <button onClick={() => setPeople((p) => p + 1)} style={{ color: "var(--ink)" }}>+</button>
+              </div>
+              <div className="eb-stampcard" style={{ textAlign: "center" }}>
+                <div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{t("your_share")}</div>
+                <div className="eb-serif" style={{ fontSize: 30, fontWeight: 700 }}>{money(evenShare)}</div>
+                <div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("per_person", { amt: money(evenShare) })}</div>
+              </div>
+            </>
+          ) : (
+            <>
+              <label className="eb-label">{t("enter_amount")}</label>
+              <div style={{ position: "relative" }}>
+                <span style={{ position: "absolute", insetInlineStart: 14, top: 13, fontSize: 16, color: "var(--ink-soft)" }}>{CURRENCY}</span>
+                <input className="eb-input" type="number" inputMode="decimal" value={customAmount} onChange={(e) => setCustomAmount(e.target.value)} placeholder="0.00" style={{ paddingInlineStart: 30, fontSize: 18, fontWeight: 700 }} autoFocus />
+              </div>
+              <p style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 8 }}>{t("of_remaining", { amt: money(due) })}</p>
+            </>
+          )}
+        </div>
+        <div className="eb-bar">
+          <button className="eb-btn honey" disabled={!valid} style={{ fontSize: 16, padding: 16, opacity: valid ? 1 : .5 }}
+            onClick={() => { setBase(method === "even" ? evenShare : parseFloat(customAmount)); setStage("tip"); }}>{t("continue_btn")}</button>
+        </div>
+      </div>
+    );
+  }
+
+  // STAGE: bahşiş
+  if (stage === "tip") {
+    return (
+      <div className="eb-screen">
+        {header(t("add_tip"))}
+        <div className="eb-pad">
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: "var(--ink-soft)" }}><span>{t("paying_amount")}</span><span style={{ fontWeight: 700, color: "var(--ink)" }}>{money(base)}</span></div>
+          <div className="eb-sep" />
+          <label className="eb-label">{t("add_tip")}</label>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
+            <button className={`eb-fpill ${tipPct === 0 && !tipCustom ? "on" : ""}`} onClick={() => { setTipPct(0); setTipCustom(""); }}>{t("tip_none")}</button>
+            {TIP_PCTS.map((p) => (
+              <button key={p} className={`eb-fpill ${tipPct === p ? "on" : ""}`} onClick={() => { setTipPct(p); setTipCustom(""); }}>%{p}<span style={{ opacity: .7, marginInlineStart: 5 }}>{money(Math.round(base * p) / 100)}</span></button>
+            ))}
+          </div>
+          <label className="eb-label">{t("tip_custom")}</label>
+          <div style={{ position: "relative" }}>
+            <span style={{ position: "absolute", insetInlineStart: 14, top: 13, fontSize: 16, color: "var(--ink-soft)" }}>{CURRENCY}</span>
+            <input className="eb-input" type="number" inputMode="decimal" value={tipCustom} onChange={(e) => { setTipCustom(e.target.value); setTipPct(null); }} placeholder="0.00" style={{ paddingInlineStart: 30 }} />
+          </div>
+          <div className="eb-sep" />
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: "var(--ink-soft)" }}><span>{t("subtotal_label")}</span><span>{money(base)}</span></div>
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: "var(--ink-soft)", marginTop: 4 }}><span>{t("tip_label")}</span><span>{money(tipAmount)}</span></div>
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 19, fontWeight: 700, marginTop: 8 }}><span>{t("to_pay")}</span><span>{money(grandPay)}</span></div>
+        </div>
+        <div className="eb-bar">
+          <button className="eb-btn honey" style={{ fontSize: 16, padding: 16 }} onClick={() => setStage("confirm")}>{t("continue_btn")}</button>
+        </div>
+      </div>
+    );
+  }
+
+  // STAGE: onay
+  if (stage === "confirm") {
+    return (
+      <div className="eb-screen">
+        {header(t("confirm_payment"))}
+        <div className="eb-pad">
+          <div className="eb-stampcard" style={{ textAlign: "center", marginBottom: 16 }}>
+            <div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{t("to_pay")}</div>
+            <div className="eb-serif" style={{ fontSize: 34, fontWeight: 700 }}>{money(grandPay)}</div>
+            <div style={{ fontSize: 12.5, color: "var(--ink-soft)", marginTop: 4 }}>{t("subtotal_label")} {money(base)} · {t("tip_label")} {money(tipAmount)}</div>
+          </div>
+          <div style={{ background: "#fdf6e6", borderInlineStart: "3px solid var(--honey)", borderRadius: "0 10px 10px 0", padding: "10px 12px", fontSize: 12.5, color: "var(--ink-soft)" }}>
+            ℹ️ {t("pay_at_register_note")}
+          </div>
+        </div>
+        <div className="eb-bar">
+          <button className="eb-btn honey" style={{ fontSize: 16, padding: 16 }} onClick={confirmPay}>{t("pay_now", { amt: money(grandPay) })}</button>
+        </div>
+      </div>
+    );
+  }
+
+  // STAGE: gönderildi
+  return (
+    <div className="eb-screen">
+      <div className="eb-pad" style={{ paddingTop: 28, textAlign: "center" }}>
+        <div style={{ fontSize: 56 }}>✅</div>
+        <h2 className="eb-serif" style={{ fontSize: 25, fontWeight: 600, marginTop: 8 }}>{t("payment_sent")}</h2>
+        <p style={{ color: "var(--ink-soft)", fontSize: 14, marginTop: 6 }}>{t("payment_sent_d", { amt: money(grandPay), n: table })}</p>
+        <button className="eb-btn honey" style={{ marginTop: 22, fontSize: 16, padding: 16 }} onClick={done}>{t("continue_btn")}</button>
+      </div>
+    </div>
+  );
+}
 
 function PlacedScreen({ order, table, user, stamps, hasReward, backToMenu, toAccount, toAuth, toBill }) {
   const { t } = useT();
@@ -1446,7 +1694,7 @@ function StaffLogin({ onSuccess, onBack }) {
   );
 }
 
-function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, flash, resetDemo, onSignOut }) {
+function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, payments, flash, resetDemo, onSignOut }) {
   const { t } = useT();
   const [tab, setTab] = useState("orders");
   const newCount = orders.filter((o) => o.status === "new").length;
@@ -1472,11 +1720,11 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
       </div>
       <div className="eb-awrap">
         {tab === "orders" && <AdminOrders orders={orders} setStatus={setStatus} setPaid={setPaid} />}
-        {tab === "tables" && <AdminTables orders={orders} setTablePaid={setTablePaid} />}
+        {tab === "tables" && <AdminTables orders={orders} payments={payments} setTablePaid={setTablePaid} />}
         {tab === "menu" && <AdminMenu menu={menu} setMenu={setMenu} flash={flash} />}
         {tab === "gallery" && <AdminGallery slides={slides} setSlides={setSlides} flash={flash} />}
         {tab === "brand" && <AdminBrand flash={flash} />}
-        {tab === "stats" && <AdminStats orders={orders} customers={customers} menu={menu} />}
+        {tab === "stats" && <AdminStats orders={orders} customers={customers} menu={menu} payments={payments} />}
         {tab === "customers" && <AdminCustomers customers={customers} flash={flash} />}
       </div>
     </div>
@@ -1523,16 +1771,19 @@ function AdminOrders({ orders, setStatus, setPaid }) {
 }
 
 
-function AdminTables({ orders, setTablePaid }) {
+function AdminTables({ orders, payments, setTablePaid }) {
   const { t } = useT();
   const byTable = {};
   orders.forEach((o) => { if (!byTable[o.table]) byTable[o.table] = []; byTable[o.table].push(o); });
   const tables = Object.entries(byTable).map(([table, os]) => {
-    const due = os.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
+    const partial = ((payments && payments[table]) || []).reduce((s, p) => s + (p.amount || 0), 0);
+    const tips = ((payments && payments[table]) || []).reduce((s, p) => s + (p.tip || 0), 0);
+    const dueRaw = os.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
+    const due = Math.max(0, dueRaw - partial);
     const grand = os.reduce((s, o) => s + o.total, 0);
     const called = os.some((o) => !o.paid && o.billRequested);
     const active = os.filter((o) => o.status !== "served").length;
-    return { table: Number(table), os, due, grand, called, active };
+    return { table: Number(table), os, due, grand, tips, called, active };
   }).sort((a, b) => (b.called - a.called) || (b.due - a.due) || (a.table - b.table));
   const owingCount = tables.filter((t2) => t2.due > 0).length;
   const owingTotal = tables.filter((t2) => t2.due > 0).reduce((s, t2) => s + t2.due, 0);
@@ -1552,6 +1803,7 @@ function AdminTables({ orders, setTablePaid }) {
                   {tb.due > 0 ? (<><div style={{ fontSize: 22, fontWeight: 700, color: "var(--berry)" }}>{money(tb.due)}</div><div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("of_total", { total: money(tb.grand) })}</div></>) : (<div style={{ fontSize: 15, fontWeight: 600, color: "var(--pine)" }}>{t("paid_in_full", { total: money(tb.grand) })}</div>)}
                 </div>
                 {tb.called && <div className="eb-called">{t("bill_requested_alert")}</div>}
+                {tb.tips > 0 && <div style={{ marginTop: 8, fontSize: 12.5, color: "var(--pine)", fontWeight: 600 }}>💝 {t("tip_label")}: {money(tb.tips)}</div>}
                 <button className={`eb-btn ${tb.due > 0 ? "honey" : "ghost"}`} style={{ marginTop: 12, fontSize: 13, padding: 10 }} onClick={() => setTablePaid(tb.table, tb.due > 0)}>{tb.due > 0 ? t("mark_paid_due", { due: money(tb.due) }) : t("reopen_bill")}</button>
               </div>
             ))}
@@ -1726,7 +1978,7 @@ function AdminGallery({ slides, setSlides, flash }) {
 }
 
 
-function AdminStats({ orders, customers, menu }) {
+function AdminStats({ orders, customers, menu, payments }) {
   const { t } = useT();
   if (orders.length === 0) return (
     <div>
@@ -1736,6 +1988,7 @@ function AdminStats({ orders, customers, menu }) {
   );
   const revenue = orders.reduce((s, o) => s + o.total, 0);
   const outstanding = orders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
+  const tipsTotal = Object.values(payments || {}).reduce((s, list) => s + list.reduce((a, p) => a + (p.tip || 0), 0), 0);
   const avg = revenue / orders.length;
   const members = Object.keys(customers).length;
   const repeat = Object.values(customers).filter((c) => c.orders > 1).length;
@@ -1757,6 +2010,7 @@ function AdminStats({ orders, customers, menu }) {
       <div className="eb-stats-grid">
         <div className="eb-stat"><div className="k">{t("revenue")}</div><div className="v serif">{money(revenue)}</div></div>
         <div className="eb-stat"><div className="k">{t("outstanding")}</div><div className="v serif" style={{ color: outstanding > 0 ? "var(--berry)" : "var(--pine)" }}>{money(outstanding)}</div></div>
+        <div className="eb-stat"><div className="k">{t("tips_collected")}</div><div className="v serif" style={{ color: "var(--pine)" }}>{money(tipsTotal)}</div></div>
         <div className="eb-stat"><div className="k">{t("orders_stat")}</div><div className="v">{orders.length}</div></div>
         <div className="eb-stat"><div className="k">{t("avg_order")}</div><div className="v serif">{money(avg)}</div></div>
         <div className="eb-stat"><div className="k">{t("members")}</div><div className="v">{members}</div></div>
