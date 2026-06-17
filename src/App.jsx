@@ -617,8 +617,8 @@ const K_STAFF = "hb:staff_session";
 
 // Supabase bağlantı bilgileri. supabase.com → projen → Settings → API
 // sayfasından alacaksın ve buraya yapıştıracaksın.
-const SUPABASE_URL = "BURAYA_PROJE_URL";       // örn: https://abcdxyz.supabase.co
-const SUPABASE_ANON_KEY = "BURAYA_ANON_KEY";   // uzun "anon public" anahtarı
+const SUPABASE_URL = "https://lmxgdsjiatkmwounikvk.supabase.co";       // örn: https://abcdxyz.supabase.co
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxteGdkc2ppYXRrbXdvdW5pa3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MzMzNjQsImV4cCI6MjA5NzIwOTM2NH0.ENft4QX2JZ1rBf_yokbYvgzkyJrJ4VRMOoApvouSHt0";   // uzun "anon public" anahtarı
 
 const SUPA_READY = !/BURAYA_/.test(SUPABASE_URL) && !/BURAYA_/.test(SUPABASE_ANON_KEY);
 const SHARED_KEYS = [K_ORDERS, K_CUSTOMERS, K_MENU, K_SLIDES, K_PAYMENTS];
