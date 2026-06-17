@@ -1034,7 +1034,7 @@ export default function App() {
           {!isStaffRoute ? (
             <CustomerApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} slides={slides} payments={payments} setPayments={setPayments} flash={flash} />
           ) : staffAuthed ? (
-            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} payments={payments} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
+            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} payments={payments} setPayments={setPayments} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
           ) : (
             <StaffLogin onSuccess={() => setStaffAuthed(true)} onBack={goCustomer} />
           )}
@@ -1109,19 +1109,43 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
   const tableDue = Math.max(0, tableGrand - paidViaOrders - paidViaPartial);
   const myUnpaid = tableOrders.filter((o) => !o.paid && user && o.customerEmail === user).reduce((s, o) => s + o.total, 0);
 
-  // Bir ödemeyi kaydet. amount: anapara, tip: bahşiş. coversOrderIds verilirse o siparişler
-  // doğrudan "ödendi" işaretlenir; aksi halde kısmi ödeme olarak tabloya yazılır.
-  const recordPayment = ({ amount, tip = 0, coversOrderIds = null }) => {
+  // Bir ödemeyi kaydet. amount: anapara, tip: bahşiş.
+  // coversOrderIds verilirse o siparişler doğrudan "ödendi" işaretlenir (tüm hesap / kendi siparişlerim).
+  // Aksi halde kısmi ödeme olarak tabloya yazılır (Alman usulü / elle tutar).
+  // Kısmi ödemeler birikip kalan tüm tutarı kapatınca, tüm siparişler otomatik "ödendi" olur
+  // ve kısmi ödeme kayıtları temizlenir — böylece iki arayüzde de "ödendi" görünür.
+  const recordPayment = ({ amount = 0, tip = 0, coversOrderIds = null }) => {
+    const tip100 = Math.round((tip || 0) * 100);
+    const amt100 = Math.round((amount || 0) * 100);
+
     if (coversOrderIds && coversOrderIds.length) {
+      // Belirli siparişleri doğrudan ödendi işaretle, bahşişi kaydet
       setOrders((os) => os.map((o) => (coversOrderIds.includes(o.id) ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
+      if (tip100 > 0) {
+        setPayments((pm) => {
+          const list = (pm && pm[table]) || [];
+          return { ...pm, [table]: [...list, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] };
+        });
+      }
+    } else {
+      // Kısmi ödeme. Bu ödeme sonrası masanın tamamı kapanıyor mu kontrol et.
+      const unpaid = tableOrders.filter((o) => !o.paid);
+      const unpaidTotal100 = unpaid.reduce((s, o) => s + Math.round(o.total * 100), 0);
+      const alreadyPartial100 = tablePayments.reduce((s, p) => s + Math.round((p.amount || 0) * 100), 0);
+      const coversAll = alreadyPartial100 + amt100 >= unpaidTotal100 - 1; // 1 kuruş tolerans
+
+      if (coversAll) {
+        // Masa tamamlandı: tüm açık siparişleri ödendi yap, kısmi kayıtları temizle, bahşişi sakla
+        setOrders((os) => os.map((o) => (o.table === table && !o.paid ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
+        const totalTip = tablePayments.reduce((s, p) => s + (p.tip || 0), 0) + (tip || 0);
+        setPayments((pm) => ({ ...pm, [table]: totalTip > 0 ? [{ amount: 0, tip: totalTip, who: user || null, at: new Date().toISOString(), kind: "settled" }] : [] }));
+      } else {
+        setPayments((pm) => {
+          const list = (pm && pm[table]) || [];
+          return { ...pm, [table]: [...list, { amount: amount || 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "partial" }] };
+        });
+      }
     }
-    setPayments((pm) => {
-      const list = (pm && pm[table]) || [];
-      const entry = { amount: amount || 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: coversOrderIds ? "orders" : "partial" };
-      // coversOrderIds yöntemi tutarı zaten "paid order" olarak düşürdüğü için partial'a yazmıyoruz
-      const nextList = coversOrderIds ? [...list, { ...entry, amount: 0 }] : [...list, entry];
-      return { ...pm, [table]: nextList };
-    });
     flash(t("payment_sent_d", { amt: money((amount || 0) + (tip || 0)), n: table }));
   };
 
@@ -1136,7 +1160,7 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
       <div className="eb-phone">
         <div className="eb-phone-bar"><i /></div>
         {screen === "scan" && <ScanScreen onDetect={(tb) => { setTable(tb); setScreen("home"); }} />}
-        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} menu={menu} slides={slides} tableOrders={tableOrders} go={setScreen} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
+        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} menu={menu} slides={slides} tableOrders={tableOrders} tableDue={tableDue} go={setScreen} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
         {screen === "menu" && <MenuScreen menu={menu} cart={cart} add={add} dec={dec} cartCount={cartCount} total={subtotal} back={() => setScreen("home")} toCart={() => setScreen("cart")} place={placeOrder} />}
         {screen === "cart" && <CartScreen cartList={cartList} add={add} dec={dec} setNote={setNote} subtotal={subtotal} total={total} discount={discount} rewardItem={rewardItem} hasReward={hasReward} useReward={useReward} setUseReward={setUseReward} user={user} table={table} back={() => setScreen("menu")} place={placeOrder} toAuth={() => setScreen("auth")} />}
         {screen === "bill" && <BillScreen table={table} orders={tableOrders} due={tableDue} requestBill={requestBill} back={() => setScreen("home")} toMenu={() => setScreen("menu")} toPay={() => setScreen("pay")} />}
@@ -1207,10 +1231,10 @@ function Carousel({ slides }) {
 }
 
 
-function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tableOrders, go, rescan, onBill, cartCount }) {
+function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tableOrders, tableDue, go, rescan, onBill, cartCount }) {
   const { t } = useT();
   const repFor = (key) => menu.find((i) => i.cat === key && i.available) || menu.find((i) => i.cat === key);
-  const due = tableOrders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
+  const due = tableDue != null ? tableDue : tableOrders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
   const hasOrders = tableOrders.length > 0;
   return (
     <div className="eb-screen">
@@ -1694,13 +1718,18 @@ function StaffLogin({ onSuccess, onBack }) {
   );
 }
 
-function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, payments, flash, resetDemo, onSignOut }) {
+function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, payments, setPayments, flash, resetDemo, onSignOut }) {
   const { t } = useT();
   const [tab, setTab] = useState("orders");
   const newCount = orders.filter((o) => o.status === "new").length;
   const setStatus = (id, status) => { setOrders((os) => os.map((o) => (o.id === id ? { ...o, status } : o))); flash(t("t_order_status", { id, status: t("pill_" + status) || status })); };
   const setPaid = (id, paid) => { setOrders((os) => os.map((o) => (o.id === id ? { ...o, paid, paidAt: paid ? new Date().toISOString() : null, billRequested: paid ? false : o.billRequested } : o))); };
-  const setTablePaid = (table, paid) => { setOrders((os) => os.map((o) => (o.table === table ? { ...o, paid, paidAt: paid ? new Date().toISOString() : null, billRequested: paid ? false : o.billRequested } : o))); flash(paid ? t("t_table_paid", { n: table }) : t("t_table_reopened", { n: table })); };
+  const setTablePaid = (table, paid) => {
+    setOrders((os) => os.map((o) => (o.table === table ? { ...o, paid, paidAt: paid ? new Date().toISOString() : null, billRequested: paid ? false : o.billRequested } : o)));
+    // Masayı kapatınca veya yeniden açınca kısmi ödeme kayıtlarını temizle (çift sayımı önlemek için).
+    setPayments((pm) => { if (!pm || !pm[table]) return pm; const n = { ...pm }; delete n[table]; return n; });
+    flash(paid ? t("t_table_paid", { n: table }) : t("t_table_reopened", { n: table }));
+  };
   return (
     <div className="eb-admin">
       <div className="eb-anav">
