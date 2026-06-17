@@ -582,14 +582,84 @@ const K_SLIDES = "hb:slides";
 const K_LANG = "hb:lang";
 const K_THEME = "hb:theme";
 const K_STAFF = "hb:staff_session";
-const hasStore = typeof window !== "undefined" && window.storage;
-async function loadJSON(key, fallback) {
-  if (!hasStore) return fallback;
-  try { const r = await window.storage.get(key, false); return r && r.value ? JSON.parse(r.value) : fallback; } catch { return fallback; }
+
+/* ------------------------------------------------------------------ */
+/*  STORAGE LAYER                                                      */
+/*  Shared café data (orders, customers, menu, gallery) lives in a    */
+/*  Supabase table called "app_state" — one row per key, value is     */
+/*  JSON. This is what lets every phone and the admin screen see the  */
+/*  same data and update live.                                        */
+/*                                                                    */
+/*  Per-device settings (language, theme, staff login) stay in the    */
+/*  browser's own localStorage — they shouldn't be shared.            */
+/* ------------------------------------------------------------------ */
+
+// Supabase bağlantı bilgileri. supabase.com → projen → Settings → API
+// sayfasından alacaksın ve buraya yapıştıracaksın.
+const SUPABASE_URL = "https://lmxgdsjiatkmwounikvk.supabase.co
+";       // örn: https://abcdxyz.supabase.co
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxteGdkc2ppYXRrbXdvdW5pa3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MzMzNjQsImV4cCI6MjA5NzIwOTM2NH0.ENft4QX2JZ1rBf_yokbYvgzkyJrJ4VRMOoApvouSHt0";   // uzun "anon public" anahtarı
+
+const SUPA_READY = !/BURAYA_/.test(SUPABASE_URL) && !/BURAYA_/.test(SUPABASE_ANON_KEY);
+const SHARED_KEYS = [K_ORDERS, K_CUSTOMERS, K_MENU, K_SLIDES];
+const LOCAL_KEYS = [K_LANG, K_THEME, K_STAFF];
+
+function supaHeaders() {
+  return { apikey: SUPABASE_ANON_KEY, Authorization: "Bearer " + SUPABASE_ANON_KEY, "Content-Type": "application/json" };
 }
+
+// --- device-local (localStorage) for personal settings ---
+function localLoad(key, fallback) {
+  try { const v = window.localStorage.getItem(key); return v != null ? JSON.parse(v) : fallback; } catch { return fallback; }
+}
+function localSave(key, value) {
+  try { window.localStorage.setItem(key, JSON.stringify(value)); } catch { /* ignore */ }
+}
+
+async function loadJSON(key, fallback) {
+  if (LOCAL_KEYS.includes(key)) return localLoad(key, fallback);
+  if (!SUPA_READY) return localLoad(key, fallback); // Supabase yoksa geçici olarak yerelde
+  try {
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/app_state?id=eq.${encodeURIComponent(key)}&select=value`, { headers: supaHeaders() });
+    const rows = await r.json();
+    return rows && rows[0] && rows[0].value != null ? rows[0].value : fallback;
+  } catch { return fallback; }
+}
+
 async function saveJSON(key, value) {
-  if (!hasStore) return;
-  try { await window.storage.set(key, JSON.stringify(value), false); } catch { /* memory only */ }
+  if (LOCAL_KEYS.includes(key)) { localSave(key, value); return; }
+  if (!SUPA_READY) { localSave(key, value); return; }
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/app_state`, {
+      method: "POST",
+      headers: { ...supaHeaders(), Prefer: "resolution=merge-duplicates" },
+      body: JSON.stringify({ id: key, value, updated_at: new Date().toISOString() }),
+    });
+  } catch { /* offline — yereldeki kopya yine de UI'da duruyor */ }
+}
+
+// Canlı güncelleme: shared bir key değişince callback tetiklenir (Supabase Realtime).
+function subscribeShared(onChange) {
+  if (!SUPA_READY || typeof WebSocket === "undefined") return () => {};
+  let ws, alive = true, pingTimer;
+  const ref = "hb-" + Math.random().toString(36).slice(2, 8);
+  try {
+    ws = new WebSocket(`${SUPABASE_URL.replace("https://", "wss://")}/realtime/v1/websocket?apikey=${SUPABASE_ANON_KEY}&vsn=1.0.0`);
+    ws.onopen = () => {
+      ws.send(JSON.stringify({ topic: "realtime:public:app_state", event: "phx_join", payload: { config: { postgres_changes: [{ event: "*", schema: "public", table: "app_state" }] } }, ref }));
+      pingTimer = setInterval(() => { if (ws.readyState === 1) ws.send(JSON.stringify({ topic: "phoenix", event: "heartbeat", payload: {}, ref: "hb" })); }, 25000);
+    };
+    ws.onmessage = (msg) => {
+      try {
+        const data = JSON.parse(msg.data);
+        if (data.event === "postgres_changes") {
+          const rec = data.payload?.data?.record;
+          if (rec && rec.id && SHARED_KEYS.includes(rec.id)) onChange(rec.id, rec.value);
+        }
+      } catch { /* ignore */ }
+    };
+  } catch { return () => {}; }
+  return () => { alive = false; clearInterval(pingTimer); try { ws && ws.close(); } catch {} void alive; };
 }
 
 function SmartImg({ src, alt, fallback, className, style }) {
@@ -887,10 +957,26 @@ export default function App() {
       setLoaded(true);
     })();
   }, []);
-  useEffect(() => { if (loaded) saveJSON(K_ORDERS, orders); }, [orders, loaded]);
-  useEffect(() => { if (loaded) saveJSON(K_CUSTOMERS, customers); }, [customers, loaded]);
-  useEffect(() => { if (loaded) saveJSON(K_MENU, menu); }, [menu, loaded]);
-  useEffect(() => { if (loaded) saveJSON(K_SLIDES, slides); }, [slides, loaded]);
+
+  // Canlı senkron: başka bir cihaz veriyi değiştirince buraya düşer.
+  // applyingRemote ref'i, gelen veriyi tekrar Supabase'e geri yazmamızı engeller.
+  const applyingRemote = useRef(false);
+  useEffect(() => {
+    const unsub = subscribeShared((key, value) => {
+      applyingRemote.current = true;
+      if (key === K_ORDERS) setOrders(value || []);
+      else if (key === K_CUSTOMERS) setCustomers(value || {});
+      else if (key === K_MENU) setMenu(value || DEFAULT_MENU);
+      else if (key === K_SLIDES) setSlides(value || DEFAULT_SLIDES);
+      setTimeout(() => { applyingRemote.current = false; }, 0);
+    });
+    return unsub;
+  }, []);
+
+  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_ORDERS, orders); }, [orders, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_CUSTOMERS, customers); }, [customers, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_MENU, menu); }, [menu, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_SLIDES, slides); }, [slides, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_LANG, lang); }, [lang, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_THEME, themeId); }, [themeId, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_STAFF, staffAuthed); }, [staffAuthed, loaded]);
