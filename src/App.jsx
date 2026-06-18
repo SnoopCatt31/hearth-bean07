@@ -159,7 +159,7 @@ const STR = {
     nav_orders: "Orders", nav_tables: "Tables", nav_menu: "Menu", nav_gallery: "Gallery", nav_brand: "Brand", nav_stats: "Statistics", nav_customers: "Customers",
     brand_title: "Brand & theme", brand_sub: "Pick a look for your café — colors and shapes update everywhere instantly.", theme_applied: "{name} theme applied", current_theme: "Current",
     staff_login_title: "Staff login", staff_login_sub: "This area is for café staff only.", staff_password: "Password", staff_signin: "Sign in", staff_wrong: "Wrong email or password", staff_signout: "Sign out", staff_back_customer: "← Back to customer view",
-    staff_counter: "Staff · Counter", reset_demo: "Reset demo",
+    staff_counter: "Staff · Counter", reset_demo: "Reset demo", new_order_in: "New order just came in!", sound_on: "Sound on", sound_off: "Sound off",
     live_orders: "Live orders", live_orders_sub: "Tickets arrive the moment a guest sends them. Tap to move an order along.",
     n_new: "{n} new", f_active: "Active", f_new: "New", f_preparing: "Preparing", f_served: "Served", f_all: "All",
     no_orders_admin_t: "No orders here yet", no_orders_admin_b: "Switch to the Customer view below, place an order, and it lands here instantly.",
@@ -253,7 +253,7 @@ const STR = {
     nav_orders: "Siparişler", nav_tables: "Masalar", nav_menu: "Menü", nav_gallery: "Galeri", nav_brand: "Marka", nav_stats: "İstatistik", nav_customers: "Müşteriler",
     brand_title: "Marka ve tema", brand_sub: "Kafen için bir görünüm seç — renkler ve şekiller her yerde anında güncellenir.", theme_applied: "{name} teması uygulandı", current_theme: "Geçerli",
     staff_login_title: "Personel girişi", staff_login_sub: "Bu alan yalnızca kafe personeli içindir.", staff_password: "Şifre", staff_signin: "Giriş yap", staff_wrong: "Hatalı e-posta veya şifre", staff_signout: "Çıkış yap", staff_back_customer: "← Müşteri görünümüne dön",
-    staff_counter: "Personel · Kasa", reset_demo: "Demoyu sıfırla",
+    staff_counter: "Personel · Kasa", reset_demo: "Demoyu sıfırla", new_order_in: "Yeni sipariş geldi!", sound_on: "Ses açık", sound_off: "Ses kapalı",
     live_orders: "Canlı siparişler", live_orders_sub: "Misafir gönderir göndermez fişler buraya düşer. İlerletmek için dokun.",
     n_new: "{n} yeni", f_active: "Aktif", f_new: "Yeni", f_preparing: "Hazırlanıyor", f_served: "Servis edildi", f_all: "Tümü",
     no_orders_admin_t: "Henüz sipariş yok", no_orders_admin_b: "Aşağıdan Müşteri görünümüne geç, sipariş ver ve anında burada belirsin.",
@@ -347,7 +347,7 @@ const STR = {
     nav_orders: "Заказы", nav_tables: "Столы", nav_menu: "Меню", nav_gallery: "Галерея", nav_brand: "Бренд", nav_stats: "Статистика", nav_customers: "Клиенты",
     brand_title: "Бренд и тема", brand_sub: "Выберите стиль для своего кафе — цвета и формы обновятся везде мгновенно.", theme_applied: "Тема «{name}» применена", current_theme: "Текущая",
     staff_login_title: "Вход для персонала", staff_login_sub: "Этот раздел только для сотрудников кафе.", staff_password: "Пароль", staff_signin: "Войти", staff_wrong: "Неверная почта или пароль", staff_signout: "Выйти", staff_back_customer: "← Назад к виду клиента",
-    staff_counter: "Персонал · Касса", reset_demo: "Сбросить демо",
+    staff_counter: "Персонал · Касса", reset_demo: "Сбросить демо", new_order_in: "Поступил новый заказ!", sound_on: "Звук вкл.", sound_off: "Звук выкл.",
     live_orders: "Текущие заказы", live_orders_sub: "Чеки появляются сразу после отправки гостем. Нажмите, чтобы продвинуть заказ.",
     n_new: "{n} новых", f_active: "Активные", f_new: "Новые", f_preparing: "Готовятся", f_served: "Поданы", f_all: "Все",
     no_orders_admin_t: "Заказов пока нет", no_orders_admin_b: "Переключитесь на вид «Клиент» внизу, оформите заказ — и он мгновенно появится здесь.",
@@ -441,7 +441,7 @@ const STR = {
     nav_orders: "Bestellungen", nav_tables: "Tische", nav_menu: "Karte", nav_gallery: "Galerie", nav_brand: "Marke", nav_stats: "Statistik", nav_customers: "Kunden",
     brand_title: "Marke & Theme", brand_sub: "Wähle einen Look für dein Café — Farben und Formen aktualisieren sich überall sofort.", theme_applied: "Theme „{name}“ angewendet", current_theme: "Aktuell",
     staff_login_title: "Mitarbeiter-Login", staff_login_sub: "Dieser Bereich ist nur für Café-Personal.", staff_password: "Passwort", staff_signin: "Anmelden", staff_wrong: "Falsche E-Mail oder Passwort", staff_signout: "Abmelden", staff_back_customer: "← Zurück zur Kundenansicht",
-    staff_counter: "Personal · Theke", reset_demo: "Demo zurücksetzen",
+    staff_counter: "Personal · Theke", reset_demo: "Demo zurücksetzen", new_order_in: "Neue Bestellung eingegangen!", sound_on: "Ton an", sound_off: "Ton aus",
     live_orders: "Live-Bestellungen", live_orders_sub: "Bons erscheinen, sobald ein Gast sendet. Tippe, um eine Bestellung weiterzuschalten.",
     n_new: "{n} neu", f_active: "Aktiv", f_new: "Neu", f_preparing: "In Zubereitung", f_served: "Serviert", f_all: "Alle",
     no_orders_admin_t: "Noch keine Bestellungen", no_orders_admin_b: "Unten zur Kundenansicht wechseln, bestellen — und es erscheint sofort hier.",
@@ -535,7 +535,7 @@ const STR = {
     nav_orders: "الطلبات", nav_tables: "الطاولات", nav_menu: "القائمة", nav_gallery: "المعرض", nav_brand: "الهوية", nav_stats: "الإحصاءات", nav_customers: "العملاء",
     brand_title: "الهوية والتصميم", brand_sub: "اختر مظهرًا لمقهاك — تتحدّث الألوان والأشكال في كل مكان فورًا.", theme_applied: "تم تطبيق تصميم {name}", current_theme: "الحالي",
     staff_login_title: "دخول الموظفين", staff_login_sub: "هذه المنطقة لموظفي المقهى فقط.", staff_password: "كلمة المرور", staff_signin: "تسجيل الدخول", staff_wrong: "البريد أو كلمة المرور غير صحيحة", staff_signout: "تسجيل الخروج", staff_back_customer: "← العودة إلى عرض العميل",
-    staff_counter: "الموظفون · الكاشير", reset_demo: "إعادة ضبط العرض",
+    staff_counter: "الموظفون · الكاشير", reset_demo: "إعادة ضبط العرض", new_order_in: "وصل طلب جديد!", sound_on: "الصوت مفعّل", sound_off: "الصوت متوقف",
     live_orders: "الطلبات المباشرة", live_orders_sub: "تصل الفواتير لحظة إرسال الضيف. اضغط لتحريك الطلب.",
     n_new: "{n} جديدة", f_active: "نشطة", f_new: "جديدة", f_preparing: "قيد التحضير", f_served: "مُقدّمة", f_all: "الكل",
     no_orders_admin_t: "لا طلبات هنا بعد", no_orders_admin_b: "انتقل إلى عرض العميل بالأسفل، اطلب، وسيظهر هنا فورًا.",
@@ -918,6 +918,8 @@ const CSS = `
 .eb-login-card p.sub{font-size:13px;color:var(--ink-soft);text-align:center;margin:0 0 22px;}
 .eb-login-card .err{background:#f6dfe4;color:#7a2336;font-size:13px;font-weight:600;padding:9px 12px;border-radius:10px;margin-bottom:14px;text-align:center;}
 .eb-staffbar{display:flex;align-items:center;gap:6px;}
+.eb-neworder{position:fixed;top:0;left:0;right:0;z-index:130;background:var(--honey);color:var(--honey-ink);text-align:center;font-weight:700;font-size:15px;padding:12px;box-shadow:0 4px 18px rgba(0,0,0,.18);animation:slidedown .3s ease;}
+@keyframes slidedown{from{transform:translateY(-100%);}to{transform:none;}}
 @media(prefers-reduced-motion:reduce){.eb-app *{animation:none!important;transition:none!important;}.eb-track{scroll-behavior:auto;}}
 
 /* Shape personality — varies by theme, layered on top of the base rounded look */
@@ -1722,6 +1724,47 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
   const { t } = useT();
   const [tab, setTab] = useState("orders");
   const newCount = orders.filter((o) => o.status === "new").length;
+
+  // Sesli bildirim: yeni sipariş gelince çal. Cihaz başına aç/kapa, hatırlanır.
+  const [soundOn, setSoundOn] = useState(() => { try { return localStorage.getItem("hb:admin_sound") !== "off"; } catch { return true; } });
+  useEffect(() => { try { localStorage.setItem("hb:admin_sound", soundOn ? "on" : "off"); } catch { /* ignore */ } }, [soundOn]);
+
+  const playChime = useCallback(() => {
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      const ctx = new AC();
+      // İki notalı yumuşak "ding-dong" zili
+      const notes = [[880, 0], [1320, 0.16]];
+      notes.forEach(([freq, delay]) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine"; osc.frequency.value = freq;
+        osc.connect(gain); gain.connect(ctx.destination);
+        const start = ctx.currentTime + delay;
+        gain.gain.setValueAtTime(0, start);
+        gain.gain.linearRampToValueAtTime(0.18, start + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.5);
+        osc.start(start); osc.stop(start + 0.55);
+      });
+      setTimeout(() => { try { ctx.close(); } catch { /* ignore */ } }, 1200);
+    } catch { /* ses çalınamadı, sorun değil */ }
+  }, []);
+
+  // Toplam sipariş sayısını izle; arttıysa (yeni sipariş geldiyse) zili çal + görsel uyarı.
+  const orderCountRef = useRef(null);
+  const [flashNew, setFlashNew] = useState(false);
+  useEffect(() => {
+    const count = orders.length;
+    if (orderCountRef.current === null) { orderCountRef.current = count; return; } // ilk yükleme
+    if (count > orderCountRef.current) {
+      if (soundOn) playChime();
+      setFlashNew(true);
+      setTimeout(() => setFlashNew(false), 2200);
+    }
+    orderCountRef.current = count;
+  }, [orders.length, soundOn, playChime]);
+
   const setStatus = (id, status) => { setOrders((os) => os.map((o) => (o.id === id ? { ...o, status } : o))); flash(t("t_order_status", { id, status: t("pill_" + status) || status })); };
   const setPaid = (id, paid) => { setOrders((os) => os.map((o) => (o.id === id ? { ...o, paid, paidAt: paid ? new Date().toISOString() : null, billRequested: paid ? false : o.billRequested } : o))); };
   const setTablePaid = (table, paid) => {
@@ -1732,6 +1775,7 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
   };
   return (
     <div className="eb-admin">
+      {flashNew && <div className="eb-neworder">🔔 {t("new_order_in")}</div>}
       <div className="eb-anav">
         <div className="brand"><b>🔥</b> Hearth &amp; Bean</div>
         <button className={`eb-atab ${tab === "orders" ? "on" : ""}`} onClick={() => setTab("orders")}>{t("nav_orders")}{newCount > 0 && ` · ${newCount}`}</button>
@@ -1744,6 +1788,7 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
         <div style={{ flex: 1 }} />
         <LangPicker dark />
         <span style={{ fontSize: 12.5, color: "#cfd8cf", whiteSpace: "nowrap" }}>{t("staff_counter")}</span>
+        <button className="eb-atab" onClick={() => setSoundOn((v) => !v)} title={soundOn ? t("sound_on") : t("sound_off")}>{soundOn ? "🔔" : "🔕"}</button>
         <button className="eb-atab" onClick={resetDemo} title={t("reset_demo")}>↻</button>
         <button className="eb-atab" onClick={onSignOut} title={t("staff_signout")}>⎋</button>
       </div>
@@ -1829,7 +1874,7 @@ function AdminTables({ orders, payments, setTablePaid }) {
               <div key={tb.table} className={`eb-tablecard ${tb.due > 0 ? "owing" : ""} ${tb.called ? "called" : ""}`}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><span className="eb-table-badge">{t("table_n", { n: tb.table })}</span>{tb.active > 0 && <span className="eb-pill-mini">{tb.active} {t("in_kitchen")}</span>}</div>
                 <div style={{ marginTop: 12 }}>
-                  {tb.due > 0 ? (<><div style={{ fontSize: 22, fontWeight: 700, color: "var(--berry)" }}>{money(tb.due)}</div><div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("of_total", { total: money(tb.grand) })}</div></>) : (<div style={{ fontSize: 15, fontWeight: 600, color: "var(--pine)" }}>{t("paid_in_full", { total: money(tb.grand) })}</div>)}
+                  {tb.due > 0 ? (<><div style={{ fontSize: 22, fontWeight: 700, color: "var(--berry)" }}>{money(tb.due)}</div><div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("of_total", { total: money(tb.grand) })}</div></>) : (<div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ fontSize: 20 }}>✅</span><div style={{ fontSize: 15, fontWeight: 600, color: "var(--pine)" }}>{t("paid_in_full", { total: money(tb.grand) })}</div></div>)}
                 </div>
                 {tb.called && <div className="eb-called">{t("bill_requested_alert")}</div>}
                 {tb.tips > 0 && <div style={{ marginTop: 8, fontSize: 12.5, color: "var(--pine)", fontWeight: 600 }}>💝 {t("tip_label")}: {money(tb.tips)}</div>}
