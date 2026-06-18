@@ -20,45 +20,47 @@ const STAFF_PASSWORD = "cafe1234";
 const CATS = [{ key: "hot" }, { key: "cold" }, { key: "fruit" }, { key: "shakes" }, { key: "softdrinks" }, { key: "snacks" }, { key: "dessert" }];
 const CAT_TINT = { hot: "#efe0c6", cold: "#d8e6e2", fruit: "#f0e0d6", shakes: "#ecdfe8", softdrinks: "#dde8ee", snacks: "#ece2cf", dessert: "#f1e4cf" };
 
-const IMG = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=70`;
+const IMG = (name) => `/menu/${name}.jpg`;
 const DEFAULT_MENU = [
-  { id: "filter", cat: "hot", name: "Filter Coffee", desc: "Single-origin, slow drip", ingredients: "Single-origin beans, filtered water", price: 45, emoji: "☕", image: IMG("photo-1495474472287-4d71bcdd2085"), available: true },
-  { id: "flatwhite", cat: "hot", name: "Flat White", desc: "Double ristretto, silk milk", ingredients: "Espresso, steamed milk", price: 70, emoji: "🥛", image: IMG("photo-1577968897966-3d4325b36b61"), available: true },
-  { id: "cappuccino", cat: "hot", name: "Cappuccino", desc: "Equal parts, cocoa dusted", ingredients: "Espresso, milk, foam, cocoa", price: 68, emoji: "☕", image: IMG("photo-1572442388796-11668a67e53d"), available: true },
-  { id: "latte", cat: "hot", name: "Café Latte", desc: "Smooth, comforting, classic", ingredients: "Espresso, steamed milk", price: 72, emoji: "☕", image: IMG("photo-1561882468-9110e03e0f78"), available: true },
-  { id: "mocha", cat: "hot", name: "Hearth Mocha", desc: "Dark chocolate + espresso", ingredients: "Espresso, dark chocolate, milk", price: 80, emoji: "🍫", image: IMG("photo-1578374173705-969cbe6f2d6b"), available: true },
-  { id: "espresso", cat: "hot", name: "Espresso", desc: "One honest shot", ingredients: "Single espresso", price: 40, emoji: "☕", image: IMG("photo-1510707577719-ae7c14805e3a"), available: true },
-  { id: "double", cat: "hot", name: "Double Espresso", desc: "Twice the resolve", ingredients: "Double espresso", price: 55, emoji: "☕", image: IMG("photo-1520031607889-97ba0c7190ff"), available: true },
-  { id: "cortado", cat: "hot", name: "Cortado", desc: "Cut with warm milk", ingredients: "Espresso, warm milk", price: 58, emoji: "🥛", image: IMG("photo-1568649929103-28ffbefaca1e"), available: true },
-  { id: "macchiato", cat: "hot", name: "Macchiato", desc: "Espresso, a spot of foam", ingredients: "Espresso, milk foam", price: 50, emoji: "☕", image: IMG("photo-1485808191679-5f86510681a2"), available: true },
-  { id: "icedlatte", cat: "cold", name: "Iced Latte", desc: "Chilled, mellow, easy", ingredients: "Espresso, cold milk, ice", price: 75, emoji: "🧋", image: IMG("photo-1517701550927-30cf4ba1dba5"), available: true },
-  { id: "coldbrew", cat: "cold", name: "Cold Brew", desc: "18-hour steep, bold", ingredients: "Cold-steeped coffee, ice", price: 78, emoji: "🥤", image: IMG("photo-1461023058943-07fcbe16d735"), available: true },
-  { id: "icedmocha", cat: "cold", name: "Iced Mocha", desc: "Chocolate cold brew", ingredients: "Cold brew, chocolate, milk, ice", price: 85, emoji: "🧊", image: IMG("photo-1572490122747-3968b75cc699"), available: true },
-  { id: "affogato", cat: "cold", name: "Affogato", desc: "Espresso over vanilla gelato", ingredients: "Espresso, vanilla gelato", price: 90, emoji: "🍨", image: IMG("photo-1579954115545-a95591f28bfc"), available: true },
-  { id: "orangemint", cat: "fruit", name: "Orange & Mint", desc: "Fresh-pressed, bright", ingredients: "Orange, mint, ice", price: 65, emoji: "🍊", image: IMG("photo-1613478223719-2ab802602423"), available: true },
-  { id: "berrylem", cat: "fruit", name: "Berry Lemonade", desc: "Mixed berries, house lemonade", ingredients: "Mixed berries, lemon, soda", price: 70, emoji: "🫐", image: IMG("photo-1622597467836-f3285f2131b8"), available: true },
-  { id: "watermelon", cat: "fruit", name: "Watermelon Cooler", desc: "Just melon and ice", ingredients: "Watermelon, ice", price: 68, emoji: "🍉", image: IMG("photo-1622957461168-202e611c2749"), available: true },
-  { id: "applefizz", cat: "fruit", name: "Green Apple Fizz", desc: "Tart apple, sparkling", ingredients: "Green apple, sparkling water", price: 66, emoji: "🍏", image: IMG("photo-1600271886742-f049cd451bba"), available: true },
-  { id: "vanilla", cat: "shakes", name: "Vanilla Bean Shake", desc: "Real vanilla, real cream", ingredients: "Vanilla ice cream, milk", price: 88, emoji: "🥤", image: IMG("photo-1572490122747-3968b75cc699"), available: true },
-  { id: "choc", cat: "shakes", name: "Chocolate Shake", desc: "Double cocoa", ingredients: "Chocolate ice cream, cocoa, milk", price: 90, emoji: "🍫", image: IMG("photo-1568901839119-631418a3910d"), available: true },
-  { id: "caramel", cat: "shakes", name: "Salted Caramel Shake", desc: "Sweet meets salt", ingredients: "Caramel, sea salt, ice cream, milk", price: 95, emoji: "🍮", image: IMG("photo-1626202373152-8db1760c8f61"), available: true },
-  { id: "strawberry", cat: "shakes", name: "Strawberry Shake", desc: "Fresh strawberries", ingredients: "Strawberries, ice cream, milk", price: 90, emoji: "🍓", image: IMG("photo-1586917079582-69b8a0e0fe45"), available: true },
-  { id: "cola", cat: "softdrinks", name: "Cola", desc: "Ice-cold classic", ingredients: "Cola, ice", price: 35, emoji: "🥤", image: IMG("photo-1554866585-cd94860890b7"), available: true },
-  { id: "sparkling", cat: "softdrinks", name: "Sparkling Water", desc: "Crisp and clean", ingredients: "Carbonated mineral water", price: 28, emoji: "💧", image: IMG("photo-1603394630850-69b3ca8121ca"), available: true },
-  { id: "lemonsoda", cat: "softdrinks", name: "Lemon Soda", desc: "Zesty and refreshing", ingredients: "Lemon, soda water", price: 38, emoji: "🍋", image: IMG("photo-1513558161293-cdaf765ed2fd"), available: true },
-  { id: "ayran", cat: "softdrinks", name: "Ayran", desc: "Traditional yogurt drink", ingredients: "Yogurt, water, salt", price: 30, emoji: "🥛", image: IMG("photo-1626078436898-7c5b1c8e9f3f"), available: true },
-  { id: "icedtea", cat: "softdrinks", name: "Iced Tea", desc: "Brewed, chilled, lightly sweet", ingredients: "Black tea, lemon, ice", price: 40, emoji: "🧊", image: IMG("photo-1499638673689-79a0b5115d87"), available: true },
-  { id: "croissant", cat: "snacks", name: "Butter Croissant", desc: "Flaky, golden, French", ingredients: "Flour, butter (gluten)", price: 45, emoji: "🥐", image: IMG("photo-1555507036-ab1f4038808a"), available: true },
-  { id: "toastie", cat: "snacks", name: "Cheese Toastie", desc: "Melted cheese, grilled", ingredients: "Bread, cheese, butter (gluten)", price: 65, emoji: "🥪", image: IMG("photo-1528736235302-52922df5c122"), available: true },
-  { id: "bagel", cat: "snacks", name: "Sesame Bagel", desc: "Toasted, with cream cheese", ingredients: "Bagel, cream cheese (gluten)", price: 55, emoji: "🥯", image: IMG("photo-1592845345414-08a0c3a3cf33"), available: true },
-  { id: "simit", cat: "snacks", name: "Simit", desc: "Turkish sesame ring", ingredients: "Flour, sesame, molasses (gluten)", price: 25, emoji: "🥨", image: IMG("photo-1603532648955-039310d9ed75"), available: true },
-  { id: "muffin", cat: "snacks", name: "Blueberry Muffin", desc: "Soft, fruity, baked daily", ingredients: "Flour, blueberries, butter (gluten)", price: 48, emoji: "🧁", image: IMG("photo-1607958996333-41aef7caefaa"), available: true },
-  { id: "donut", cat: "dessert", name: "Glazed Donut", desc: "Still warm if you're lucky", ingredients: "Flour, sugar glaze, butter (gluten)", price: 35, emoji: "🍩", image: IMG("photo-1551024601-bec78aea704b"), available: true },
-  { id: "cheesecake", cat: "dessert", name: "Cheesecake Slice", desc: "New York style", ingredients: "Cream cheese, biscuit base, cream", price: 75, emoji: "🍰", image: IMG("photo-1533134242443-d4fd215305ad"), available: true },
-  { id: "brownie", cat: "dessert", name: "Fudge Brownie", desc: "Gooey middle", ingredients: "Dark chocolate, butter, walnuts", price: 60, emoji: "🟫", image: IMG("photo-1606313564200-e75d5e30476c"), available: true },
-  { id: "cinnamon", cat: "dessert", name: "Cinnamon Roll", desc: "Cream cheese frosting", ingredients: "Flour, cinnamon, cream cheese (gluten)", price: 65, emoji: "🥐", image: IMG("photo-1509365465985-25d11c17e812"), available: true },
-  { id: "carrot", cat: "dessert", name: "Carrot Cake", desc: "Walnuts, warm spice", ingredients: "Carrot, walnuts, spice, cream cheese", price: 70, emoji: "🥕", image: IMG("photo-1621303837174-89787a7d4729"), available: true },
+  { id: "filter", cat: "hot", name: "Filter Coffee", desc: "Single-origin, slow drip", ingredients: "Single-origin beans, filtered water", price: 45, emoji: "☕", image: IMG("filter"), available: true },
+  { id: "flatwhite", cat: "hot", name: "Flat White", desc: "Double ristretto, silk milk", ingredients: "Espresso, steamed milk", price: 70, emoji: "🥛", image: IMG("flatwhite"), available: true },
+  { id: "cappuccino", cat: "hot", name: "Cappuccino", desc: "Equal parts, cocoa dusted", ingredients: "Espresso, milk, foam, cocoa", price: 68, emoji: "☕", image: IMG("cappuccino"), available: true },
+  { id: "latte", cat: "hot", name: "Café Latte", desc: "Smooth, comforting, classic", ingredients: "Espresso, steamed milk", price: 72, emoji: "☕", image: IMG("latte"), available: true },
+  { id: "mocha", cat: "hot", name: "Hearth Mocha", desc: "Dark chocolate + espresso", ingredients: "Espresso, dark chocolate, milk", price: 80, emoji: "🍫", image: IMG("mocha"), available: true },
+  { id: "espresso", cat: "hot", name: "Espresso", desc: "One honest shot", ingredients: "Single espresso", price: 40, emoji: "☕", image: IMG("filter"), available: true },
+  { id: "double", cat: "hot", name: "Double Espresso", desc: "Twice the resolve", ingredients: "Double espresso", price: 55, emoji: "☕", image: IMG("filter"), available: true },
+  { id: "cortado", cat: "hot", name: "Cortado", desc: "Cut with warm milk", ingredients: "Espresso, warm milk", price: 58, emoji: "🥛", image: IMG("flatwhite"), available: true },
+  { id: "macchiato", cat: "hot", name: "Macchiato", desc: "Espresso, a spot of foam", ingredients: "Espresso, milk foam", price: 50, emoji: "☕", image: IMG("cappuccino"), available: true },
+  { id: "icedlatte", cat: "cold", name: "Iced Latte", desc: "Chilled, mellow, easy", ingredients: "Espresso, cold milk, ice", price: 75, emoji: "🧋", image: IMG("icedlatte"), available: true },
+  { id: "coldbrew", cat: "cold", name: "Cold Brew", desc: "18-hour steep, bold", ingredients: "Cold-steeped coffee, ice", price: 78, emoji: "🥤", image: IMG("coldbrew"), available: true },
+  { id: "icedmocha", cat: "cold", name: "Iced Mocha", desc: "Chocolate cold brew", ingredients: "Cold brew, chocolate, milk, ice", price: 85, emoji: "🧊", image: IMG("icedmocha"), available: true },
+  { id: "affogato", cat: "cold", name: "Affogato", desc: "Espresso over vanilla gelato", ingredients: "Espresso, vanilla gelato", price: 90, emoji: "🍨", image: IMG("affogato"), available: true },
+  { id: "orangemint", cat: "fruit", name: "Orange & Mint", desc: "Fresh-pressed, bright", ingredients: "Orange, mint, ice", price: 65, emoji: "🍊", image: IMG("orangemint"), available: true },
+  { id: "berrylem", cat: "fruit", name: "Berry Lemonade", desc: "Mixed berries, house lemonade", ingredients: "Mixed berries, lemon, soda", price: 70, emoji: "🫐", image: IMG("berrylem"), available: true },
+  { id: "watermelon", cat: "fruit", name: "Watermelon Cooler", desc: "Just melon and ice", ingredients: "Watermelon, ice", price: 68, emoji: "🍉", image: IMG("watermelon"), available: true },
+  { id: "applefizz", cat: "fruit", name: "Green Apple Fizz", desc: "Tart apple, sparkling", ingredients: "Green apple, sparkling water", price: 66, emoji: "🍏", image: IMG("applefizz"), available: true },
+  { id: "vanilla", cat: "shakes", name: "Vanilla Bean Shake", desc: "Real vanilla, real cream", ingredients: "Vanilla ice cream, milk", price: 88, emoji: "🥤", image: IMG("vanilla"), available: true },
+  { id: "choc", cat: "shakes", name: "Chocolate Shake", desc: "Double cocoa", ingredients: "Chocolate ice cream, cocoa, milk", price: 90, emoji: "🍫", image: IMG("choc"), available: true },
+  { id: "caramel", cat: "shakes", name: "Salted Caramel Shake", desc: "Sweet meets salt", ingredients: "Caramel, sea salt, ice cream, milk", price: 95, emoji: "🍮", image: IMG("vanilla"), available: true },
+  { id: "strawberry", cat: "shakes", name: "Strawberry Shake", desc: "Fresh strawberries", ingredients: "Strawberries, ice cream, milk", price: 90, emoji: "🍓", image: IMG("strawberry"), available: true },
+  { id: "cola", cat: "softdrinks", name: "Cola", desc: "Ice-cold classic", ingredients: "Cola, ice", price: 35, emoji: "🥤", image: "", available: true },
+  { id: "sparkling", cat: "softdrinks", name: "Sparkling Water", desc: "Crisp and clean", ingredients: "Carbonated mineral water", price: 28, emoji: "💧", image: "", available: true },
+  { id: "lemonsoda", cat: "softdrinks", name: "Lemon Soda", desc: "Zesty and refreshing", ingredients: "Lemon, soda water", price: 38, emoji: "🍋", image: "", available: true },
+  { id: "ayran", cat: "softdrinks", name: "Ayran", desc: "Traditional yogurt drink", ingredients: "Yogurt, water, salt", price: 30, emoji: "🥛", image: "", available: true },
+  { id: "icedtea", cat: "softdrinks", name: "Iced Tea", desc: "Brewed, chilled, lightly sweet", ingredients: "Black tea, lemon, ice", price: 40, emoji: "🧊", image: "", available: true },
+  { id: "croissant", cat: "snacks", name: "Butter Croissant", desc: "Flaky, golden, French", ingredients: "Flour, butter (gluten)", price: 45, emoji: "🥐", image: "", available: true },
+  { id: "toastie", cat: "snacks", name: "Cheese Toastie", desc: "Melted cheese, grilled", ingredients: "Bread, cheese, butter (gluten)", price: 65, emoji: "🥪", image: "", available: true },
+  { id: "bagel", cat: "snacks", name: "Sesame Bagel", desc: "Toasted, with cream cheese", ingredients: "Bagel, cream cheese (gluten)", price: 55, emoji: "🥯", image: "", available: true },
+  { id: "simit", cat: "snacks", name: "Simit", desc: "Turkish sesame ring", ingredients: "Flour, sesame, molasses (gluten)", price: 25, emoji: "🥨", image: "", available: true },
+  { id: "muffin", cat: "snacks", name: "Blueberry Muffin", desc: "Soft, fruity, baked daily", ingredients: "Flour, blueberries, butter (gluten)", price: 48, emoji: "🧁", image: "", available: true },
+  { id: "donut", cat: "dessert", name: "Glazed Donut", desc: "Still warm if you're lucky", ingredients: "Flour, sugar glaze, butter (gluten)", price: 35, emoji: "🍩", image: IMG("donut"), available: true },
+  { id: "cheesecake", cat: "dessert", name: "Cheesecake Slice", desc: "New York style", ingredients: "Cream cheese, biscuit base, cream", price: 75, emoji: "🍰", image: IMG("cheesecake"), available: true },
+  { id: "brownie", cat: "dessert", name: "Fudge Brownie", desc: "Gooey middle", ingredients: "Dark chocolate, butter, walnuts", price: 60, emoji: "🟫", image: IMG("brownie"), available: true },
+  { id: "cinnamon", cat: "dessert", name: "Cinnamon Roll", desc: "Cream cheese frosting", ingredients: "Flour, cinnamon, cream cheese (gluten)", price: 65, emoji: "🥐", image: IMG("cinnamon"), available: true },
+  { id: "carrot", cat: "dessert", name: "Carrot Cake", desc: "Walnuts, warm spice", ingredients: "Carrot, walnuts, spice, cream cheese", price: 70, emoji: "🥕", image: IMG("carrot"), available: true },
 ];
+// Kategori kartı görselleri (anasayfadaki "Bugün neler var" için)
+const CAT_IMG = { hot: "/menu/cat-hot.jpg", cold: "/menu/cat-cold.jpg", fruit: "/menu/cat-fruit.jpg", shakes: "/menu/cat-shakes.jpg", softdrinks: "/menu/cat-softdrinks.jpg", snacks: "/menu/cat-snacks.jpg", dessert: "/menu/cat-dessert.jpg" };
 
 const SLIDE_GRADS = [
   "linear-gradient(150deg,#3b5142,#26352b)", "linear-gradient(150deg,#6b4a2b,#3a2a18)",
@@ -618,7 +620,7 @@ function timeAgo(iso, t) {
 
 const K_ORDERS = "hb:orders";
 const K_CUSTOMERS = "hb:customers";
-const K_MENU = "hb:menu:v2";
+const K_MENU = "hb:menu:v4";
 const K_SLIDES = "hb:slides";
 const K_PAYMENTS = "hb:payments";
 const K_LANG = "hb:lang";
@@ -642,8 +644,8 @@ const SUPABASE_URL = "https://lmxgdsjiatkmwounikvk.supabase.co";       // örn: 
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxteGdkc2ppYXRrbXdvdW5pa3ZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2MzMzNjQsImV4cCI6MjA5NzIwOTM2NH0.ENft4QX2JZ1rBf_yokbYvgzkyJrJ4VRMOoApvouSHt0";   // uzun "anon public" anahtarı
 
 const SUPA_READY = !/BURAYA_/.test(SUPABASE_URL) && !/BURAYA_/.test(SUPABASE_ANON_KEY);
-const SHARED_KEYS = [K_ORDERS, K_CUSTOMERS, K_MENU, K_SLIDES, K_PAYMENTS];
-const LOCAL_KEYS = [K_LANG, K_THEME, K_STAFF];
+const SHARED_KEYS = [K_ORDERS, K_CUSTOMERS, K_MENU, K_SLIDES, K_PAYMENTS, K_THEME];
+const LOCAL_KEYS = [K_LANG, K_STAFF];
 
 function supaHeaders() {
   return { apikey: SUPABASE_ANON_KEY, Authorization: "Bearer " + SUPABASE_ANON_KEY, "Content-Type": "application/json" };
@@ -814,7 +816,7 @@ const CSS = `
 .eb-cat-head span{font-size:13px;color:var(--ink-soft);}
 .eb-item{display:flex;gap:14px;align-items:center;padding:12px 22px;}
 .eb-item.out{opacity:.5;}
-.eb-thumb{width:62px;height:62px;border-radius:15px;flex:none;display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);}
+.eb-thumb{width:62px;height:62px;border-radius:15px;flex:none;display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);background-image:linear-gradient(145deg,rgba(255,255,255,.5),rgba(255,255,255,0));background-blend-mode:overlay;}
 .eb-thumb img{width:100%;height:100%;object-fit:cover;}
 .eb-item-body{flex:1;min-width:0;}
 .eb-item-body h3{font-size:15.5px;font-weight:600;}
@@ -829,6 +831,7 @@ const CSS = `
 .eb-qty button{width:32px;height:32px;color:var(--pine-ink);font-size:20px;font-weight:600;}
 .eb-qty span{color:#fff;font-weight:700;min-width:16px;text-align:center;font-size:14px;}
 .eb-bar{position:sticky;bottom:0;background:var(--paper);border-top:1px solid var(--line);padding:14px 22px;box-shadow:0 -8px 24px rgba(35,51,42,.06);}
+.eb-orderbar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);width:calc(100% - 64px);max-width:356px;z-index:60;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);padding:12px 14px;}
 .eb-cline{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-2);}
 .eb-note-in{width:100%;margin-top:8px;padding:9px 11px;border-radius:10px;border:1.5px dashed var(--line);background:transparent;font-size:13px;resize:none;outline:none;color:var(--ink);}
 .eb-note-in:focus{border-color:var(--honey);border-style:solid;}
@@ -944,8 +947,8 @@ const CSS = `
 .eb-staffbar{display:flex;align-items:center;gap:6px;}
 .eb-neworder{position:fixed;top:0;left:0;right:0;z-index:130;background:var(--honey);color:var(--honey-ink);text-align:center;font-weight:700;font-size:15px;padding:12px;box-shadow:0 4px 18px rgba(0,0,0,.18);animation:slidedown .3s ease;}
 @keyframes slidedown{from{transform:translateY(-100%);}to{transform:none;}}
-.eb-orderbar{animation:barpop .3s cubic-bezier(.2,1.3,.5,1);}
-@keyframes barpop{from{transform:translateY(100%);}to{transform:none;}}
+.eb-orderbar{animation:barpop .32s cubic-bezier(.2,1.3,.5,1);}
+@keyframes barpop{from{transform:translate(-50%,140%);opacity:.4;}to{transform:translateX(-50%);opacity:1;}}
 @media(prefers-reduced-motion:reduce){.eb-app *{animation:none!important;transition:none!important;}.eb-track{scroll-behavior:auto;}}
 
 /* Shape personality — varies by theme, layered on top of the base rounded look */
@@ -1019,6 +1022,7 @@ export default function App() {
       else if (key === K_MENU) setMenu(value || DEFAULT_MENU);
       else if (key === K_SLIDES) setSlides(value || DEFAULT_SLIDES);
       else if (key === K_PAYMENTS) setPayments(value || {});
+      else if (key === K_THEME) setThemeId(value || "hearth");
       setTimeout(() => { applyingRemote.current = false; }, 0);
     });
     return unsub;
@@ -1030,7 +1034,8 @@ export default function App() {
   useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_SLIDES, slides); }, [slides, loaded]);
   useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_PAYMENTS, payments); }, [payments, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_LANG, lang); }, [lang, loaded]);
-  useEffect(() => { if (loaded) saveJSON(K_THEME, themeId); }, [themeId, loaded]);
+  // Tema artık ortak (Supabase). Yalnızca admin/personel ekranı yazabilir; müşteri sadece okur.
+  useEffect(() => { if (loaded && isStaffRoute && !applyingRemote.current) saveJSON(K_THEME, themeId); }, [themeId, loaded, isStaffRoute]);
   useEffect(() => { if (loaded) saveJSON(K_STAFF, staffAuthed); }, [staffAuthed, loaded]);
 
   const t = useMemo(() => makeT(lang), [lang]);
@@ -1310,7 +1315,7 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             {CATS.map((c) => { const rep = repFor(c.key); return (
               <button key={c.key} onClick={() => goToCat(c.key)} style={{ textAlign: "start", width: "100%" }}>
-                <div className="eb-thumb" style={{ width: "100%", height: 104, borderRadius: 15, background: CAT_TINT[c.key] }}><SmartImg src={rep?.image} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 38 }}>{rep?.emoji || "🍽️"}</span>} /></div>
+                <div className="eb-thumb" style={{ width: "100%", height: 104, borderRadius: 15, background: CAT_TINT[c.key] }}><SmartImg src={CAT_IMG[c.key]} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 38 }}>{rep?.emoji || "🍽️"}</span>} /></div>
                 <div style={{ fontSize: 13.5, fontWeight: 600, marginTop: 7 }}>{t("cat_" + c.key)}</div>
                 <div style={{ fontSize: 11.5, color: "var(--ink-soft)" }}>{t("cat_" + c.key + "_b")}</div>
               </button>
