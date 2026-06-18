@@ -19,6 +19,7 @@ const STAFF_PASSWORD = "cafe1234";
 
 const CATS = [{ key: "hot" }, { key: "cold" }, { key: "fruit" }, { key: "shakes" }, { key: "softdrinks" }, { key: "snacks" }, { key: "dessert" }];
 const CAT_TINT = { hot: "#efe0c6", cold: "#d8e6e2", fruit: "#f0e0d6", shakes: "#ecdfe8", softdrinks: "#dde8ee", snacks: "#ece2cf", dessert: "#f1e4cf" };
+const CAT_EMOJI = { hot: "☕", cold: "🧋", fruit: "🍊", shakes: "🥤", softdrinks: "🥂", snacks: "🥐", dessert: "🍰" };
 
 const IMG = (name) => `/menu/${name}.jpg`;
 const DEFAULT_MENU = [
@@ -817,6 +818,12 @@ const CSS = `
 .eb-item{display:flex;gap:14px;align-items:center;padding:12px 22px;}
 .eb-item.out{opacity:.5;}
 .eb-thumb{width:62px;height:62px;border-radius:15px;flex:none;display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);background-image:linear-gradient(145deg,rgba(255,255,255,.5),rgba(255,255,255,0));background-blend-mode:overlay;}
+.eb-catcard{text-align:start;width:100%;transition:transform .15s ease;}
+.eb-catcard:active{transform:scale(.97);}
+.eb-catcard-img{width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);}
+.eb-catcard-img img{width:100%;height:100%;object-fit:cover;}
+.eb-catcard-title{font-size:14px;font-weight:600;margin-top:9px;color:var(--ink);line-height:1.2;}
+.eb-catcard-sub{font-size:11.5px;color:var(--ink-soft);margin-top:2px;line-height:1.25;}
 .eb-thumb img{width:100%;height:100%;object-fit:cover;}
 .eb-item-body{flex:1;min-width:0;}
 .eb-item-body h3{font-size:15.5px;font-weight:600;}
@@ -1267,7 +1274,6 @@ function Carousel({ slides }) {
 
 function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tableOrders, tableDue, go, goToCat, rescan, onBill, cartCount }) {
   const { t } = useT();
-  const repFor = (key) => menu.find((i) => i.cat === key && i.available) || menu.find((i) => i.cat === key);
   const due = tableDue != null ? tableDue : tableOrders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
   const hasOrders = tableOrders.length > 0;
   return (
@@ -1310,16 +1316,16 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
           {!user && <button className="eb-btn ghost" style={{ marginTop: 14 }} onClick={() => go("account")}>{t("join_free")}</button>}
         </div>
         <button className="eb-btn honey" style={{ marginTop: 18, fontSize: 16, padding: 16 }} onClick={() => go("menu")}>🍽️ {t("view_menu")} {cartCount > 0 ? `· ${t("in_basket", { n: cartCount })}` : ""}</button>
-        <div style={{ marginTop: 22 }}>
-          <h3 className="eb-serif" style={{ fontSize: 16, fontWeight: 600, marginBottom: 10 }}>{t("whats_on")}</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            {CATS.map((c) => { const rep = repFor(c.key); return (
-              <button key={c.key} onClick={() => goToCat(c.key)} style={{ textAlign: "start", width: "100%" }}>
-                <div className="eb-thumb" style={{ width: "100%", height: 104, borderRadius: 15, background: CAT_TINT[c.key] }}><SmartImg src={CAT_IMG[c.key]} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 38 }}>{rep?.emoji || "🍽️"}</span>} /></div>
-                <div style={{ fontSize: 13.5, fontWeight: 600, marginTop: 7 }}>{t("cat_" + c.key)}</div>
-                <div style={{ fontSize: 11.5, color: "var(--ink-soft)" }}>{t("cat_" + c.key + "_b")}</div>
+        <div style={{ marginTop: 24 }}>
+          <h3 className="eb-serif" style={{ fontSize: 17, fontWeight: 600, marginBottom: 12 }}>{t("whats_on")}</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 13 }}>
+            {CATS.map((c) => (
+              <button key={c.key} className="eb-catcard" onClick={() => goToCat(c.key)}>
+                <div className="eb-catcard-img" style={{ background: CAT_TINT[c.key] }}><SmartImg src={CAT_IMG[c.key]} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 40 }}>{CAT_EMOJI[c.key]}</span>} /></div>
+                <div className="eb-catcard-title">{t("cat_" + c.key)}</div>
+                <div className="eb-catcard-sub">{t("cat_" + c.key + "_b")}</div>
               </button>
-            ); })}
+            ))}
           </div>
         </div>
       </div>
@@ -2052,7 +2058,12 @@ function SlideEditor({ slide, onSave, onClose }) {
 function AdminBrand({ flash }) {
   const { t } = useT();
   const { themeId, setThemeId } = useTheme();
-  const pick = (th) => { setThemeId(th.id); flash(t("theme_applied", { name: th.label })); };
+  const pick = (th) => {
+    setThemeId(th.id);
+    // Garanti olsun diye doğrudan da kaydet (efekt'e ek olarak) — müşterilere anında yansır.
+    try { saveJSON(K_THEME, th.id); } catch { /* ignore */ }
+    flash(t("theme_applied", { name: th.label }));
+  };
   return (
     <div>
       <div className="eb-ahead"><div><h1 className="eb-serif">{t("brand_title")}</h1><p>{t("brand_sub")}</p></div></div>
