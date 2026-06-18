@@ -17,36 +17,47 @@ const TABLE_COUNT = 12;
 const STAFF_EMAIL = "admin@hearthbean.co";
 const STAFF_PASSWORD = "cafe1234";
 
-const CATS = [{ key: "hot" }, { key: "cold" }, { key: "shots" }, { key: "fruit" }, { key: "shakes" }, { key: "dessert" }];
-const CAT_TINT = { hot: "#efe0c6", cold: "#d8e6e2", shots: "#e7dccd", fruit: "#f0e0d6", shakes: "#ecdfe8", dessert: "#f1e4cf" };
+const CATS = [{ key: "hot" }, { key: "cold" }, { key: "fruit" }, { key: "shakes" }, { key: "softdrinks" }, { key: "snacks" }, { key: "dessert" }];
+const CAT_TINT = { hot: "#efe0c6", cold: "#d8e6e2", fruit: "#f0e0d6", shakes: "#ecdfe8", softdrinks: "#dde8ee", snacks: "#ece2cf", dessert: "#f1e4cf" };
 
+const IMG = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=70`;
 const DEFAULT_MENU = [
-  { id: "filter", cat: "hot", name: "Filter Coffee", desc: "Single-origin, slow drip", ingredients: "Single-origin beans, filtered water", price: 45, emoji: "☕", image: "", available: true },
-  { id: "flatwhite", cat: "hot", name: "Flat White", desc: "Double ristretto, silk milk", ingredients: "Espresso, steamed milk", price: 70, emoji: "🥛", image: "", available: true },
-  { id: "cappuccino", cat: "hot", name: "Cappuccino", desc: "Equal parts, cocoa dusted", ingredients: "Espresso, milk, foam, cocoa", price: 68, emoji: "☕", image: "", available: true },
-  { id: "latte", cat: "hot", name: "Café Latte", desc: "Smooth, comforting, classic", ingredients: "Espresso, steamed milk", price: 72, emoji: "☕", image: "", available: true },
-  { id: "mocha", cat: "hot", name: "Hearth Mocha", desc: "Dark chocolate + espresso", ingredients: "Espresso, dark chocolate, milk", price: 80, emoji: "🍫", image: "", available: true },
-  { id: "icedlatte", cat: "cold", name: "Iced Latte", desc: "Chilled, mellow, easy", ingredients: "Espresso, cold milk, ice", price: 75, emoji: "🧋", image: "", available: true },
-  { id: "coldbrew", cat: "cold", name: "Cold Brew", desc: "18-hour steep, bold", ingredients: "Cold-steeped coffee, ice", price: 78, emoji: "🥤", image: "", available: true },
-  { id: "icedmocha", cat: "cold", name: "Iced Mocha", desc: "Chocolate cold brew", ingredients: "Cold brew, chocolate, milk, ice", price: 85, emoji: "🧊", image: "", available: true },
-  { id: "affogato", cat: "cold", name: "Affogato", desc: "Espresso over vanilla gelato", ingredients: "Espresso, vanilla gelato", price: 90, emoji: "🍨", image: "", available: true },
-  { id: "espresso", cat: "shots", name: "Espresso", desc: "One honest shot", ingredients: "Single espresso", price: 40, emoji: "☕", image: "", available: true },
-  { id: "double", cat: "shots", name: "Double Espresso", desc: "Twice the resolve", ingredients: "Double espresso", price: 55, emoji: "☕", image: "", available: true },
-  { id: "cortado", cat: "shots", name: "Cortado", desc: "Cut with warm milk", ingredients: "Espresso, warm milk", price: 58, emoji: "🥛", image: "", available: true },
-  { id: "macchiato", cat: "shots", name: "Macchiato", desc: "Espresso, a spot of foam", ingredients: "Espresso, milk foam", price: 50, emoji: "☕", image: "", available: true },
-  { id: "orangemint", cat: "fruit", name: "Orange & Mint", desc: "Fresh-pressed, bright", ingredients: "Orange, mint, ice", price: 65, emoji: "🍊", image: "", available: true },
-  { id: "berrylem", cat: "fruit", name: "Berry Lemonade", desc: "Mixed berries, house lemonade", ingredients: "Mixed berries, lemon, soda", price: 70, emoji: "🫐", image: "", available: true },
-  { id: "watermelon", cat: "fruit", name: "Watermelon Cooler", desc: "Just melon and ice", ingredients: "Watermelon, ice", price: 68, emoji: "🍉", image: "", available: true },
-  { id: "applefizz", cat: "fruit", name: "Green Apple Fizz", desc: "Tart apple, sparkling", ingredients: "Green apple, sparkling water", price: 66, emoji: "🍏", image: "", available: true },
-  { id: "vanilla", cat: "shakes", name: "Vanilla Bean Shake", desc: "Real vanilla, real cream", ingredients: "Vanilla ice cream, milk", price: 88, emoji: "🥤", image: "", available: true },
-  { id: "choc", cat: "shakes", name: "Chocolate Shake", desc: "Double cocoa", ingredients: "Chocolate ice cream, cocoa, milk", price: 90, emoji: "🍫", image: "", available: true },
-  { id: "caramel", cat: "shakes", name: "Salted Caramel Shake", desc: "Sweet meets salt", ingredients: "Caramel, sea salt, ice cream, milk", price: 95, emoji: "🍮", image: "", available: true },
-  { id: "strawberry", cat: "shakes", name: "Strawberry Shake", desc: "Fresh strawberries", ingredients: "Strawberries, ice cream, milk", price: 90, emoji: "🍓", image: "", available: true },
-  { id: "donut", cat: "dessert", name: "Glazed Donut", desc: "Still warm if you're lucky", ingredients: "Flour, sugar glaze, butter (gluten)", price: 35, emoji: "🍩", image: "", available: true },
-  { id: "cheesecake", cat: "dessert", name: "Cheesecake Slice", desc: "New York style", ingredients: "Cream cheese, biscuit base, cream", price: 75, emoji: "🍰", image: "", available: true },
-  { id: "brownie", cat: "dessert", name: "Fudge Brownie", desc: "Gooey middle", ingredients: "Dark chocolate, butter, walnuts", price: 60, emoji: "🟫", image: "", available: true },
-  { id: "cinnamon", cat: "dessert", name: "Cinnamon Roll", desc: "Cream cheese frosting", ingredients: "Flour, cinnamon, cream cheese (gluten)", price: 65, emoji: "🥐", image: "", available: true },
-  { id: "carrot", cat: "dessert", name: "Carrot Cake", desc: "Walnuts, warm spice", ingredients: "Carrot, walnuts, spice, cream cheese", price: 70, emoji: "🥕", image: "", available: true },
+  { id: "filter", cat: "hot", name: "Filter Coffee", desc: "Single-origin, slow drip", ingredients: "Single-origin beans, filtered water", price: 45, emoji: "☕", image: IMG("photo-1495474472287-4d71bcdd2085"), available: true },
+  { id: "flatwhite", cat: "hot", name: "Flat White", desc: "Double ristretto, silk milk", ingredients: "Espresso, steamed milk", price: 70, emoji: "🥛", image: IMG("photo-1577968897966-3d4325b36b61"), available: true },
+  { id: "cappuccino", cat: "hot", name: "Cappuccino", desc: "Equal parts, cocoa dusted", ingredients: "Espresso, milk, foam, cocoa", price: 68, emoji: "☕", image: IMG("photo-1572442388796-11668a67e53d"), available: true },
+  { id: "latte", cat: "hot", name: "Café Latte", desc: "Smooth, comforting, classic", ingredients: "Espresso, steamed milk", price: 72, emoji: "☕", image: IMG("photo-1561882468-9110e03e0f78"), available: true },
+  { id: "mocha", cat: "hot", name: "Hearth Mocha", desc: "Dark chocolate + espresso", ingredients: "Espresso, dark chocolate, milk", price: 80, emoji: "🍫", image: IMG("photo-1578374173705-969cbe6f2d6b"), available: true },
+  { id: "espresso", cat: "hot", name: "Espresso", desc: "One honest shot", ingredients: "Single espresso", price: 40, emoji: "☕", image: IMG("photo-1510707577719-ae7c14805e3a"), available: true },
+  { id: "double", cat: "hot", name: "Double Espresso", desc: "Twice the resolve", ingredients: "Double espresso", price: 55, emoji: "☕", image: IMG("photo-1520031607889-97ba0c7190ff"), available: true },
+  { id: "cortado", cat: "hot", name: "Cortado", desc: "Cut with warm milk", ingredients: "Espresso, warm milk", price: 58, emoji: "🥛", image: IMG("photo-1568649929103-28ffbefaca1e"), available: true },
+  { id: "macchiato", cat: "hot", name: "Macchiato", desc: "Espresso, a spot of foam", ingredients: "Espresso, milk foam", price: 50, emoji: "☕", image: IMG("photo-1485808191679-5f86510681a2"), available: true },
+  { id: "icedlatte", cat: "cold", name: "Iced Latte", desc: "Chilled, mellow, easy", ingredients: "Espresso, cold milk, ice", price: 75, emoji: "🧋", image: IMG("photo-1517701550927-30cf4ba1dba5"), available: true },
+  { id: "coldbrew", cat: "cold", name: "Cold Brew", desc: "18-hour steep, bold", ingredients: "Cold-steeped coffee, ice", price: 78, emoji: "🥤", image: IMG("photo-1461023058943-07fcbe16d735"), available: true },
+  { id: "icedmocha", cat: "cold", name: "Iced Mocha", desc: "Chocolate cold brew", ingredients: "Cold brew, chocolate, milk, ice", price: 85, emoji: "🧊", image: IMG("photo-1572490122747-3968b75cc699"), available: true },
+  { id: "affogato", cat: "cold", name: "Affogato", desc: "Espresso over vanilla gelato", ingredients: "Espresso, vanilla gelato", price: 90, emoji: "🍨", image: IMG("photo-1579954115545-a95591f28bfc"), available: true },
+  { id: "orangemint", cat: "fruit", name: "Orange & Mint", desc: "Fresh-pressed, bright", ingredients: "Orange, mint, ice", price: 65, emoji: "🍊", image: IMG("photo-1613478223719-2ab802602423"), available: true },
+  { id: "berrylem", cat: "fruit", name: "Berry Lemonade", desc: "Mixed berries, house lemonade", ingredients: "Mixed berries, lemon, soda", price: 70, emoji: "🫐", image: IMG("photo-1622597467836-f3285f2131b8"), available: true },
+  { id: "watermelon", cat: "fruit", name: "Watermelon Cooler", desc: "Just melon and ice", ingredients: "Watermelon, ice", price: 68, emoji: "🍉", image: IMG("photo-1622957461168-202e611c2749"), available: true },
+  { id: "applefizz", cat: "fruit", name: "Green Apple Fizz", desc: "Tart apple, sparkling", ingredients: "Green apple, sparkling water", price: 66, emoji: "🍏", image: IMG("photo-1600271886742-f049cd451bba"), available: true },
+  { id: "vanilla", cat: "shakes", name: "Vanilla Bean Shake", desc: "Real vanilla, real cream", ingredients: "Vanilla ice cream, milk", price: 88, emoji: "🥤", image: IMG("photo-1572490122747-3968b75cc699"), available: true },
+  { id: "choc", cat: "shakes", name: "Chocolate Shake", desc: "Double cocoa", ingredients: "Chocolate ice cream, cocoa, milk", price: 90, emoji: "🍫", image: IMG("photo-1568901839119-631418a3910d"), available: true },
+  { id: "caramel", cat: "shakes", name: "Salted Caramel Shake", desc: "Sweet meets salt", ingredients: "Caramel, sea salt, ice cream, milk", price: 95, emoji: "🍮", image: IMG("photo-1626202373152-8db1760c8f61"), available: true },
+  { id: "strawberry", cat: "shakes", name: "Strawberry Shake", desc: "Fresh strawberries", ingredients: "Strawberries, ice cream, milk", price: 90, emoji: "🍓", image: IMG("photo-1586917079582-69b8a0e0fe45"), available: true },
+  { id: "cola", cat: "softdrinks", name: "Cola", desc: "Ice-cold classic", ingredients: "Cola, ice", price: 35, emoji: "🥤", image: IMG("photo-1554866585-cd94860890b7"), available: true },
+  { id: "sparkling", cat: "softdrinks", name: "Sparkling Water", desc: "Crisp and clean", ingredients: "Carbonated mineral water", price: 28, emoji: "💧", image: IMG("photo-1603394630850-69b3ca8121ca"), available: true },
+  { id: "lemonsoda", cat: "softdrinks", name: "Lemon Soda", desc: "Zesty and refreshing", ingredients: "Lemon, soda water", price: 38, emoji: "🍋", image: IMG("photo-1513558161293-cdaf765ed2fd"), available: true },
+  { id: "ayran", cat: "softdrinks", name: "Ayran", desc: "Traditional yogurt drink", ingredients: "Yogurt, water, salt", price: 30, emoji: "🥛", image: IMG("photo-1626078436898-7c5b1c8e9f3f"), available: true },
+  { id: "icedtea", cat: "softdrinks", name: "Iced Tea", desc: "Brewed, chilled, lightly sweet", ingredients: "Black tea, lemon, ice", price: 40, emoji: "🧊", image: IMG("photo-1499638673689-79a0b5115d87"), available: true },
+  { id: "croissant", cat: "snacks", name: "Butter Croissant", desc: "Flaky, golden, French", ingredients: "Flour, butter (gluten)", price: 45, emoji: "🥐", image: IMG("photo-1555507036-ab1f4038808a"), available: true },
+  { id: "toastie", cat: "snacks", name: "Cheese Toastie", desc: "Melted cheese, grilled", ingredients: "Bread, cheese, butter (gluten)", price: 65, emoji: "🥪", image: IMG("photo-1528736235302-52922df5c122"), available: true },
+  { id: "bagel", cat: "snacks", name: "Sesame Bagel", desc: "Toasted, with cream cheese", ingredients: "Bagel, cream cheese (gluten)", price: 55, emoji: "🥯", image: IMG("photo-1592845345414-08a0c3a3cf33"), available: true },
+  { id: "simit", cat: "snacks", name: "Simit", desc: "Turkish sesame ring", ingredients: "Flour, sesame, molasses (gluten)", price: 25, emoji: "🥨", image: IMG("photo-1603532648955-039310d9ed75"), available: true },
+  { id: "muffin", cat: "snacks", name: "Blueberry Muffin", desc: "Soft, fruity, baked daily", ingredients: "Flour, blueberries, butter (gluten)", price: 48, emoji: "🧁", image: IMG("photo-1607958996333-41aef7caefaa"), available: true },
+  { id: "donut", cat: "dessert", name: "Glazed Donut", desc: "Still warm if you're lucky", ingredients: "Flour, sugar glaze, butter (gluten)", price: 35, emoji: "🍩", image: IMG("photo-1551024601-bec78aea704b"), available: true },
+  { id: "cheesecake", cat: "dessert", name: "Cheesecake Slice", desc: "New York style", ingredients: "Cream cheese, biscuit base, cream", price: 75, emoji: "🍰", image: IMG("photo-1533134242443-d4fd215305ad"), available: true },
+  { id: "brownie", cat: "dessert", name: "Fudge Brownie", desc: "Gooey middle", ingredients: "Dark chocolate, butter, walnuts", price: 60, emoji: "🟫", image: IMG("photo-1606313564200-e75d5e30476c"), available: true },
+  { id: "cinnamon", cat: "dessert", name: "Cinnamon Roll", desc: "Cream cheese frosting", ingredients: "Flour, cinnamon, cream cheese (gluten)", price: 65, emoji: "🥐", image: IMG("photo-1509365465985-25d11c17e812"), available: true },
+  { id: "carrot", cat: "dessert", name: "Carrot Cake", desc: "Walnuts, warm spice", ingredients: "Carrot, walnuts, spice, cream cheese", price: 70, emoji: "🥕", image: IMG("photo-1621303837174-89787a7d4729"), available: true },
 ];
 
 const SLIDE_GRADS = [
@@ -196,6 +207,8 @@ const STR = {
     cat_shots: "Espresso Shots", cat_shots_b: "Small, serious, fast",
     cat_fruit: "Fresh Fruit Drinks", cat_fruit_b: "Pressed to order",
     cat_shakes: "Shakes", cat_shakes_b: "Thick, cold, generous",
+    cat_softdrinks: "Soft Drinks", cat_softdrinks_b: "Cold and refreshing",
+    cat_snacks: "Snacks", cat_snacks_b: "Light bites, freshly made",
     cat_dessert: "Desserts", cat_dessert_b: "Baked in-house daily",
     ago_s: "{n}s ago", ago_m: "{n}m ago", ago_h: "{n}h ago",
   },
@@ -290,6 +303,8 @@ const STR = {
     cat_shots: "Espresso Shotları", cat_shots_b: "Küçük, ciddi, hızlı",
     cat_fruit: "Taze Meyve İçecekleri", cat_fruit_b: "Siparişe göre sıkılır",
     cat_shakes: "Milkshake", cat_shakes_b: "Koyu, soğuk, bol",
+    cat_softdrinks: "Soğuk İçecekler", cat_softdrinks_b: "Soğuk ve ferahlatıcı",
+    cat_snacks: "Atıştırmalıklar", cat_snacks_b: "Hafif lezzetler, taze",
     cat_dessert: "Tatlılar", cat_dessert_b: "Her gün yerinde pişer",
     ago_s: "{n}sn önce", ago_m: "{n}dk önce", ago_h: "{n}sa önce",
   },
@@ -384,6 +399,8 @@ const STR = {
     cat_shots: "Эспрессо", cat_shots_b: "Маленько, серьёзно, быстро",
     cat_fruit: "Свежие фруктовые напитки", cat_fruit_b: "Отжимаем под заказ",
     cat_shakes: "Шейки", cat_shakes_b: "Густо, холодно, щедро",
+    cat_softdrinks: "Прохладительные напитки", cat_softdrinks_b: "Холодно и освежающе",
+    cat_snacks: "Закуски", cat_snacks_b: "Лёгкие закуски, свежие",
     cat_dessert: "Десерты", cat_dessert_b: "Печём у себя каждый день",
     ago_s: "{n} с назад", ago_m: "{n} мин назад", ago_h: "{n} ч назад",
   },
@@ -478,6 +495,8 @@ const STR = {
     cat_shots: "Espresso-Shots", cat_shots_b: "Klein, ernst, schnell",
     cat_fruit: "Frische Fruchtgetränke", cat_fruit_b: "Frisch gepresst auf Bestellung",
     cat_shakes: "Shakes", cat_shakes_b: "Dick, kalt, großzügig",
+    cat_softdrinks: "Erfrischungsgetränke", cat_softdrinks_b: "Kalt und erfrischend",
+    cat_snacks: "Snacks", cat_snacks_b: "Kleine Happen, frisch gemacht",
     cat_dessert: "Desserts", cat_dessert_b: "Täglich hausgemacht",
     ago_s: "vor {n} Sek.", ago_m: "vor {n} Min.", ago_h: "vor {n} Std.",
   },
@@ -572,6 +591,8 @@ const STR = {
     cat_shots: "جرعات إسبريسو", cat_shots_b: "صغيرة، جادة، سريعة",
     cat_fruit: "مشروبات فواكه طازجة", cat_fruit_b: "تُعصر عند الطلب",
     cat_shakes: "ميلك شيك", cat_shakes_b: "كثيف، بارد، سخي",
+    cat_softdrinks: "مشروبات باردة", cat_softdrinks_b: "باردة ومنعشة",
+    cat_snacks: "وجبات خفيفة", cat_snacks_b: "لقمات خفيفة، طازجة",
     cat_dessert: "حلويات", cat_dessert_b: "تُخبز يوميًا في المكان",
     ago_s: "قبل {n} ث", ago_m: "قبل {n} د", ago_h: "قبل {n} س",
   },
@@ -767,6 +788,9 @@ const CSS = `
 .eb-dots i.on{background:#fff;width:18px;}
 .eb-overhero{position:absolute;top:14px;inset-inline-start:16px;inset-inline-end:16px;display:flex;justify-content:space-between;align-items:flex-start;z-index:3;gap:8px;}
 .eb-logo{width:48px;height:48px;border-radius:14px;background:var(--honey);display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:var(--shadow);}
+.eb-monogram{font-family:'Fraunces',Georgia,serif;font-weight:700;color:var(--honey-ink);letter-spacing:-.02em;display:inline-flex;align-items:baseline;font-size:18px;line-height:1;}
+.eb-monogram i{font-style:italic;font-weight:500;font-size:.62em;margin:0 .04em;opacity:.85;}
+.eb-monogram.sm{font-size:14px;color:var(--honey-ink);}
 .eb-namecard{padding:16px 22px 4px;}
 .eb-namecard h1{font-size:29px;font-weight:600;line-height:1;}
 .eb-namecard p{color:var(--ink-soft);font-size:13.5px;margin-top:5px;}
@@ -920,6 +944,8 @@ const CSS = `
 .eb-staffbar{display:flex;align-items:center;gap:6px;}
 .eb-neworder{position:fixed;top:0;left:0;right:0;z-index:130;background:var(--honey);color:var(--honey-ink);text-align:center;font-weight:700;font-size:15px;padding:12px;box-shadow:0 4px 18px rgba(0,0,0,.18);animation:slidedown .3s ease;}
 @keyframes slidedown{from{transform:translateY(-100%);}to{transform:none;}}
+.eb-orderbar{animation:barpop .3s cubic-bezier(.2,1.3,.5,1);}
+@keyframes barpop{from{transform:translateY(100%);}to{transform:none;}}
 @media(prefers-reduced-motion:reduce){.eb-app *{animation:none!important;transition:none!important;}.eb-track{scroll-behavior:auto;}}
 
 /* Shape personality — varies by theme, layered on top of the base rounded look */
@@ -1051,6 +1077,7 @@ export default function App() {
 function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides, payments, setPayments, flash }) {
   const { t } = useT();
   const [screen, setScreen] = useState("scan");
+  const [menuCat, setMenuCat] = useState(null);
   const [table, setTable] = useState(null);
   const [cart, setCart] = useState({});
   const [user, setUser] = useState(null);
@@ -1162,8 +1189,8 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
       <div className="eb-phone">
         <div className="eb-phone-bar"><i /></div>
         {screen === "scan" && <ScanScreen onDetect={(tb) => { setTable(tb); setScreen("home"); }} />}
-        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} menu={menu} slides={slides} tableOrders={tableOrders} tableDue={tableDue} go={setScreen} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
-        {screen === "menu" && <MenuScreen menu={menu} cart={cart} add={add} dec={dec} cartCount={cartCount} total={subtotal} back={() => setScreen("home")} toCart={() => setScreen("cart")} place={placeOrder} />}
+        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} menu={menu} slides={slides} tableOrders={tableOrders} tableDue={tableDue} go={setScreen} goToCat={(c) => { setMenuCat(c); setScreen("menu"); }} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
+        {screen === "menu" && <MenuScreen menu={menu} cart={cart} add={add} dec={dec} cartCount={cartCount} total={subtotal} back={() => setScreen("home")} toCart={() => setScreen("cart")} place={placeOrder} jumpCat={menuCat} clearJump={() => setMenuCat(null)} />}
         {screen === "cart" && <CartScreen cartList={cartList} add={add} dec={dec} setNote={setNote} subtotal={subtotal} total={total} discount={discount} rewardItem={rewardItem} hasReward={hasReward} useReward={useReward} setUseReward={setUseReward} user={user} table={table} back={() => setScreen("menu")} place={placeOrder} toAuth={() => setScreen("auth")} />}
         {screen === "bill" && <BillScreen table={table} orders={tableOrders} due={tableDue} requestBill={requestBill} back={() => setScreen("home")} toMenu={() => setScreen("menu")} toPay={() => setScreen("pay")} />}
         {screen === "pay" && <PayScreen table={table} due={tableDue} myUnpaid={myUnpaid} unpaidOrders={tableOrders.filter((o) => !o.paid)} user={user} recordPayment={recordPayment} back={() => setScreen("bill")} done={() => setScreen("bill")} />}
@@ -1233,7 +1260,7 @@ function Carousel({ slides }) {
 }
 
 
-function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tableOrders, tableDue, go, rescan, onBill, cartCount }) {
+function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tableOrders, tableDue, go, goToCat, rescan, onBill, cartCount }) {
   const { t } = useT();
   const repFor = (key) => menu.find((i) => i.cat === key && i.available) || menu.find((i) => i.cat === key);
   const due = tableDue != null ? tableDue : tableOrders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
@@ -1243,7 +1270,7 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
       <div style={{ position: "relative" }}>
         <Carousel slides={slides} />
         <div className="eb-overhero">
-          <div className="eb-logo">🔥</div>
+          <div className="eb-logo"><span className="eb-monogram">H<i>&amp;</i>B</span></div>
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <LangPicker dark />
             <button className="eb-chip" onClick={() => go("account")} style={{ background: "rgba(20,28,22,.55)", color: "#fff", backdropFilter: "blur(4px)" }}>{user ? t("hi_name", { name: record?.name?.split(" ")[0] || "" }) : t("sign_in")}</button>
@@ -1280,11 +1307,12 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
         <button className="eb-btn honey" style={{ marginTop: 18, fontSize: 16, padding: 16 }} onClick={() => go("menu")}>🍽️ {t("view_menu")} {cartCount > 0 ? `· ${t("in_basket", { n: cartCount })}` : ""}</button>
         <div style={{ marginTop: 22 }}>
           <h3 className="eb-serif" style={{ fontSize: 16, fontWeight: 600, marginBottom: 10 }}>{t("whats_on")}</h3>
-          <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 4 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             {CATS.map((c) => { const rep = repFor(c.key); return (
-              <button key={c.key} onClick={() => go("menu")} style={{ flex: "none", width: 96, textAlign: "start" }}>
-                <div className="eb-thumb" style={{ width: 96, height: 74, borderRadius: 13, background: CAT_TINT[c.key] }}><SmartImg src={rep?.image} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 32 }}>{rep?.emoji || "🍽️"}</span>} /></div>
-                <div style={{ fontSize: 12, fontWeight: 600, marginTop: 6 }}>{t("cat_" + c.key)}</div>
+              <button key={c.key} onClick={() => goToCat(c.key)} style={{ textAlign: "start", width: "100%" }}>
+                <div className="eb-thumb" style={{ width: "100%", height: 104, borderRadius: 15, background: CAT_TINT[c.key] }}><SmartImg src={rep?.image} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 38 }}>{rep?.emoji || "🍽️"}</span>} /></div>
+                <div style={{ fontSize: 13.5, fontWeight: 600, marginTop: 7 }}>{t("cat_" + c.key)}</div>
+                <div style={{ fontSize: 11.5, color: "var(--ink-soft)" }}>{t("cat_" + c.key + "_b")}</div>
               </button>
             ); })}
           </div>
@@ -1294,15 +1322,33 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
   );
 }
 
-function MenuScreen({ menu, cart, add, dec, cartCount, total, back, toCart, place }) {
+function MenuScreen({ menu, cart, add, dec, cartCount, total, back, toCart, place, jumpCat, clearJump }) {
   const { t } = useT();
+  const [activeCat, setActiveCat] = useState(jumpCat || CATS[0].key);
+  const presentCats = CATS.filter((c) => menu.some((i) => i.cat === c.key));
+
+  // Anasayfadan bir kategoriye basılarak gelindiyse oraya kaydır.
+  useEffect(() => {
+    if (jumpCat) {
+      setActiveCat(jumpCat);
+      const el = document.getElementById("cat-" + jumpCat);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+      clearJump && clearJump();
+    }
+  }, []); // eslint-disable-line
+
+  const goCat = (key) => {
+    setActiveCat(key);
+    document.getElementById("cat-" + key)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="eb-screen">
       <div className="eb-pad" style={{ paddingTop: 6, display: "flex", alignItems: "center", gap: 12 }}><button onClick={back} style={{ fontSize: 22 }}>‹</button><h2 className="eb-serif" style={{ fontSize: 22, fontWeight: 600 }}>{t("menu")}</h2></div>
-      <div className="eb-cats">{CATS.map((c) => (<button key={c.key} className="eb-cat-pill" onClick={() => document.getElementById("cat-" + c.key)?.scrollIntoView({ behavior: "smooth", block: "start" })}>{t("cat_" + c.key)}</button>))}</div>
+      <div className="eb-cats" style={{ position: "sticky", top: 0, background: "var(--paper)", zIndex: 5 }}>{presentCats.map((c) => (<button key={c.key} className={`eb-cat-pill ${activeCat === c.key ? "on" : ""}`} onClick={() => goCat(c.key)}>{t("cat_" + c.key)}</button>))}</div>
       <div>
         {CATS.map((c) => { const items = menu.filter((i) => i.cat === c.key); if (!items.length) return null; return (
-          <div key={c.key} id={"cat-" + c.key}>
+          <div key={c.key} id={"cat-" + c.key} style={{ scrollMarginTop: 60 }}>
             <div className="eb-cat-head"><h2 className="eb-serif">{t("cat_" + c.key)}</h2><span>{t("cat_" + c.key + "_b")}</span></div>
             {items.map((it) => { const q = cart[it.id]?.qty || 0; return (
               <div className={`eb-item ${!it.available ? "out" : ""}`} key={it.id}>
@@ -1315,9 +1361,10 @@ function MenuScreen({ menu, cart, add, dec, cartCount, total, back, toCart, plac
             ); })}
           </div>
         ); })}
+        <div style={{ height: cartCount > 0 ? 96 : 24 }} />
       </div>
       {cartCount > 0 && (
-        <div className="eb-bar" style={{ display: "flex", gap: 10 }}>
+        <div className="eb-bar eb-orderbar" style={{ display: "flex", gap: 10 }}>
           <button className="eb-btn ghost" onClick={toCart} style={{ flex: "0 0 auto", padding: "15px 16px", width: "auto" }}>🧺 {cartCount}</button>
           <button className="eb-btn honey" onClick={() => place("")} style={{ flex: 1, justifyContent: "space-between", padding: "15px 18px" }}><span>{t("quick_order")}</span><span>{money(total)} →</span></button>
         </div>
@@ -1777,7 +1824,7 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
     <div className="eb-admin">
       {flashNew && <div className="eb-neworder">🔔 {t("new_order_in")}</div>}
       <div className="eb-anav">
-        <div className="brand"><b>🔥</b> Hearth &amp; Bean</div>
+        <div className="brand"><b><span className="eb-monogram sm">H<i>&amp;</i>B</span></b> Hearth &amp; Bean</div>
         <button className={`eb-atab ${tab === "orders" ? "on" : ""}`} onClick={() => setTab("orders")}>{t("nav_orders")}{newCount > 0 && ` · ${newCount}`}</button>
         <button className={`eb-atab ${tab === "tables" ? "on" : ""}`} onClick={() => setTab("tables")}>{t("nav_tables")}</button>
         <button className={`eb-atab ${tab === "menu" ? "on" : ""}`} onClick={() => setTab("menu")}>{t("nav_menu")}</button>
