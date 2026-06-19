@@ -142,7 +142,7 @@ const STR = {
     subtotal: "Subtotal", club_reward: "Bean Club reward", total: "Total",
     guest_1: "Ordering as a guest.", guest_2: "to earn a stamp on this order.", send_order: "Send order to kitchen",
     quick_order: "Order now", review_basket: "Review basket",
-    pay_title: "Pay the bill", pay_full_cta: "Pay the full bill", or_split: "or split it", choose_split: "How would you like to pay?", split_whole: "Pay the whole table", split_whole_d: "Settle everything that's owed on this table", split_mine: "Pay only my orders", split_mine_d: "Just the items you ordered", split_even: "Split evenly", split_even_d: "Divide the table bill into equal shares", split_custom: "Enter an amount", split_custom_d: "Type exactly how much you'd like to pay",
+    pay_title: "Pay the bill", pay_full_cta: "Pay the full bill", or_split: "or split it", choose_split: "How would you like to pay?", split_whole: "Pay the whole table", split_whole_d: "Settle everything that's owed on this table", split_mine: "Pay only my orders", split_mine_d: "Just the items you ordered", split_even: "Split evenly", split_even_d: "Divide the table bill into equal shares", split_custom: "Enter an amount", split_custom_d: "Type exactly how much you'd like to pay", split_items: "Pick items to pay", split_items_d: "Choose exactly what you're paying for", pick_items_t: "What are you paying for?", pick_items_b: "Tap the items you'd like to cover", selected_total: "Selected total", nothing_selected: "Select at least one item", pay_selected: "Pay for selected",
     how_many_people: "How many people?", per_person: "{amt} per person", your_share: "Your share", enter_amount: "Amount to pay", of_remaining: "of {amt} remaining",
     add_tip: "Add a tip", tip_none: "No tip", tip_custom: "Custom", subtotal_label: "Subtotal", tip_label: "Tip", to_pay: "To pay", continue_btn: "Continue", pay_now: "Pay {amt}", confirm_payment: "Confirm payment", payment_sent: "Payment recorded", payment_sent_d: "Your payment of {amt} has been sent to staff for Table {n}.", pay_at_register_note: "Online payment is coming soon. For now this notifies staff of your amount — settle at the counter or with your server.", back_to_options: "← Back to options", nothing_to_pay: "Nothing left to pay on this table.", paying_amount: "You're paying", remaining_after: "Remaining after this: {amt}",
     order_sent: "Order sent!", getting_ready: "We're getting it ready for Table {n}.", order_id: "Order {id}",
@@ -239,7 +239,7 @@ const STR = {
     subtotal: "Ara toplam", club_reward: "Bean Club ödülü", total: "Toplam",
     guest_1: "Misafir olarak sipariş veriyorsun.", guest_2: "bu siparişte damga kazanmak için.", send_order: "Siparişi mutfağa gönder",
     quick_order: "Hemen sipariş ver", review_basket: "Sepeti gözden geçir",
-    pay_title: "Hesabı öde", pay_full_cta: "Tüm hesabı öde", or_split: "ya da böl", choose_split: "Nasıl ödemek istersin?", split_whole: "Masanın tamamını öde", split_whole_d: "Bu masada borçlu olan her şeyi kapat", split_mine: "Sadece kendi siparişlerimi öde", split_mine_d: "Yalnızca senin sipariş ettiklerin", split_even: "Eşit böl (Alman usulü)", split_even_d: "Masa hesabını eşit paylara böl", split_custom: "Tutar gir", split_custom_d: "Tam olarak ne kadar ödeyeceğini yaz",
+    pay_title: "Hesabı öde", pay_full_cta: "Tüm hesabı öde", or_split: "ya da böl", choose_split: "Nasıl ödemek istersin?", split_whole: "Masanın tamamını öde", split_whole_d: "Bu masada borçlu olan her şeyi kapat", split_mine: "Sadece kendi siparişlerimi öde", split_mine_d: "Yalnızca senin sipariş ettiklerin", split_even: "Eşit böl (Alman usulü)", split_even_d: "Masa hesabını eşit paylara böl", split_custom: "Tutar gir", split_custom_d: "Tam olarak ne kadar ödeyeceğini yaz", split_items: "Ürün seçerek öde", split_items_d: "Tam olarak neyin parasını ödediğini seç", pick_items_t: "Neyin parasını ödüyorsun?", pick_items_b: "Ödemek istediğin ürünlere dokun", selected_total: "Seçilen toplam", nothing_selected: "En az bir ürün seç", pay_selected: "Seçilenleri öde",
     how_many_people: "Kaç kişi?", per_person: "Kişi başı {amt}", your_share: "Senin payın", enter_amount: "Ödenecek tutar", of_remaining: "/ kalan {amt}",
     add_tip: "Bahşiş ekle", tip_none: "Bahşiş yok", tip_custom: "Özel", subtotal_label: "Ara toplam", tip_label: "Bahşiş", to_pay: "Ödenecek", continue_btn: "Devam et", pay_now: "{amt} öde", confirm_payment: "Ödemeyi onayla", payment_sent: "Ödeme kaydedildi", payment_sent_d: "{amt} tutarındaki ödemen Masa {n} için personele iletildi.", pay_at_register_note: "Online ödeme yakında geliyor. Şimdilik bu, tutarını personele bildirir — kasada veya garsonla öde.", back_to_options: "← Seçeneklere dön", nothing_to_pay: "Bu masada ödenecek bir şey kalmadı.", paying_amount: "Ödüyorsun", remaining_after: "Bundan sonra kalan: {amt}",
     order_sent: "Sipariş gönderildi!", getting_ready: "Masa {n} için hazırlıyoruz.", order_id: "Sipariş {id}",
@@ -336,7 +336,7 @@ const STR = {
     subtotal: "Подытог", club_reward: "Награда Bean Club", total: "Итого",
     guest_1: "Заказ как гость.", guest_2: "чтобы получить штамп за этот заказ.", send_order: "Отправить на кухню",
     quick_order: "Заказать сейчас", review_basket: "Проверить корзину",
-    pay_title: "Оплата счёта", pay_full_cta: "Оплатить весь счёт", or_split: "или разделить", choose_split: "Как хотите оплатить?", split_whole: "Оплатить весь стол", split_whole_d: "Погасить всё, что причитается по столу", split_mine: "Оплатить только мои заказы", split_mine_d: "Только то, что вы заказали", split_even: "Разделить поровну", split_even_d: "Поделить счёт стола на равные части", split_custom: "Ввести сумму", split_custom_d: "Укажите, сколько именно хотите оплатить",
+    pay_title: "Оплата счёта", pay_full_cta: "Оплатить весь счёт", or_split: "или разделить", choose_split: "Как хотите оплатить?", split_whole: "Оплатить весь стол", split_whole_d: "Погасить всё, что причитается по столу", split_mine: "Оплатить только мои заказы", split_mine_d: "Только то, что вы заказали", split_even: "Разделить поровну", split_even_d: "Поделить счёт стола на равные части", split_custom: "Ввести сумму", split_custom_d: "Укажите, сколько именно хотите оплатить", split_items: "Выбрать блюда", split_items_d: "Выберите, за что именно платите", pick_items_t: "За что вы платите?", pick_items_b: "Нажмите на блюда, которые оплачиваете", selected_total: "Сумма выбранного", nothing_selected: "Выберите хотя бы одно блюдо", pay_selected: "Оплатить выбранное",
     how_many_people: "Сколько человек?", per_person: "{amt} с человека", your_share: "Ваша доля", enter_amount: "Сумма к оплате", of_remaining: "из {amt} остатка",
     add_tip: "Добавить чаевые", tip_none: "Без чаевых", tip_custom: "Своя сумма", subtotal_label: "Подытог", tip_label: "Чаевые", to_pay: "К оплате", continue_btn: "Продолжить", pay_now: "Оплатить {amt}", confirm_payment: "Подтвердить оплату", payment_sent: "Платёж записан", payment_sent_d: "Ваш платёж {amt} отправлен персоналу для стола {n}.", pay_at_register_note: "Онлайн-оплата скоро появится. Пока это уведомляет персонал о вашей сумме — рассчитайтесь на кассе или у официанта.", back_to_options: "← Назад к вариантам", nothing_to_pay: "По этому столу платить больше нечего.", paying_amount: "Вы оплачиваете", remaining_after: "Останется после этого: {amt}",
     order_sent: "Заказ отправлен!", getting_ready: "Готовим для стола {n}.", order_id: "Заказ {id}",
@@ -433,7 +433,7 @@ const STR = {
     subtotal: "Zwischensumme", club_reward: "Bean-Club-Belohnung", total: "Summe",
     guest_1: "Bestellung als Gast.", guest_2: "um einen Stempel für diese Bestellung zu erhalten.", send_order: "An die Küche senden",
     quick_order: "Jetzt bestellen", review_basket: "Korb prüfen",
-    pay_title: "Rechnung zahlen", pay_full_cta: "Ganze Rechnung zahlen", or_split: "oder aufteilen", choose_split: "Wie möchtest du zahlen?", split_whole: "Ganzen Tisch zahlen", split_whole_d: "Alles Offene an diesem Tisch begleichen", split_mine: "Nur meine Bestellungen", split_mine_d: "Nur was du bestellt hast", split_even: "Gleichmäßig teilen", split_even_d: "Die Tischrechnung in gleiche Teile teilen", split_custom: "Betrag eingeben", split_custom_d: "Gib genau ein, wie viel du zahlen möchtest",
+    pay_title: "Rechnung zahlen", pay_full_cta: "Ganze Rechnung zahlen", or_split: "oder aufteilen", choose_split: "Wie möchtest du zahlen?", split_whole: "Ganzen Tisch zahlen", split_whole_d: "Alles Offene an diesem Tisch begleichen", split_mine: "Nur meine Bestellungen", split_mine_d: "Nur was du bestellt hast", split_even: "Gleichmäßig teilen", split_even_d: "Die Tischrechnung in gleiche Teile teilen", split_custom: "Betrag eingeben", split_custom_d: "Gib genau ein, wie viel du zahlen möchtest", split_items: "Artikel auswählen", split_items_d: "Wähle genau, wofür du zahlst", pick_items_t: "Wofür zahlst du?", pick_items_b: "Tippe die Artikel an, die du zahlen möchtest", selected_total: "Ausgewählte Summe", nothing_selected: "Wähle mindestens einen Artikel", pay_selected: "Ausgewählte zahlen",
     how_many_people: "Wie viele Personen?", per_person: "{amt} pro Person", your_share: "Dein Anteil", enter_amount: "Zu zahlender Betrag", of_remaining: "von {amt} offen",
     add_tip: "Trinkgeld geben", tip_none: "Kein Trinkgeld", tip_custom: "Eigen", subtotal_label: "Zwischensumme", tip_label: "Trinkgeld", to_pay: "Zu zahlen", continue_btn: "Weiter", pay_now: "{amt} zahlen", confirm_payment: "Zahlung bestätigen", payment_sent: "Zahlung erfasst", payment_sent_d: "Deine Zahlung von {amt} wurde dem Personal für Tisch {n} gemeldet.", pay_at_register_note: "Online-Zahlung kommt bald. Vorerst meldet dies dem Personal deinen Betrag — zahle an der Theke oder beim Kellner.", back_to_options: "← Zurück zu den Optionen", nothing_to_pay: "An diesem Tisch ist nichts mehr zu zahlen.", paying_amount: "Du zahlst", remaining_after: "Danach offen: {amt}",
     order_sent: "Bestellung gesendet!", getting_ready: "Wir bereiten sie für Tisch {n} vor.", order_id: "Bestellung {id}",
@@ -530,7 +530,7 @@ const STR = {
     subtotal: "المجموع الفرعي", club_reward: "مكافأة نادي Bean", total: "الإجمالي",
     guest_1: "الطلب كضيف.", guest_2: "لكسب ختم على هذا الطلب.", send_order: "أرسل الطلب إلى المطبخ",
     quick_order: "اطلب الآن", review_basket: "مراجعة السلة",
-    pay_title: "دفع الفاتورة", pay_full_cta: "ادفع الفاتورة كاملة", or_split: "أو قسّمها", choose_split: "كيف تريد الدفع؟", split_whole: "ادفع الطاولة كاملة", split_whole_d: "سدّد كل المستحق على هذه الطاولة", split_mine: "ادفع طلباتي فقط", split_mine_d: "فقط ما طلبته أنت", split_even: "قسّم بالتساوي", split_even_d: "قسّم فاتورة الطاولة إلى حصص متساوية", split_custom: "أدخل مبلغًا", split_custom_d: "اكتب بالضبط كم تريد أن تدفع",
+    pay_title: "دفع الفاتورة", pay_full_cta: "ادفع الفاتورة كاملة", or_split: "أو قسّمها", choose_split: "كيف تريد الدفع؟", split_whole: "ادفع الطاولة كاملة", split_whole_d: "سدّد كل المستحق على هذه الطاولة", split_mine: "ادفع طلباتي فقط", split_mine_d: "فقط ما طلبته أنت", split_even: "قسّم بالتساوي", split_even_d: "قسّم فاتورة الطاولة إلى حصص متساوية", split_custom: "أدخل مبلغًا", split_custom_d: "اكتب بالضبط كم تريد أن تدفع", split_items: "اختر أصنافًا للدفع", split_items_d: "اختر بالضبط ما تدفع ثمنه", pick_items_t: "ماذا تدفع ثمنه؟", pick_items_b: "اضغط على الأصناف التي تريد دفعها", selected_total: "إجمالي المحدد", nothing_selected: "اختر صنفًا واحدًا على الأقل", pay_selected: "ادفع المحدد",
     how_many_people: "كم عدد الأشخاص؟", per_person: "{amt} للشخص", your_share: "حصتك", enter_amount: "المبلغ المراد دفعه", of_remaining: "من {amt} المتبقّي",
     add_tip: "أضف بقشيشًا", tip_none: "بدون بقشيش", tip_custom: "مخصص", subtotal_label: "المجموع الفرعي", tip_label: "بقشيش", to_pay: "للدفع", continue_btn: "متابعة", pay_now: "ادفع {amt}", confirm_payment: "تأكيد الدفع", payment_sent: "تم تسجيل الدفع", payment_sent_d: "تم إرسال دفعتك البالغة {amt} إلى الموظفين للطاولة {n}.", pay_at_register_note: "الدفع الإلكتروني قريبًا. حاليًا يُعلِم هذا الموظفين بمبلغك — ادفع عند الكاشير أو مع النادل.", back_to_options: "← العودة إلى الخيارات", nothing_to_pay: "لا يوجد ما يُدفع على هذه الطاولة.", paying_amount: "أنت تدفع", remaining_after: "المتبقّي بعد ذلك: {amt}",
     order_sent: "تم إرسال الطلب!", getting_ready: "نحضّره للطاولة {n}.", order_id: "طلب {id}",
@@ -825,6 +825,10 @@ const CSS = `
 .eb-coupon-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:13px;padding:12px;margin-bottom:9px;background:var(--paper);}
 .eb-coupon-row.used{opacity:.55;}
 .eb-coupon-row.used .eb-mono{text-decoration:line-through;}
+.eb-pickrow{display:flex;align-items:center;gap:12px;width:100%;padding:13px 15px;border-radius:13px;border:1.5px solid var(--line);background:transparent;transition:.14s;}
+.eb-pickrow.on{border-color:var(--honey);background:var(--honey-soft, rgba(214,158,74,.1));}
+.eb-pickbox{width:24px;height:24px;border-radius:7px;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--honey-ink);flex:none;transition:.14s;}
+.eb-pickbox.on{background:var(--honey);border-color:var(--honey);}
 .eb-billrow{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;transition:.14s;}
 .eb-billrow:hover{border-color:var(--honey);}
 .eb-pp{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
@@ -1524,6 +1528,7 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
   const [coversIds, setCoversIds] = useState(null);
   const [tipPct, setTipPct] = useState(null);     // seçili yüzde
   const [tipCustom, setTipCustom] = useState(""); // elle bahşiş
+  const [picked, setPicked] = useState({});        // ürün seçimi: { "orderId|itemIndex": true }
   const TIP_PCTS = [10, 15, 20];
 
   if (due <= 0) {
@@ -1544,6 +1549,7 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
     }
     else if (m === "even") { setCoversIds(null); setStage("amount"); }
     else if (m === "custom") { setCoversIds(null); setStage("amount"); }
+    else if (m === "items") { setPicked({}); setCoversIds(null); setStage("items"); }
   };
 
   const evenShare = Math.round((due / Math.max(1, people)) * 100) / 100;
@@ -1557,7 +1563,7 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
 
   const header = (title) => (
     <div className="eb-pad" style={{ paddingTop: 6, display: "flex", alignItems: "center", gap: 12 }}>
-      <button onClick={() => { if (stage === "choose") back(); else if (stage === "tip") setStage(method === "even" || method === "custom" ? "amount" : "choose"); else if (stage === "amount") setStage("choose"); else back(); }} style={{ fontSize: 22 }}>‹</button>
+      <button onClick={() => { if (stage === "choose") back(); else if (stage === "tip") setStage(method === "even" || method === "custom" ? "amount" : method === "items" ? "items" : "choose"); else if (stage === "amount" || stage === "items") setStage("choose"); else back(); }} style={{ fontSize: 22 }}>‹</button>
       <h2 className="eb-serif" style={{ fontSize: 22, fontWeight: 600 }}>{title}</h2>
     </div>
   );
@@ -1565,6 +1571,7 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
   // STAGE: yöntem seçimi
   if (stage === "choose") {
     const splitOpts = [
+      { id: "items", icon: "🧾", title: t("split_items") },
       ...(user && myUnpaid > 0 ? [{ id: "mine", icon: "🙋", title: t("split_mine") }] : []),
       { id: "even", icon: "👥", title: t("split_even") },
       { id: "custom", icon: "✏️", title: t("split_custom") },
@@ -1597,6 +1604,54 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
               </button>
             ))}
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // STAGE: ürün seçerek öde
+  if (stage === "items") {
+    // Tüm ödenmemiş siparişlerdeki ürünleri tek tek listele (adet kadar satır)
+    const rows = [];
+    unpaidOrders.forEach((o) => {
+      o.items.forEach((it, idx) => {
+        for (let q = 0; q < it.qty; q++) {
+          rows.push({ key: `${o.id}|${idx}|${q}`, name: it.name, price: it.price, orderId: o.id });
+        }
+      });
+    });
+    const pickedTotal = rows.filter((r) => picked[r.key]).reduce((s, r) => s + r.price, 0);
+    const anyPicked = pickedTotal > 0;
+    const toggle = (k) => setPicked((p) => ({ ...p, [k]: !p[k] }));
+    const goNext = () => {
+      // Seçilen ürünlerin toplamı, masanın kalanını (tolerans) karşılıyorsa tüm siparişleri kapat;
+      // değilse kısmi ödeme olarak kaydet (recordPayment birikimli kapatmayı zaten yönetiyor).
+      setBase(Math.round(pickedTotal * 100) / 100);
+      setCoversIds(pickedTotal >= due - 0.01 ? unpaidOrders.map((o) => o.id) : null);
+      setStage("tip");
+    };
+    return (
+      <div className="eb-screen">
+        {header(t("pick_items_t"))}
+        <div className="eb-pad">
+          <p style={{ fontSize: 13, color: "var(--ink-soft)", marginTop: -4, marginBottom: 14 }}>{t("pick_items_b")}</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {rows.map((r) => { const on = !!picked[r.key]; return (
+              <button key={r.key} onClick={() => toggle(r.key)} className={`eb-pickrow ${on ? "on" : ""}`}>
+                <span className={`eb-pickbox ${on ? "on" : ""}`}>{on ? "✓" : ""}</span>
+                <span style={{ flex: 1, textAlign: "start", fontSize: 14.5, fontWeight: on ? 600 : 500 }}>{r.name}</span>
+                <span style={{ fontSize: 14, fontWeight: 600 }}>{money(r.price)}</span>
+              </button>
+            ); })}
+          </div>
+          <div style={{ height: 120 }} />
+        </div>
+        <div className="eb-bar" style={{ flexDirection: "column", gap: 10 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+            <span style={{ fontSize: 13, color: "var(--ink-soft)" }}>{t("selected_total")}</span>
+            <span className="eb-serif" style={{ fontSize: 22, fontWeight: 700 }}>{money(pickedTotal)}</span>
+          </div>
+          <button className="eb-btn honey" disabled={!anyPicked} style={{ opacity: anyPicked ? 1 : .5 }} onClick={goNext}>{anyPicked ? `${t("pay_selected")} · ${money(pickedTotal)}` : t("nothing_selected")}</button>
         </div>
       </div>
     );
