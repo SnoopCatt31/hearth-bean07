@@ -173,7 +173,7 @@ const STR = {
     nav_orders: "Orders", nav_tables: "Tables", nav_menu: "Menu", nav_gallery: "Gallery", nav_brand: "Brand", nav_stats: "Statistics", nav_customers: "Customers",
     brand_title: "Brand & theme", brand_sub: "Pick a look for your café — colors and shapes update everywhere instantly.", theme_applied: "{name} theme applied", current_theme: "Current",
     staff_login_title: "Staff login", staff_login_sub: "This area is for café staff only.", staff_password: "Password", staff_signin: "Sign in", staff_wrong: "Wrong email or password", staff_signout: "Sign out", staff_back_customer: "← Back to customer view",
-    staff_counter: "Staff · Counter", reset_demo: "Reset demo", new_order_in: "New order just came in!", sound_on: "Sound on", sound_off: "Sound off", v_roasted_t: "Fresh Roasted", v_roasted_b: "Small batch", v_fresh_t: "Made Daily", v_fresh_b: "Every morning", v_natural_t: "Real Ingredients", v_natural_b: "Nothing fake",
+    staff_counter: "Staff · Counter", reset_demo: "Reset demo", new_order_in: "New order just came in!", sound_on: "Sound on", auto_settled: "Settled automatically", sound_off: "Sound off",
     live_orders: "Live orders", live_orders_sub: "Tickets arrive the moment a guest sends them. Tap to move an order along.",
     n_new: "{n} new", f_active: "Active", f_new: "New", f_preparing: "Preparing", f_served: "Served", f_all: "All",
     no_orders_admin_t: "No orders here yet", no_orders_admin_b: "Switch to the Customer view below, place an order, and it lands here instantly.",
@@ -269,7 +269,7 @@ const STR = {
     nav_orders: "Siparişler", nav_tables: "Masalar", nav_menu: "Menü", nav_gallery: "Galeri", nav_brand: "Marka", nav_stats: "İstatistik", nav_customers: "Müşteriler",
     brand_title: "Marka ve tema", brand_sub: "Kafen için bir görünüm seç — renkler ve şekiller her yerde anında güncellenir.", theme_applied: "{name} teması uygulandı", current_theme: "Geçerli",
     staff_login_title: "Personel girişi", staff_login_sub: "Bu alan yalnızca kafe personeli içindir.", staff_password: "Şifre", staff_signin: "Giriş yap", staff_wrong: "Hatalı e-posta veya şifre", staff_signout: "Çıkış yap", staff_back_customer: "← Müşteri görünümüne dön",
-    staff_counter: "Personel · Kasa", reset_demo: "Demoyu sıfırla", new_order_in: "Yeni sipariş geldi!", sound_on: "Ses açık", sound_off: "Ses kapalı", v_roasted_t: "Taze Kavrulmuş", v_roasted_b: "Küçük parti", v_fresh_t: "Günlük Hazır", v_fresh_b: "Her sabah taze", v_natural_t: "Doğal Malzeme", v_natural_b: "Katkısız",
+    staff_counter: "Personel · Kasa", reset_demo: "Demoyu sıfırla", new_order_in: "Yeni sipariş geldi!", sound_on: "Ses açık", auto_settled: "Otomatik kapandı", sound_off: "Ses kapalı",
     live_orders: "Canlı siparişler", live_orders_sub: "Misafir gönderir göndermez fişler buraya düşer. İlerletmek için dokun.",
     n_new: "{n} yeni", f_active: "Aktif", f_new: "Yeni", f_preparing: "Hazırlanıyor", f_served: "Servis edildi", f_all: "Tümü",
     no_orders_admin_t: "Henüz sipariş yok", no_orders_admin_b: "Aşağıdan Müşteri görünümüne geç, sipariş ver ve anında burada belirsin.",
@@ -365,7 +365,7 @@ const STR = {
     nav_orders: "Заказы", nav_tables: "Столы", nav_menu: "Меню", nav_gallery: "Галерея", nav_brand: "Бренд", nav_stats: "Статистика", nav_customers: "Клиенты",
     brand_title: "Бренд и тема", brand_sub: "Выберите стиль для своего кафе — цвета и формы обновятся везде мгновенно.", theme_applied: "Тема «{name}» применена", current_theme: "Текущая",
     staff_login_title: "Вход для персонала", staff_login_sub: "Этот раздел только для сотрудников кафе.", staff_password: "Пароль", staff_signin: "Войти", staff_wrong: "Неверная почта или пароль", staff_signout: "Выйти", staff_back_customer: "← Назад к виду клиента",
-    staff_counter: "Персонал · Касса", reset_demo: "Сбросить демо", new_order_in: "Поступил новый заказ!", sound_on: "Звук вкл.", sound_off: "Звук выкл.", v_roasted_t: "Свежая обжарка", v_roasted_b: "Малыми партиями", v_fresh_t: "Каждый день", v_fresh_b: "Свежее утром", v_natural_t: "Натурально", v_natural_b: "Без добавок",
+    staff_counter: "Персонал · Касса", reset_demo: "Сбросить демо", new_order_in: "Поступил новый заказ!", sound_on: "Звук вкл.", auto_settled: "Закрыто автоматически", sound_off: "Звук выкл.",
     live_orders: "Текущие заказы", live_orders_sub: "Чеки появляются сразу после отправки гостем. Нажмите, чтобы продвинуть заказ.",
     n_new: "{n} новых", f_active: "Активные", f_new: "Новые", f_preparing: "Готовятся", f_served: "Поданы", f_all: "Все",
     no_orders_admin_t: "Заказов пока нет", no_orders_admin_b: "Переключитесь на вид «Клиент» внизу, оформите заказ — и он мгновенно появится здесь.",
@@ -461,7 +461,7 @@ const STR = {
     nav_orders: "Bestellungen", nav_tables: "Tische", nav_menu: "Karte", nav_gallery: "Galerie", nav_brand: "Marke", nav_stats: "Statistik", nav_customers: "Kunden",
     brand_title: "Marke & Theme", brand_sub: "Wähle einen Look für dein Café — Farben und Formen aktualisieren sich überall sofort.", theme_applied: "Theme „{name}“ angewendet", current_theme: "Aktuell",
     staff_login_title: "Mitarbeiter-Login", staff_login_sub: "Dieser Bereich ist nur für Café-Personal.", staff_password: "Passwort", staff_signin: "Anmelden", staff_wrong: "Falsche E-Mail oder Passwort", staff_signout: "Abmelden", staff_back_customer: "← Zurück zur Kundenansicht",
-    staff_counter: "Personal · Theke", reset_demo: "Demo zurücksetzen", new_order_in: "Neue Bestellung eingegangen!", sound_on: "Ton an", sound_off: "Ton aus", v_roasted_t: "Frisch geröstet", v_roasted_b: "Kleine Menge", v_fresh_t: "Täglich frisch", v_fresh_b: "Jeden Morgen", v_natural_t: "Echte Zutaten", v_natural_b: "Nichts Künstliches",
+    staff_counter: "Personal · Theke", reset_demo: "Demo zurücksetzen", new_order_in: "Neue Bestellung eingegangen!", sound_on: "Ton an", auto_settled: "Automatisch abgeschlossen", sound_off: "Ton aus",
     live_orders: "Live-Bestellungen", live_orders_sub: "Bons erscheinen, sobald ein Gast sendet. Tippe, um eine Bestellung weiterzuschalten.",
     n_new: "{n} neu", f_active: "Aktiv", f_new: "Neu", f_preparing: "In Zubereitung", f_served: "Serviert", f_all: "Alle",
     no_orders_admin_t: "Noch keine Bestellungen", no_orders_admin_b: "Unten zur Kundenansicht wechseln, bestellen — und es erscheint sofort hier.",
@@ -557,7 +557,7 @@ const STR = {
     nav_orders: "الطلبات", nav_tables: "الطاولات", nav_menu: "القائمة", nav_gallery: "المعرض", nav_brand: "الهوية", nav_stats: "الإحصاءات", nav_customers: "العملاء",
     brand_title: "الهوية والتصميم", brand_sub: "اختر مظهرًا لمقهاك — تتحدّث الألوان والأشكال في كل مكان فورًا.", theme_applied: "تم تطبيق تصميم {name}", current_theme: "الحالي",
     staff_login_title: "دخول الموظفين", staff_login_sub: "هذه المنطقة لموظفي المقهى فقط.", staff_password: "كلمة المرور", staff_signin: "تسجيل الدخول", staff_wrong: "البريد أو كلمة المرور غير صحيحة", staff_signout: "تسجيل الخروج", staff_back_customer: "← العودة إلى عرض العميل",
-    staff_counter: "الموظفون · الكاشير", reset_demo: "إعادة ضبط العرض", new_order_in: "وصل طلب جديد!", sound_on: "الصوت مفعّل", sound_off: "الصوت متوقف", v_roasted_t: "محمّص طازج", v_roasted_b: "دفعات صغيرة", v_fresh_t: "يومي الإعداد", v_fresh_b: "كل صباح", v_natural_t: "مكوّنات حقيقية", v_natural_b: "بلا إضافات",
+    staff_counter: "الموظفون · الكاشير", reset_demo: "إعادة ضبط العرض", new_order_in: "وصل طلب جديد!", sound_on: "الصوت مفعّل", auto_settled: "تمت التسوية تلقائيًا", sound_off: "الصوت متوقف",
     live_orders: "الطلبات المباشرة", live_orders_sub: "تصل الفواتير لحظة إرسال الضيف. اضغط لتحريك الطلب.",
     n_new: "{n} جديدة", f_active: "نشطة", f_new: "جديدة", f_preparing: "قيد التحضير", f_served: "مُقدّمة", f_all: "الكل",
     no_orders_admin_t: "لا طلبات هنا بعد", no_orders_admin_b: "انتقل إلى عرض العميل بالأسفل، اطلب، وسيظهر هنا فورًا.",
@@ -797,12 +797,6 @@ const CSS = `
 .eb-namecard{padding:16px 22px 4px;}
 .eb-namecard h1{font-size:29px;font-weight:600;line-height:1;}
 .eb-namecard p{color:var(--ink-soft);font-size:13.5px;margin-top:5px;}
-.eb-values{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:18px;}
-.eb-value{background:var(--pine);color:var(--pine-ink);border-radius:15px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;}
-.eb-value.alt{background:var(--honey);color:var(--honey-ink);}
-.eb-value-ic{font-size:24px;}
-.eb-value b{font-size:12.5px;font-weight:600;line-height:1.15;}
-.eb-value span:last-child{font-size:10.5px;opacity:.82;line-height:1.2;}
 .eb-stampcard{background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);}
 .eb-stamps{display:flex;gap:8px;margin-top:12px;}
 .eb-stamp{flex:1;aspect-ratio:1;border-radius:50%;border:2px dashed var(--berry-soft);display:flex;align-items:center;justify-content:center;font-size:17px;color:transparent;transition:.3s;}
@@ -1322,11 +1316,6 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
           {!user && <button className="eb-btn ghost" style={{ marginTop: 14 }} onClick={() => go("account")}>{t("join_free")}</button>}
         </div>
         <button className="eb-btn honey" style={{ marginTop: 18, fontSize: 16, padding: 16 }} onClick={() => go("menu")}>🍽️ {t("view_menu")} {cartCount > 0 ? `· ${t("in_basket", { n: cartCount })}` : ""}</button>
-        <div className="eb-values">
-          <div className="eb-value"><span className="eb-value-ic">🔥</span><b>{t("v_roasted_t")}</b><span>{t("v_roasted_b")}</span></div>
-          <div className="eb-value alt"><span className="eb-value-ic">☕</span><b>{t("v_fresh_t")}</b><span>{t("v_fresh_b")}</span></div>
-          <div className="eb-value"><span className="eb-value-ic">🌿</span><b>{t("v_natural_t")}</b><span>{t("v_natural_b")}</span></div>
-        </div>
         <div style={{ marginTop: 24 }}>
           <h3 className="eb-serif" style={{ fontSize: 17, fontWeight: 600, marginBottom: 12 }}>{t("whats_on")}</h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 13 }}>
@@ -1943,7 +1932,7 @@ function AdminTables({ orders, payments, setTablePaid }) {
               <div key={tb.table} className={`eb-tablecard ${tb.due > 0 ? "owing" : ""} ${tb.called ? "called" : ""}`}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><span className="eb-table-badge">{t("table_n", { n: tb.table })}</span>{tb.active > 0 && <span className="eb-pill-mini">{tb.active} {t("in_kitchen")}</span>}</div>
                 <div style={{ marginTop: 12 }}>
-                  {tb.due > 0 ? (<><div style={{ fontSize: 22, fontWeight: 700, color: "var(--berry)" }}>{money(tb.due)}</div><div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("of_total", { total: money(tb.grand) })}</div></>) : (<div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ fontSize: 20 }}>✅</span><div style={{ fontSize: 15, fontWeight: 600, color: "var(--pine)" }}>{t("paid_in_full", { total: money(tb.grand) })}</div></div>)}
+                  {tb.due > 0 ? (<><div style={{ fontSize: 22, fontWeight: 700, color: "var(--berry)" }}>{money(tb.due)}</div><div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("of_total", { total: money(tb.grand) })}</div></>) : (<div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ fontSize: 20 }}>✅</span><div><div style={{ fontSize: 15, fontWeight: 600, color: "var(--pine)" }}>{t("paid_in_full", { total: money(tb.grand) })}</div><div style={{ fontSize: 11, color: "var(--ink-soft)" }}>{t("auto_settled")}</div></div></div>)}
                 </div>
                 {tb.called && <div className="eb-called">{t("bill_requested_alert")}</div>}
                 {tb.tips > 0 && <div style={{ marginTop: 8, fontSize: 12.5, color: "var(--pine)", fontWeight: 600 }}>💝 {t("tip_label")}: {money(tb.tips)}</div>}
