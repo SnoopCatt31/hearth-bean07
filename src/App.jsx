@@ -132,6 +132,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} stamps — 5 earns a free filter coffee or donut",
     signin_to_collect: "Sign in to collect a stamp with every order", join_free: "Join the Bean Club — it's free",
     view_menu: "View the menu", in_basket: "{n} in basket", whats_on: "What's on today",
+    congrats_t: "You earned a free donut!", congrats_b: "5 stamps complete. Here's your reward — it's saved to your account.", free_donut: "Free Donut", coupon_sub: "Bean Club reward", copy: "Copy", copied: "Copied", coupon_how: "Show this code at the counter, or tap \"use reward\" in your basket next time.", see_my_coupons: "See my coupons", keep_ordering: "Keep ordering", my_coupons: "My coupons", coupon_used_on: "Used on {d}", active: "Active", used: "Used", coupons_ready_n: "{n} free donuts waiting", coupon_ready_1: "A free donut is waiting", coupon_tap_view: "Tap to see your coupon code", redeem_coupon: "Redeem a coupon", redeem_ph: "Enter coupon code", redeem_btn: "Check & redeem", redeem_ok: "Valid! Donut redeemed ✓", redeem_used: "This coupon was already used", redeem_bad: "No such coupon code",
     menu: "Menu", sold_out: "Sold out", view_basket: "View basket", items: "items", item: "item",
     your_basket: "Your basket", empty_basket_t: "Nothing here yet", empty_basket_b: "Add something tasty from the menu.",
     browse_menu: "Browse the menu", delivering_to: "Delivering to Table {n}",
@@ -228,6 +229,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} damga — 5 damga ücretsiz filtre kahve veya donut kazandırır",
     signin_to_collect: "Her siparişte damga kazanmak için giriş yap", join_free: "Bean Club'a katıl — ücretsiz",
     view_menu: "Menüyü gör", in_basket: "sepette {n}", whats_on: "Bugün neler var",
+    congrats_t: "Bedava donut kazandın!", congrats_b: "5 damga tamamlandı. İşte ödülün — hesabına kaydedildi.", free_donut: "Bedava Donut", coupon_sub: "Bean Club ödülü", copy: "Kopyala", copied: "Kopyalandı", coupon_how: "Bu kodu kasada göster ya da bir dahaki sepetinde \"ödülü kullan\"a dokun.", see_my_coupons: "Kuponlarımı gör", keep_ordering: "Siparişe devam", my_coupons: "Kuponlarım", coupon_used_on: "{d} tarihinde kullanıldı", active: "Geçerli", used: "Kullanıldı", coupons_ready_n: "{n} bedava donut bekliyor", coupon_ready_1: "Bir bedava donut bekliyor", coupon_tap_view: "Kupon kodunu görmek için dokun", redeem_coupon: "Kupon kullan", redeem_ph: "Kupon kodunu gir", redeem_btn: "Kontrol et & kullan", redeem_ok: "Geçerli! Donut verildi ✓", redeem_used: "Bu kupon zaten kullanılmış", redeem_bad: "Böyle bir kupon kodu yok",
     menu: "Menü", sold_out: "Tükendi", view_basket: "Sepeti gör", items: "ürün", item: "ürün",
     your_basket: "Sepetin", empty_basket_t: "Henüz boş", empty_basket_b: "Menüden lezzetli bir şey ekle.",
     browse_menu: "Menüye göz at", delivering_to: "Masa {n}'e getirilecek",
@@ -324,6 +326,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} штампов — 5 дают бесплатный фильтр-кофе или пончик",
     signin_to_collect: "Войдите, чтобы получать штамп за каждый заказ", join_free: "Вступить в Bean Club — бесплатно",
     view_menu: "Открыть меню", in_basket: "{n} в корзине", whats_on: "Что сегодня",
+    congrats_t: "Вы получили бесплатный пончик!", congrats_b: "5 штампов собрано. Вот ваша награда — сохранена в аккаунте.", free_donut: "Бесплатный пончик", coupon_sub: "Награда Bean Club", copy: "Копировать", copied: "Скопировано", coupon_how: "Покажите код на кассе или нажмите \"использовать награду\" в корзине.", see_my_coupons: "Мои купоны", keep_ordering: "Продолжить заказ", my_coupons: "Мои купоны", coupon_used_on: "Использован {d}", active: "Активен", used: "Использован", coupons_ready_n: "{n} бесплатных пончиков ждут", coupon_ready_1: "Бесплатный пончик ждёт", coupon_tap_view: "Нажмите, чтобы увидеть код", redeem_coupon: "Использовать купон", redeem_ph: "Введите код купона", redeem_btn: "Проверить и списать", redeem_ok: "Верно! Пончик списан ✓", redeem_used: "Этот купон уже использован", redeem_bad: "Нет такого купона",
     menu: "Меню", sold_out: "Закончилось", view_basket: "Корзина", items: "поз.", item: "поз.",
     your_basket: "Ваша корзина", empty_basket_t: "Пока пусто", empty_basket_b: "Добавьте что-нибудь вкусное из меню.",
     browse_menu: "Открыть меню", delivering_to: "Доставим на стол {n}",
@@ -420,6 +423,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} Stempel — 5 bringen einen gratis Filterkaffee oder Donut",
     signin_to_collect: "Melde dich an, um bei jeder Bestellung einen Stempel zu sammeln", join_free: "Dem Bean Club beitreten — gratis",
     view_menu: "Speisekarte ansehen", in_basket: "{n} im Korb", whats_on: "Heute im Angebot",
+    congrats_t: "Du hast einen Gratis-Donut!", congrats_b: "5 Stempel voll. Hier ist deine Belohnung — im Konto gespeichert.", free_donut: "Gratis-Donut", coupon_sub: "Bean-Club-Belohnung", copy: "Kopieren", copied: "Kopiert", coupon_how: "Zeige diesen Code an der Theke oder tippe im Korb auf \"Belohnung einlösen\".", see_my_coupons: "Meine Gutscheine", keep_ordering: "Weiter bestellen", my_coupons: "Meine Gutscheine", coupon_used_on: "Eingelöst am {d}", active: "Aktiv", used: "Eingelöst", coupons_ready_n: "{n} Gratis-Donuts warten", coupon_ready_1: "Ein Gratis-Donut wartet", coupon_tap_view: "Tippe für deinen Code", redeem_coupon: "Gutschein einlösen", redeem_ph: "Gutscheincode eingeben", redeem_btn: "Prüfen & einlösen", redeem_ok: "Gültig! Donut eingelöst ✓", redeem_used: "Dieser Gutschein wurde bereits eingelöst", redeem_bad: "Kein solcher Gutscheincode",
     menu: "Speisekarte", sold_out: "Ausverkauft", view_basket: "Korb ansehen", items: "Artikel", item: "Artikel",
     your_basket: "Dein Korb", empty_basket_t: "Noch leer", empty_basket_b: "Füge etwas Leckeres aus der Karte hinzu.",
     browse_menu: "Karte durchstöbern", delivering_to: "Lieferung an Tisch {n}",
@@ -516,6 +520,7 @@ const STR = {
     bean_club: "نادي Bean", stamps_progress: "{n}/{max} ختم — 5 أختام تمنحك قهوة فلتر أو دونات مجانية",
     signin_to_collect: "سجّل الدخول لتجمع ختمًا مع كل طلب", join_free: "انضم إلى نادي Bean — مجانًا",
     view_menu: "عرض القائمة", in_basket: "{n} في السلة", whats_on: "عروض اليوم",
+    congrats_t: "حصلت على دونات مجانية!", congrats_b: "اكتملت 5 أختام. إليك مكافأتك — محفوظة في حسابك.", free_donut: "دونات مجانية", coupon_sub: "مكافأة Bean Club", copy: "نسخ", copied: "تم النسخ", coupon_how: "أظهر هذا الرمز عند الكاشير أو اضغط \"استخدام المكافأة\" في السلة.", see_my_coupons: "قسائمي", keep_ordering: "متابعة الطلب", my_coupons: "قسائمي", coupon_used_on: "استُخدمت في {d}", active: "فعّالة", used: "مستخدمة", coupons_ready_n: "{n} دونات مجانية بانتظارك", coupon_ready_1: "دونات مجانية بانتظارك", coupon_tap_view: "اضغط لرؤية الرمز", redeem_coupon: "استخدام قسيمة", redeem_ph: "أدخل رمز القسيمة", redeem_btn: "تحقق واستخدم", redeem_ok: "صحيح! تم صرف الدونات ✓", redeem_used: "هذه القسيمة مستخدمة بالفعل", redeem_bad: "لا يوجد رمز قسيمة كهذا",
     menu: "القائمة", sold_out: "نفد", view_basket: "عرض السلة", items: "عناصر", item: "عنصر",
     your_basket: "سلتك", empty_basket_t: "لا شيء بعد", empty_basket_b: "أضف شيئًا لذيذًا من القائمة.",
     browse_menu: "تصفح القائمة", delivering_to: "التوصيل إلى الطاولة {n}",
@@ -803,6 +808,23 @@ const CSS = `
 .eb-stamp.on{border-style:solid;border-color:var(--berry);background:var(--berry);color:#fff;animation:stamp .4s cubic-bezier(.2,1.4,.5,1);}
 @keyframes stamp{0%{transform:scale(.4) rotate(-18deg);opacity:0;}100%{transform:none;opacity:1;}}
 .eb-reward-banner{background:linear-gradient(100deg,#9C3B52,#b9526a);color:#fff;border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);}
+.eb-reward-screen{position:relative;overflow:hidden;min-height:560px;}
+.eb-confetti{position:absolute;inset:0;pointer-events:none;z-index:1;}
+.eb-confetti i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;opacity:.9;animation:conffall linear forwards;}
+@keyframes conffall{0%{transform:translateY(-20px) rotate(0);opacity:1;}100%{transform:translateY(620px) rotate(540deg);opacity:.7;}}
+.eb-reward-emoji{font-size:72px;animation:rewardpop .7s cubic-bezier(.2,1.5,.4,1) both;}
+@keyframes rewardpop{0%{transform:scale(0) rotate(-30deg);}70%{transform:scale(1.25) rotate(8deg);}100%{transform:scale(1) rotate(0);}}
+.eb-coupon{position:relative;z-index:2;margin:22px auto 0;max-width:300px;background:var(--paper);border:2px dashed var(--honey);border-radius:18px;padding:0;overflow:hidden;box-shadow:var(--shadow);}
+.eb-coupon-top{display:flex;align-items:center;gap:12px;padding:16px;}
+.eb-coupon-perf{height:0;border-top:2px dashed var(--line);margin:0 14px;position:relative;}
+.eb-coupon-perf::before,.eb-coupon-perf::after{content:"";position:absolute;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--bg);}
+.eb-coupon-perf::before{left:-23px;}.eb-coupon-perf::after{right:-23px;}
+.eb-coupon-code{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;background:var(--honey);}
+.eb-coupon-code span{font-family:'DM Mono',ui-monospace,monospace;font-size:18px;font-weight:600;letter-spacing:1px;color:var(--honey-ink);}
+.eb-copybtn{background:var(--honey-ink);color:var(--honey);font-size:12px;font-weight:600;padding:7px 12px;border-radius:9px;white-space:nowrap;}
+.eb-coupon-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:13px;padding:12px;margin-bottom:9px;background:var(--paper);}
+.eb-coupon-row.used{opacity:.55;}
+.eb-coupon-row.used .eb-mono{text-decoration:line-through;}
 .eb-billrow{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;transition:.14s;}
 .eb-billrow:hover{border-color:var(--honey);}
 .eb-pp{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
@@ -1074,7 +1096,7 @@ export default function App() {
           {!isStaffRoute ? (
             <CustomerApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} slides={slides} payments={payments} setPayments={setPayments} flash={flash} />
           ) : staffAuthed ? (
-            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} payments={payments} setPayments={setPayments} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
+            <AdminApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} payments={payments} setPayments={setPayments} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
           ) : (
             <StaffLogin onSuccess={() => setStaffAuthed(true)} onBack={goCustomer} />
           )}
@@ -1095,11 +1117,15 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
   const [user, setUser] = useState(null);
   const [lastOrderId, setLastOrderId] = useState(null);
   const [useReward, setUseReward] = useState(false);
+  const [redeemCode, setRedeemCode] = useState(null);   // kullanılacak kuponun kodu
+  const [newCoupon, setNewCoupon] = useState(null);     // yeni kazanılan kupon (kutlama ekranı için)
 
   const itemsById = useMemo(() => Object.fromEntries(menu.map((i) => [i.id, i])), [menu]);
   const record = user ? customers[user] : null;
   const stamps = record ? record.stamps : 0;
-  const hasReward = stamps >= REWARD_THRESHOLD;
+  const myCoupons = (record && Array.isArray(record.coupons)) ? record.coupons : [];
+  const activeCoupons = myCoupons.filter((c) => !c.used);
+  const hasReward = activeCoupons.length > 0;
 
   const cartList = Object.entries(cart).map(([id, v]) => (itemsById[id] ? { ...itemsById[id], ...v } : null)).filter(Boolean);
   const cartCount = cartList.reduce((s, i) => s + i.qty, 0);
@@ -1107,6 +1133,9 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
   const subtotal = cartList.reduce((s, i) => s + i.price * i.qty, 0);
   const discount = rewardItem ? rewardItem.price : 0;
   const total = Math.max(0, subtotal - discount);
+
+  // Ödülü kullanmaya karar verince ilk aktif kuponu seç
+  useEffect(() => { if (useReward && hasReward && !redeemCode) setRedeemCode(activeCoupons[0].code); if (!useReward && redeemCode) setRedeemCode(null); }, [useReward, hasReward]); // eslint-disable-line
 
   const add = (id) => { setCart((c) => ({ ...c, [id]: { qty: (c[id]?.qty || 0) + 1, note: c[id]?.note || "" } })); flash(t("t_added", { name: itemsById[id]?.name })); };
   const dec = (id) => setCart((c) => { const q = (c[id]?.qty || 0) - 1; if (q <= 0) { const n = { ...c }; delete n[id]; return n; } return { ...c, [id]: { ...c[id], qty: q } }; });
@@ -1118,19 +1147,34 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
       id, table,
       items: cartList.map((i) => ({ id: i.id, name: i.name, price: i.price, qty: i.qty, note: i.note || "" })),
       orderNote: orderNote || "", customerEmail: user || null, customerName: record ? record.name : null,
-      rewardUsed: !!rewardItem, status: "new", paid: false, paidAt: null, billRequested: false,
+      rewardUsed: !!rewardItem, couponCode: rewardItem ? (redeemCode || null) : null, status: "new", paid: false, paidAt: null, billRequested: false,
       createdAt: new Date().toISOString(), subtotal, discount, total,
     };
     setOrders((o) => [order, ...o]);
+    let mintedCoupon = null;
     if (user) {
       setCustomers((cs) => {
-        const r = cs[user] || { email: user, name: record?.name || "", orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString() };
+        const r = cs[user] || { email: user, name: record?.name || "", orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString(), coupons: [] };
+        const coupons = Array.isArray(r.coupons) ? [...r.coupons] : [];
+        // Bu siparişte bir kupon kullanıldıysa onu "kullanıldı" işaretle
+        if (rewardItem && redeemCode) {
+          const idx = coupons.findIndex((c) => c.code === redeemCode && !c.used);
+          if (idx >= 0) coupons[idx] = { ...coupons[idx], used: true, usedAt: new Date().toISOString() };
+        }
         let newStamps = r.stamps + 1;
-        if (rewardItem) newStamps = Math.max(0, r.stamps - REWARD_THRESHOLD + 1);
-        return { ...cs, [user]: { ...r, orders: r.orders + 1, stamps: newStamps, totalSpent: r.totalSpent + total } };
+        // 5'e ulaşınca: benzersiz kupon üret, damgayı 5 düşür
+        if (newStamps >= REWARD_THRESHOLD) {
+          newStamps = newStamps - REWARD_THRESHOLD;
+          const code = "HB-" + Math.random().toString(36).slice(2, 6).toUpperCase() + Math.random().toString(36).slice(2, 4).toUpperCase();
+          mintedCoupon = { code, reward: "donut", issuedAt: new Date().toISOString(), used: false, usedAt: null };
+          coupons.push(mintedCoupon);
+        }
+        return { ...cs, [user]: { ...r, orders: r.orders + 1, stamps: newStamps, totalSpent: r.totalSpent + total, coupons } };
       });
     }
-    setLastOrderId(id); setCart({}); setUseReward(false); setScreen("placed");
+    setLastOrderId(id); setCart({}); setUseReward(false); setRedeemCode(null);
+    if (mintedCoupon) { setNewCoupon(mintedCoupon); setScreen("reward"); }
+    else setScreen("placed");
   };
 
   const requestBill = () => {
@@ -1192,7 +1236,7 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
 
   const signIn = (email, name) => {
     const key = email.trim().toLowerCase();
-    setCustomers((cs) => cs[key] ? cs : { ...cs, [key]: { email: key, name: name || key.split("@")[0], orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString() } });
+    setCustomers((cs) => cs[key] ? cs : { ...cs, [key]: { email: key, name: name || key.split("@")[0], orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString(), coupons: [] } });
     setUser(key); flash(t("t_signed_in")); setScreen("home");
   };
 
@@ -1201,14 +1245,15 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
       <div className="eb-phone">
         <div className="eb-phone-bar"><i /></div>
         {screen === "scan" && <ScanScreen onDetect={(tb) => { setTable(tb); setScreen("home"); }} />}
-        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} menu={menu} slides={slides} tableOrders={tableOrders} tableDue={tableDue} go={setScreen} goToCat={(c) => { setMenuCat(c); setScreen("menu"); }} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
+        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} couponCount={activeCoupons.length} menu={menu} slides={slides} tableOrders={tableOrders} tableDue={tableDue} go={setScreen} goToCat={(c) => { setMenuCat(c); setScreen("menu"); }} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
         {screen === "menu" && <MenuScreen menu={menu} cart={cart} add={add} dec={dec} cartCount={cartCount} total={subtotal} back={() => setScreen("home")} toCart={() => setScreen("cart")} place={placeOrder} jumpCat={menuCat} clearJump={() => setMenuCat(null)} />}
-        {screen === "cart" && <CartScreen cartList={cartList} add={add} dec={dec} setNote={setNote} subtotal={subtotal} total={total} discount={discount} rewardItem={rewardItem} hasReward={hasReward} useReward={useReward} setUseReward={setUseReward} user={user} table={table} back={() => setScreen("menu")} place={placeOrder} toAuth={() => setScreen("auth")} />}
+        {screen === "cart" && <CartScreen cartList={cartList} add={add} dec={dec} setNote={setNote} subtotal={subtotal} total={total} discount={discount} rewardItem={rewardItem} hasReward={hasReward} couponCount={activeCoupons.length} useReward={useReward} setUseReward={setUseReward} user={user} table={table} back={() => setScreen("menu")} place={placeOrder} toAuth={() => setScreen("auth")} />}
         {screen === "bill" && <BillScreen table={table} orders={tableOrders} due={tableDue} requestBill={requestBill} back={() => setScreen("home")} toMenu={() => setScreen("menu")} toPay={() => setScreen("pay")} />}
         {screen === "pay" && <PayScreen table={table} due={tableDue} myUnpaid={myUnpaid} unpaidOrders={tableOrders.filter((o) => !o.paid)} user={user} recordPayment={recordPayment} back={() => setScreen("bill")} done={() => setScreen("bill")} />}
         {screen === "placed" && <PlacedScreen order={orders.find((o) => o.id === lastOrderId)} table={table} user={user} stamps={stamps} hasReward={hasReward} backToMenu={() => setScreen("menu")} toAccount={() => setScreen("account")} toAuth={() => setScreen("auth")} toBill={() => setScreen("bill")} />}
+        {screen === "reward" && <RewardScreen coupon={newCoupon} backToMenu={() => { setNewCoupon(null); setScreen("menu"); }} toAccount={() => { setNewCoupon(null); setScreen("account"); }} toBill={() => { setNewCoupon(null); setScreen("bill"); }} />}
         {screen === "auth" && <AuthScreen onSignIn={signIn} back={() => setScreen(cartCount ? "cart" : "home")} />}
-        {screen === "account" && <AccountScreen user={user} record={record} stamps={stamps} hasReward={hasReward} orders={orders.filter((o) => o.customerEmail === user)} reorder={reorder} back={() => setScreen("home")} signOut={() => { setUser(null); setScreen("home"); }} toAuth={() => setScreen("auth")} />}
+        {screen === "account" && <AccountScreen user={user} record={record} stamps={stamps} hasReward={hasReward} coupons={myCoupons} orders={orders.filter((o) => o.customerEmail === user)} reorder={reorder} back={() => setScreen("home")} signOut={() => { setUser(null); setScreen("home"); }} toAuth={() => setScreen("auth")} />}
       </div>
     </div>
   );
@@ -1272,7 +1317,7 @@ function Carousel({ slides }) {
 }
 
 
-function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tableOrders, tableDue, go, goToCat, rescan, onBill, cartCount }) {
+function HomeScreen({ table, user, record, stamps, hasReward, couponCount, menu, slides, tableOrders, tableDue, go, goToCat, rescan, onBill, cartCount }) {
   const { t } = useT();
   const due = tableDue != null ? tableDue : tableOrders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
   const hasOrders = tableOrders.length > 0;
@@ -1306,13 +1351,13 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
         )}
       </div>
       <div className="eb-pad" style={{ marginTop: 14 }}>
-        {hasReward && <div className="eb-reward-banner" style={{ marginBottom: 14 }}><span style={{ fontSize: 26 }}>🎁</span><div><b style={{ fontSize: 14 }}>{t("reward_ready_t")}</b><div style={{ fontSize: 12.5, opacity: .9 }}>{t("reward_ready_b")}</div></div></div>}
+        {hasReward && <button onClick={() => go("account")} className="eb-reward-banner" style={{ marginBottom: 14, width: "100%", textAlign: "start" }}><span style={{ fontSize: 26 }}>🎟️</span><div><b style={{ fontSize: 14 }}>{couponCount > 1 ? t("coupons_ready_n", { n: couponCount }) : t("coupon_ready_1")}</b><div style={{ fontSize: 12.5, opacity: .9 }}>{t("coupon_tap_view")}</div></div></button>}
         <div className="eb-stampcard">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div><b className="eb-serif" style={{ fontSize: 17 }}>{t("bean_club")}</b><div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{user ? t("stamps_progress", { n: stamps, max: REWARD_THRESHOLD }) : t("signin_to_collect")}</div></div>
             <span style={{ fontSize: 22 }}>{hasReward ? "🎉" : "⭐"}</span>
           </div>
-          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${(hasReward && i < REWARD_THRESHOLD) || i < (stamps % (REWARD_THRESHOLD + 1)) ? "on" : ""}`}>☕</div>)}</div>
+          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${i < stamps ? "on" : ""}`}>☕</div>)}</div>
           {!user && <button className="eb-btn ghost" style={{ marginTop: 14 }} onClick={() => go("account")}>{t("join_free")}</button>}
         </div>
         <button className="eb-btn honey" style={{ marginTop: 18, fontSize: 16, padding: 16 }} onClick={() => go("menu")}>🍽️ {t("view_menu")} {cartCount > 0 ? `· ${t("in_basket", { n: cartCount })}` : ""}</button>
@@ -1710,7 +1755,36 @@ function AuthScreen({ onSignIn, back }) {
   );
 }
 
-function AccountScreen({ user, record, stamps, hasReward, orders, reorder, back, signOut, toAuth }) {
+function RewardScreen({ coupon, backToMenu, toAccount, toBill }) {
+  const { t } = useT();
+  const [copied, setCopied] = useState(false);
+  const code = coupon?.code || "HB-XXXX";
+  const confetti = useMemo(() => Array.from({ length: 28 }).map((_, i) => ({
+    left: Math.random() * 100, delay: Math.random() * 0.6, dur: 1.6 + Math.random() * 1.4,
+    bg: ["var(--honey)", "var(--berry)", "var(--pine)", "var(--honey-2)"][i % 4], rot: Math.random() * 360,
+  })), []);
+  const copy = () => { try { navigator.clipboard?.writeText(code); } catch { /* ignore */ } setCopied(true); setTimeout(() => setCopied(false), 1800); };
+  return (
+    <div className="eb-screen eb-reward-screen">
+      <div className="eb-confetti">{confetti.map((c, i) => <i key={i} style={{ left: c.left + "%", animationDelay: c.delay + "s", animationDuration: c.dur + "s", background: c.bg, transform: `rotate(${c.rot}deg)` }} />)}</div>
+      <div className="eb-pad" style={{ textAlign: "center", paddingTop: 40 }}>
+        <div className="eb-reward-emoji">🍩</div>
+        <h1 className="eb-serif" style={{ fontSize: 27, fontWeight: 600, marginTop: 12 }}>{t("congrats_t")}</h1>
+        <p style={{ color: "var(--ink-soft)", fontSize: 14, marginTop: 8, lineHeight: 1.5 }}>{t("congrats_b")}</p>
+        <div className="eb-coupon">
+          <div className="eb-coupon-top"><span style={{ fontSize: 28 }}>🍩</span><div style={{ textAlign: "start" }}><b style={{ fontSize: 15 }}>{t("free_donut")}</b><div style={{ fontSize: 11.5, opacity: .85 }}>{t("coupon_sub")}</div></div></div>
+          <div className="eb-coupon-perf" />
+          <div className="eb-coupon-code"><span>{code}</span><button onClick={copy} className="eb-copybtn">{copied ? "✓ " + t("copied") : t("copy")}</button></div>
+        </div>
+        <p style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 16, lineHeight: 1.5 }}>{t("coupon_how")}</p>
+        <button className="eb-btn honey" style={{ marginTop: 20 }} onClick={toAccount}>{t("see_my_coupons")}</button>
+        <button className="eb-btn ghost" style={{ marginTop: 10 }} onClick={backToMenu}>{t("keep_ordering")}</button>
+      </div>
+    </div>
+  );
+}
+
+function AccountScreen({ user, record, stamps, hasReward, coupons = [], orders, reorder, back, signOut, toAuth }) {
   const { t } = useT();
   if (!user) return (
     <div className="eb-screen">
@@ -1725,9 +1799,22 @@ function AccountScreen({ user, record, stamps, hasReward, orders, reorder, back,
       <div className="eb-pad">
         <div className="eb-stampcard">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><b className="eb-serif" style={{ fontSize: 17 }}>{t("bean_club")}</b><span className="eb-pill-mini">{t("orders_count", { n: record?.orders || 0 })}</span></div>
-          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${(hasReward || i < stamps) ? "on" : ""}`}>☕</div>)}</div>
-          <div style={{ fontSize: 12.5, color: "var(--ink-soft)", marginTop: 10 }}>{hasReward ? t("reward_ready_short") : t("more_until", { n: REWARD_THRESHOLD - stamps })}</div>
+          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${i < stamps ? "on" : ""}`}>☕</div>)}</div>
+          <div style={{ fontSize: 12.5, color: "var(--ink-soft)", marginTop: 10 }}>{t("more_until", { n: REWARD_THRESHOLD - stamps })}</div>
         </div>
+        {coupons.length > 0 && (<>
+          <h3 className="eb-serif" style={{ fontSize: 16, fontWeight: 600, margin: "22px 0 10px" }}>🎟️ {t("my_coupons")}</h3>
+          {[...coupons].reverse().map((c) => (
+            <div key={c.code} className={`eb-coupon-row ${c.used ? "used" : ""}`}>
+              <span style={{ fontSize: 24 }}>🍩</span>
+              <div style={{ flex: 1, textAlign: "start" }}>
+                <b className="eb-mono" style={{ fontSize: 14 }}>{c.code}</b>
+                <div style={{ fontSize: 11.5, color: "var(--ink-soft)" }}>{c.used ? t("coupon_used_on", { d: new Date(c.usedAt).toLocaleDateString() }) : t("free_donut")}</div>
+              </div>
+              <span className={`eb-pp ${c.used ? "" : "paid"}`}>{c.used ? t("used") : t("active")}</span>
+            </div>
+          ))}
+        </>)}
         <h3 className="eb-serif" style={{ fontSize: 16, fontWeight: 600, margin: "22px 0 10px" }}>{t("order_history")}</h3>
         {sorted.length === 0 ? <p style={{ color: "var(--ink-soft)", fontSize: 14 }}>{t("no_orders_hist")}</p> : sorted.map((o) => (
           <div key={o.id} style={{ border: "1px solid var(--line)", borderRadius: 13, padding: 13, marginBottom: 10, background: "var(--paper)" }}>
@@ -1778,7 +1865,7 @@ function StaffLogin({ onSuccess, onBack }) {
   );
 }
 
-function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, payments, setPayments, flash, resetDemo, onSignOut }) {
+function AdminApp({ orders, setOrders, customers, setCustomers, menu, setMenu, slides, setSlides, payments, setPayments, flash, resetDemo, onSignOut }) {
   const { t } = useT();
   const [tab, setTab] = useState("orders");
   const newCount = orders.filter((o) => o.status === "new").length;
@@ -1857,7 +1944,7 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
         {tab === "gallery" && <AdminGallery slides={slides} setSlides={setSlides} flash={flash} />}
         {tab === "brand" && <AdminBrand flash={flash} />}
         {tab === "stats" && <AdminStats orders={orders} customers={customers} menu={menu} payments={payments} />}
-        {tab === "customers" && <AdminCustomers customers={customers} flash={flash} />}
+        {tab === "customers" && <AdminCustomers customers={customers} setCustomers={setCustomers} flash={flash} />}
       </div>
     </div>
   );
@@ -2170,15 +2257,48 @@ function AdminStats({ orders, customers, menu, payments }) {
 }
 
 
-function AdminCustomers({ customers, flash }) {
+function AdminCustomers({ customers, setCustomers, flash }) {
   const { t } = useT();
   const list = Object.values(customers).sort((a, b) => new Date(b.joinedAt) - new Date(a.joinedAt));
   const [composing, setComposing] = useState(false);
   const [subject, setSubject] = useState(""); const [msg, setMsg] = useState("");
+  const [redeem, setRedeem] = useState("");
   const send = () => { flash(t("t_promo_queued", { n: list.length })); setComposing(false); setSubject(""); setMsg(""); };
+  // Toplam aktif/kullanılan kupon sayıları
+  const allCoupons = list.flatMap((c) => (Array.isArray(c.coupons) ? c.coupons.map((cp) => ({ ...cp, owner: c.email })) : []));
+  const activeCount = allCoupons.filter((c) => !c.used).length;
+  const doRedeem = () => {
+    const code = redeem.trim().toUpperCase();
+    if (!code) return;
+    let result = "bad";
+    setCustomers((cs) => {
+      const next = { ...cs };
+      for (const email of Object.keys(next)) {
+        const r = next[email];
+        const coupons = Array.isArray(r.coupons) ? r.coupons : [];
+        const idx = coupons.findIndex((c) => c.code === code);
+        if (idx >= 0) {
+          if (coupons[idx].used) { result = "used"; return cs; }
+          const nc = [...coupons]; nc[idx] = { ...nc[idx], used: true, usedAt: new Date().toISOString() };
+          result = "ok";
+          next[email] = { ...r, coupons: nc };
+          return next;
+        }
+      }
+      return cs;
+    });
+    setTimeout(() => { flash(t(result === "ok" ? "redeem_ok" : result === "used" ? "redeem_used" : "redeem_bad")); if (result === "ok") setRedeem(""); }, 0);
+  };
   return (
     <div>
       <div className="eb-ahead"><div><h1 className="eb-serif">{t("customers")}</h1><p>{t("customers_sub")}</p></div>{list.length > 0 && <button className="eb-btn honey" style={{ width: "auto", padding: "12px 20px" }} onClick={() => setComposing(true)}>✉️ {t("email_all")}</button>}</div>
+      <div className="eb-panel" style={{ marginBottom: 16, padding: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}><b style={{ fontSize: 14 }}>🎟️ {t("redeem_coupon")}</b><span className="eb-pill-mini">{activeCount} {t("active")}</span></div>
+        <div style={{ display: "flex", gap: 8 }}>
+          <input className="eb-input" style={{ flex: 1, fontFamily: "'DM Mono',monospace", textTransform: "uppercase" }} placeholder={t("redeem_ph")} value={redeem} onChange={(e) => setRedeem(e.target.value)} onKeyDown={(e) => e.key === "Enter" && doRedeem()} />
+          <button className="eb-btn honey" style={{ width: "auto", padding: "12px 18px" }} onClick={doRedeem}>{t("redeem_btn")}</button>
+        </div>
+      </div>
       {list.length === 0 ? (
         <div className="eb-empty"><div className="em">👥</div><h3>{t("no_members_t")}</h3><p>{t("no_members_b")}</p></div>
       ) : (
@@ -2189,7 +2309,7 @@ function AdminCustomers({ customers, flash }) {
               {list.map((c) => (
                 <tr key={c.email}>
                   <td><b>{c.name}</b></td><td className="eb-mono" style={{ fontSize: 12.5 }}>{c.email}</td><td>{c.orders}</td>
-                  <td><span className="eb-pill-mini">☕ {c.stamps}</span></td><td>{money(c.totalSpent)}</td><td style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{new Date(c.joinedAt).toLocaleDateString()}</td>
+                  <td><span className="eb-pill-mini">☕ {c.stamps}</span>{Array.isArray(c.coupons) && c.coupons.filter((x) => !x.used).length > 0 && <span className="eb-pill-mini" style={{ marginInlineStart: 5, background: "var(--honey)", color: "var(--honey-ink)" }}>🎟️ {c.coupons.filter((x) => !x.used).length}</span>}</td><td>{money(c.totalSpent)}</td><td style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{new Date(c.joinedAt).toLocaleDateString()}</td>
                   <td><button className="eb-link" style={{ fontSize: 12.5 }} onClick={() => setComposing(c.email)}>{t("email_btn")}</button></td>
                 </tr>
               ))}
