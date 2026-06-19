@@ -1045,10 +1045,25 @@ export default function App() {
   }, []);
 
   // Canlı senkron: başka bir cihaz veriyi değiştirince buraya düşer.
-  // applyingRemote ref'i, gelen veriyi tekrar Supabase'e geri yazmamızı engeller.
+  // --- Realtime senkron + yerel yazma koruması ---
+  // Buton "geri alınması" sorununun sebebi: admin bir değişiklik yapınca, neredeyse aynı anda
+  // gelen (eski/echo) bir realtime güncellemesi yerel değişikliğin üstüne yazıp geri alıyordu.
+  // Çözüm: her anahtar için en son YAZDIĞIMIZ değeri ve zamanı hatırla; gelen güncelleme bizim
+  // yazdığımızın aynısıysa (echo) veya yakın zamanda yerel yazma yaptıysak, onu yok say.
   const applyingRemote = useRef(false);
+  const lastLocalWrite = useRef({});   // { key: timestamp }
+  const lastSentJSON = useRef({});     // { key: JSON.stringify(value) }
+  const WRITE_GUARD_MS = 4000;         // yerel yazmadan sonra bu süre içinde gelen echo'yu yut
+
   useEffect(() => {
     const unsub = subscribeShared((key, value) => {
+      const incoming = JSON.stringify(value);
+      // 1) Echo: bizim gönderdiğimiz değerle birebir aynıysa yok say
+      if (lastSentJSON.current[key] === incoming) return;
+      // 2) Yakın zamanda yerel yazma yaptıysak, gelen güncelleme muhtemelen eski — yut
+      const since = Date.now() - (lastLocalWrite.current[key] || 0);
+      if (since < WRITE_GUARD_MS) return;
+      // 3) Gerçekten başka bir cihazdan gelen yeni veri — uygula
       applyingRemote.current = true;
       if (key === K_ORDERS) setOrders(value || []);
       else if (key === K_CUSTOMERS) setCustomers(value || {});
@@ -1061,14 +1076,21 @@ export default function App() {
     return unsub;
   }, []);
 
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_ORDERS, orders); }, [orders, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_CUSTOMERS, customers); }, [customers, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_MENU, menu); }, [menu, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_SLIDES, slides); }, [slides, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_PAYMENTS, payments); }, [payments, loaded]);
+  // Kaydetme yardımcısı: yazdığımız değeri ve zamanı kaydeder (echo korumasını besler)
+  const persist = (key, value) => {
+    lastLocalWrite.current[key] = Date.now();
+    lastSentJSON.current[key] = JSON.stringify(value);
+    saveJSON(key, value);
+  };
+
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_ORDERS, orders); }, [orders, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_CUSTOMERS, customers); }, [customers, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_MENU, menu); }, [menu, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_SLIDES, slides); }, [slides, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_PAYMENTS, payments); }, [payments, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_LANG, lang); }, [lang, loaded]);
   // Tema artık ortak (Supabase). Yalnızca admin/personel ekranı yazabilir; müşteri sadece okur.
-  useEffect(() => { if (loaded && isStaffRoute && !applyingRemote.current) saveJSON(K_THEME, themeId); }, [themeId, loaded, isStaffRoute]);
+  useEffect(() => { if (loaded && isStaffRoute && !applyingRemote.current) persist(K_THEME, themeId); }, [themeId, loaded, isStaffRoute]);
   useEffect(() => { if (loaded) saveJSON(K_STAFF, staffAuthed); }, [staffAuthed, loaded]);
 
   const t = useMemo(() => makeT(lang), [lang]);
@@ -1190,12 +1212,28 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
     order.items.forEach((it) => { const m = itemsById[it.id]; if (m && m.available) { setCart((c) => ({ ...c, [it.id]: { qty: (c[it.id]?.qty || 0) + it.qty, note: c[it.id]?.note || "" } })); added += 1; } });
     if (added) { flash(t("t_to_basket")); setScreen("cart"); } else flash(t("t_unavailable"));
   };
-  const tableOrders = orders.filter((o) => o.table === table);
+  // Müşteri görünümü: önceki misafirin kapanmış hesabını YENİ misafire gösterme.
+  // Kural: ödenmemiş siparişler her zaman görünür; ödenmiş siparişler yalnızca son birkaç
+  // dakika içinde ödendiyse görünür (ödeyen kişi fişini görsün diye). Masa uzun süre önce
+  // tamamen ödendiyse, sonradan oturan misafir temiz bir masa görür.
+  const SESSION_MS = 8 * 60 * 1000; // 8 dk: ödeme sonrası fişin görünür kalma süresi
+  const allTableOrders = orders.filter((o) => o.table === table);
+  const sessionFresh = (o) => !o.paid || (o.paidAt && (Date.now() - new Date(o.paidAt).getTime()) < SESSION_MS);
+  const tableOrders = allTableOrders.filter(sessionFresh);
   const tablePayments = (payments && payments[table]) || [];
-  const paidViaOrders = tableOrders.filter((o) => o.paid).reduce((s, o) => s + o.total, 0);
-  const paidViaPartial = tablePayments.reduce((s, p) => s + (p.amount || 0), 0);
+  // Tutarları ürün-birim seviyesinden hesapla (kısmi ürün ödemeleri doğru düşsün diye).
+  // Bir siparişin ödenen kısmı: paidUnits varsa ödenen birimlerin değeri; yoksa paid ise tamamı.
+  const orderPaidValue = (o) => {
+    if (o.paidUnits && Object.keys(o.paidUnits).length) {
+      return o.items.reduce((s, it, i) => s + it.price * Math.min(it.qty, o.paidUnits[i] || 0), 0);
+    }
+    return o.paid ? o.total : 0;
+  };
   const tableGrand = tableOrders.reduce((s, o) => s + o.total, 0);
-  const tableDue = Math.max(0, tableGrand - paidViaOrders - paidViaPartial);
+  const paidViaItems = tableOrders.reduce((s, o) => s + orderPaidValue(o), 0);
+  // "tip"/"settled" dışındaki saf tutar bazlı kısmi ödemeler (even/custom). Ürün ödemeleri zaten yukarıda sayıldı.
+  const paidViaPartial = tablePayments.filter((p) => p.kind !== "items").reduce((s, p) => s + (p.amount || 0), 0);
+  const tableDue = Math.max(0, tableGrand - paidViaItems - paidViaPartial);
   const myUnpaid = tableOrders.filter((o) => !o.paid && user && o.customerEmail === user).reduce((s, o) => s + o.total, 0);
 
   // Bir ödemeyi kaydet. amount: anapara, tip: bahşiş.
@@ -1203,9 +1241,27 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
   // Aksi halde kısmi ödeme olarak tabloya yazılır (Alman usulü / elle tutar).
   // Kısmi ödemeler birikip kalan tüm tutarı kapatınca, tüm siparişler otomatik "ödendi" olur
   // ve kısmi ödeme kayıtları temizlenir — böylece iki arayüzde de "ödendi" görünür.
-  const recordPayment = ({ amount = 0, tip = 0, coversOrderIds = null }) => {
+  const recordPayment = ({ amount = 0, tip = 0, coversOrderIds = null, paidUnits = null }) => {
     const tip100 = Math.round((tip || 0) * 100);
     const amt100 = Math.round((amount || 0) * 100);
+
+    // --- Ürün seçerek ödeme: belirli birimleri ödenmiş işaretle ---
+    if (paidUnits && Object.keys(paidUnits).length) {
+      setOrders((os) => os.map((o) => {
+        const sel = paidUnits[o.id];
+        if (!sel) return o;
+        const pu = { ...(o.paidUnits || {}) };
+        Object.entries(sel).forEach(([idx, cnt]) => { pu[idx] = (pu[idx] || 0) + cnt; });
+        // Siparişteki tüm birimler ödendiyse siparişi tamamen "ödendi" yap
+        const allPaid = o.items.every((it, i) => (pu[i] || 0) >= it.qty);
+        return { ...o, paidUnits: pu, paid: allPaid ? true : o.paid, paidAt: allPaid ? new Date().toISOString() : o.paidAt, billRequested: allPaid ? false : o.billRequested };
+      }));
+      if (tip100 > 0) {
+        setPayments((pm) => { const list = (pm && pm[table]) || []; return { ...pm, [table]: [...list, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] }; });
+      }
+      flash(t("payment_sent_d", { amt: money((amount || 0) + (tip || 0)), n: table }));
+      return;
+    }
 
     if (coversOrderIds && coversOrderIds.length) {
       // Belirli siparişleri doğrudan ödendi işaretle, bahşişi kaydet
@@ -1492,7 +1548,12 @@ function BillScreen({ table, orders, due, requestBill, back, toMenu, toPay }) {
           {sorted.map((o) => (
             <div key={o.id} style={{ border: "1px solid var(--line)", borderRadius: 14, padding: 14, marginBottom: 12, background: "var(--paper)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><b className="eb-mono" style={{ fontSize: 13 }}>{o.id}</b><span className={`eb-pp ${o.paid ? "paid" : "unpaid"}`}>{o.paid ? t("paid") : t("unpaid")}</span></div>
-              {o.items.map((i, k) => (<div key={k} style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginTop: 5 }}><span><span className="eb-mono" style={{ color: "var(--berry)", fontWeight: 700, marginInlineEnd: 6 }}>{i.qty}×</span>{i.name}</span><span>{money(i.price * i.qty)}</span></div>))}
+              {o.items.map((i, k) => { const paidU = (o.paidUnits && o.paidUnits[k]) || (o.paid ? i.qty : 0); const unpaidU = Math.max(0, i.qty - paidU); return (
+                <div key={k} style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginTop: 5, opacity: unpaidU === 0 ? .5 : 1 }}>
+                  <span><span className="eb-mono" style={{ color: "var(--berry)", fontWeight: 700, marginInlineEnd: 6 }}>{i.qty}×</span>{i.name}{paidU > 0 && unpaidU > 0 && <span style={{ fontSize: 11, color: "var(--pine)", marginInlineStart: 6 }}>({paidU} {t("paid").toLowerCase()})</span>}{unpaidU === 0 && <span style={{ fontSize: 11, color: "var(--pine)", marginInlineStart: 6 }}>✓</span>}</span>
+                  <span>{money(i.price * i.qty)}</span>
+                </div>
+              ); })}
               {o.discount > 0 && <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, color: "var(--berry)", marginTop: 4 }}><span>{t("reward_word")}</span><span>−{money(o.discount)}</span></div>}
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, fontWeight: 700, marginTop: 7, paddingTop: 7, borderTop: "1px dashed var(--line)" }}><span>{t("order_total")}</span><span>{money(o.total)}</span></div>
             </div>
@@ -1528,7 +1589,8 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
   const [coversIds, setCoversIds] = useState(null);
   const [tipPct, setTipPct] = useState(null);     // seçili yüzde
   const [tipCustom, setTipCustom] = useState(""); // elle bahşiş
-  const [picked, setPicked] = useState({});        // ürün seçimi: { "orderId|itemIndex": true }
+  const [picked, setPicked] = useState({});        // ürün seçimi: { "orderId|itemIndex" : true }
+  const [pickedUnits, setPickedUnits] = useState(null); // { orderId: { itemIndex: adet } }
   const TIP_PCTS = [10, 15, 20];
 
   if (due <= 0) {
@@ -1557,7 +1619,7 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
   const grandPay = base + tipAmount;
 
   const confirmPay = () => {
-    recordPayment({ amount: base, tip: tipAmount, coversOrderIds: coversIds });
+    recordPayment({ amount: base, tip: tipAmount, coversOrderIds: coversIds, paidUnits: pickedUnits });
     setStage("sent");
   };
 
@@ -1611,25 +1673,34 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
 
   // STAGE: ürün seçerek öde
   if (stage === "items") {
-    // Tüm ödenmemiş siparişlerdeki ürünleri tek tek listele (adet kadar satır)
+    // Her siparişin item'larını adet adet listele; daha önce ödenmiş birimleri (paidUnits) atla.
     const rows = [];
     unpaidOrders.forEach((o) => {
+      const paidUnits = o.paidUnits || {};
       o.items.forEach((it, idx) => {
+        const already = paidUnits[idx] || 0;
         for (let q = 0; q < it.qty; q++) {
-          rows.push({ key: `${o.id}|${idx}|${q}`, name: it.name, price: it.price, orderId: o.id });
+          if (q < already) continue; // bu birim zaten ödenmiş — gösterme
+          rows.push({ key: `${o.id}|${idx}|${q}`, orderId: o.id, idx, name: it.name, price: it.price });
         }
       });
     });
-    const pickedTotal = rows.filter((r) => picked[r.key]).reduce((s, r) => s + r.price, 0);
+    const pickedRows = rows.filter((r) => picked[r.key]);
+    const pickedTotal = pickedRows.reduce((s, r) => s + r.price, 0);
     const anyPicked = pickedTotal > 0;
     const toggle = (k) => setPicked((p) => ({ ...p, [k]: !p[k] }));
     const goNext = () => {
-      // Seçilen ürünlerin toplamı, masanın kalanını (tolerans) karşılıyorsa tüm siparişleri kapat;
-      // değilse kısmi ödeme olarak kaydet (recordPayment birikimli kapatmayı zaten yönetiyor).
+      // Seçilen birimleri sipariş+index bazında grupla: { orderId: { idx: adet } }
+      const sel = {};
+      pickedRows.forEach((r) => { sel[r.orderId] = sel[r.orderId] || {}; sel[r.orderId][r.idx] = (sel[r.orderId][r.idx] || 0) + 1; });
       setBase(Math.round(pickedTotal * 100) / 100);
-      setCoversIds(pickedTotal >= due - 0.01 ? unpaidOrders.map((o) => o.id) : null);
+      setCoversIds(null);
+      setPickedUnits(sel);
       setStage("tip");
     };
+    if (rows.length === 0) {
+      return (<div className="eb-screen">{header(t("pick_items_t"))}<div className="eb-empty"><div className="em">✅</div><h3>{t("all_settled_thanks")}</h3><p>{t("nothing_to_pay")}</p></div></div>);
+    }
     return (
       <div className="eb-screen">
         {header(t("pick_items_t"))}
@@ -2047,14 +2118,21 @@ function AdminOrders({ orders, setStatus, setPaid }) {
 
 function AdminTables({ orders, payments, setTablePaid }) {
   const { t } = useT();
+  const orderPaidValue = (o) => {
+    if (o.paidUnits && Object.keys(o.paidUnits).length) {
+      return o.items.reduce((s, it, i) => s + it.price * Math.min(it.qty, o.paidUnits[i] || 0), 0);
+    }
+    return o.paid ? o.total : 0;
+  };
   const byTable = {};
   orders.forEach((o) => { if (!byTable[o.table]) byTable[o.table] = []; byTable[o.table].push(o); });
   const tables = Object.entries(byTable).map(([table, os]) => {
-    const partial = ((payments && payments[table]) || []).reduce((s, p) => s + (p.amount || 0), 0);
-    const tips = ((payments && payments[table]) || []).reduce((s, p) => s + (p.tip || 0), 0);
-    const dueRaw = os.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
-    const due = Math.max(0, dueRaw - partial);
+    const pays = (payments && payments[table]) || [];
+    const partial = pays.filter((p) => p.kind !== "items").reduce((s, p) => s + (p.amount || 0), 0);
+    const tips = pays.reduce((s, p) => s + (p.tip || 0), 0);
     const grand = os.reduce((s, o) => s + o.total, 0);
+    const paidVal = os.reduce((s, o) => s + orderPaidValue(o), 0);
+    const due = Math.max(0, grand - paidVal - partial);
     const called = os.some((o) => !o.paid && o.billRequested);
     const active = os.filter((o) => o.status !== "served").length;
     return { table: Number(table), os, due, grand, tips, called, active };
