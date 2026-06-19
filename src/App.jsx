@@ -69,11 +69,11 @@ const SLIDE_GRADS = [
   "linear-gradient(150deg,#2F4A3A,#1d2e23)", "linear-gradient(150deg,#4a6b5a,#2f4a3a)",
 ];
 const DEFAULT_SLIDES = [
-  { id: "s1", img: "/menu/latte.jpg", emoji: "☕", grad: SLIDE_GRADS[1], cap: "Latte art on every cup" },
-  { id: "s2", img: "/menu/coldbrew.jpg", emoji: "🧊", grad: SLIDE_GRADS[0], cap: "Cold brew, 18-hour steep" },
-  { id: "s3", img: "/menu/cheesecake.jpg", emoji: "🍰", grad: SLIDE_GRADS[2], cap: "Baked fresh each morning" },
-  { id: "s4", img: "/menu/berrylem.jpg", emoji: "🫐", grad: SLIDE_GRADS[3], cap: "Fruit pressed to order" },
-  { id: "s5", img: "/menu/mocha.jpg", emoji: "🍫", grad: SLIDE_GRADS[4], cap: "Warm corner, good company" },
+  { id: "s1", img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=70", emoji: "🪟", grad: SLIDE_GRADS[0], cap: "The corner by the window" },
+  { id: "s2", img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=70", emoji: "🌿", grad: SLIDE_GRADS[4], cap: "Plants, light, good company" },
+  { id: "s3", img: "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=900&q=70", emoji: "☕", grad: SLIDE_GRADS[1], cap: "Where mornings slow down" },
+  { id: "s4", img: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=70", emoji: "🛋️", grad: SLIDE_GRADS[3], cap: "Pull up a chair, stay a while" },
+  { id: "s5", img: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=900&q=70", emoji: "🪴", grad: SLIDE_GRADS[5], cap: "Your neighbourhood hearth" },
 ];
 
 const LANGS = [
@@ -627,7 +627,7 @@ function timeAgo(iso, t) {
 const K_ORDERS = "hb:orders";
 const K_CUSTOMERS = "hb:customers";
 const K_MENU = "hb:menu:v4";
-const K_SLIDES = "hb:slides:v2";
+const K_SLIDES = "hb:slides:v3";
 const K_PAYMENTS = "hb:payments";
 const K_LANG = "hb:lang";
 const K_THEME = "hb:theme";
@@ -1238,58 +1238,48 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
 
   // Bir ödemeyi kaydet. amount: anapara, tip: bahşiş.
   // coversOrderIds verilirse o siparişler doğrudan "ödendi" işaretlenir (tüm hesap / kendi siparişlerim).
-  // Aksi halde kısmi ödeme olarak tabloya yazılır (Alman usulü / elle tutar).
-  // Kısmi ödemeler birikip kalan tüm tutarı kapatınca, tüm siparişler otomatik "ödendi" olur
-  // ve kısmi ödeme kayıtları temizlenir — böylece iki arayüzde de "ödendi" görünür.
+  // paidUnits verilirse belirli ürün birimleri ödenmiş işaretlenir.
+  // Aksi halde tutar bazlı kısmi ödeme yazılır (Alman usulü / elle tutar).
+  // HER durumda: bu ödemeden sonra masanın kalanı (tolerans içinde) 0'a iniyorsa,
+  // tüm açık siparişler "ödendi" yapılır. Tek tutarlı "kalan" hesabı (tableDue mantığı) kullanılır.
   const recordPayment = ({ amount = 0, tip = 0, coversOrderIds = null, paidUnits = null }) => {
-    const tip100 = Math.round((tip || 0) * 100);
-    const amt100 = Math.round((amount || 0) * 100);
+    // Bu ödemenin kapattığı anapara tutarı (kuruş cinsinden)
+    let payValue100 = 0;
+    if (coversOrderIds && coversOrderIds.length) {
+      payValue100 = tableOrders.filter((o) => coversOrderIds.includes(o.id) && !o.paid).reduce((s, o) => s + Math.round(o.total * 100), 0);
+    } else if (paidUnits && Object.keys(paidUnits).length) {
+      tableOrders.forEach((o) => { const sel = paidUnits[o.id]; if (sel) Object.entries(sel).forEach(([idx, cnt]) => { const it = o.items[idx]; if (it) payValue100 += Math.round(it.price * 100) * cnt; }); });
+    } else {
+      payValue100 = Math.round((amount || 0) * 100);
+    }
+    const due100 = Math.round(tableDue * 100);
+    const coversAll = payValue100 >= due100 - 1; // 1 kuruş tolerans → masanın tamamı kapanıyor
 
-    // --- Ürün seçerek ödeme: belirli birimleri ödenmiş işaretle ---
+    if (coversAll) {
+      // Masanın tamamı kapanıyor: tüm açık siparişleri ödendi yap, bahşişleri topla, kısmi kayıtları sadeleştir
+      setOrders((os) => os.map((o) => (o.table === table && !o.paid ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
+      const priorTip = tablePayments.reduce((s, p) => s + (p.tip || 0), 0) + (tip || 0);
+      setPayments((pm) => ({ ...pm, [table]: priorTip > 0 ? [{ amount: 0, tip: priorTip, who: user || null, at: new Date().toISOString(), kind: "settled" }] : [] }));
+      flash(t("payment_sent_d", { amt: money((amount || 0) + (tip || 0)), n: table }));
+      return;
+    }
+
+    // Masa henüz kapanmıyor — bu ödemeyi türüne göre kaydet
     if (paidUnits && Object.keys(paidUnits).length) {
       setOrders((os) => os.map((o) => {
         const sel = paidUnits[o.id];
         if (!sel) return o;
         const pu = { ...(o.paidUnits || {}) };
         Object.entries(sel).forEach(([idx, cnt]) => { pu[idx] = (pu[idx] || 0) + cnt; });
-        // Siparişteki tüm birimler ödendiyse siparişi tamamen "ödendi" yap
         const allPaid = o.items.every((it, i) => (pu[i] || 0) >= it.qty);
         return { ...o, paidUnits: pu, paid: allPaid ? true : o.paid, paidAt: allPaid ? new Date().toISOString() : o.paidAt, billRequested: allPaid ? false : o.billRequested };
       }));
-      if (tip100 > 0) {
-        setPayments((pm) => { const list = (pm && pm[table]) || []; return { ...pm, [table]: [...list, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] }; });
-      }
-      flash(t("payment_sent_d", { amt: money((amount || 0) + (tip || 0)), n: table }));
-      return;
-    }
-
-    if (coversOrderIds && coversOrderIds.length) {
-      // Belirli siparişleri doğrudan ödendi işaretle, bahşişi kaydet
+      if ((tip || 0) > 0) setPayments((pm) => { const list = (pm && pm[table]) || []; return { ...pm, [table]: [...list, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] }; });
+    } else if (coversOrderIds && coversOrderIds.length) {
       setOrders((os) => os.map((o) => (coversOrderIds.includes(o.id) ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
-      if (tip100 > 0) {
-        setPayments((pm) => {
-          const list = (pm && pm[table]) || [];
-          return { ...pm, [table]: [...list, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] };
-        });
-      }
+      if ((tip || 0) > 0) setPayments((pm) => { const list = (pm && pm[table]) || []; return { ...pm, [table]: [...list, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] }; });
     } else {
-      // Kısmi ödeme. Bu ödeme sonrası masanın tamamı kapanıyor mu kontrol et.
-      const unpaid = tableOrders.filter((o) => !o.paid);
-      const unpaidTotal100 = unpaid.reduce((s, o) => s + Math.round(o.total * 100), 0);
-      const alreadyPartial100 = tablePayments.reduce((s, p) => s + Math.round((p.amount || 0) * 100), 0);
-      const coversAll = alreadyPartial100 + amt100 >= unpaidTotal100 - 1; // 1 kuruş tolerans
-
-      if (coversAll) {
-        // Masa tamamlandı: tüm açık siparişleri ödendi yap, kısmi kayıtları temizle, bahşişi sakla
-        setOrders((os) => os.map((o) => (o.table === table && !o.paid ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
-        const totalTip = tablePayments.reduce((s, p) => s + (p.tip || 0), 0) + (tip || 0);
-        setPayments((pm) => ({ ...pm, [table]: totalTip > 0 ? [{ amount: 0, tip: totalTip, who: user || null, at: new Date().toISOString(), kind: "settled" }] : [] }));
-      } else {
-        setPayments((pm) => {
-          const list = (pm && pm[table]) || [];
-          return { ...pm, [table]: [...list, { amount: amount || 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "partial" }] };
-        });
-      }
+      setPayments((pm) => { const list = (pm && pm[table]) || []; return { ...pm, [table]: [...list, { amount: amount || 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "partial" }] }; });
     }
     flash(t("payment_sent_d", { amt: money((amount || 0) + (tip || 0)), n: table }));
   };
