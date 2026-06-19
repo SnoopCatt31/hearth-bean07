@@ -70,10 +70,10 @@ const SLIDE_GRADS = [
 ];
 const DEFAULT_SLIDES = [
   { id: "s1", img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=70", emoji: "🪟", grad: SLIDE_GRADS[0], cap: "The corner by the window" },
-  { id: "s2", img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=70", emoji: "☕", grad: SLIDE_GRADS[1], cap: "Latte art on every cup" },
-  { id: "s3", img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=70", emoji: "🍩", grad: SLIDE_GRADS[2], cap: "Baked fresh each morning" },
-  { id: "s4", img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=70", emoji: "🍉", grad: SLIDE_GRADS[3], cap: "Fruit pressed to order" },
-  { id: "s5", img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=70", emoji: "🌿", grad: SLIDE_GRADS[4], cap: "Plants, light, good company" },
+  { id: "s2", img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=70", emoji: "🌿", grad: SLIDE_GRADS[4], cap: "Plants, light, good company" },
+  { id: "s3", img: "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=900&q=70", emoji: "☕", grad: SLIDE_GRADS[1], cap: "Where mornings slow down" },
+  { id: "s4", img: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=70", emoji: "🛋️", grad: SLIDE_GRADS[3], cap: "Pull up a chair, stay a while" },
+  { id: "s5", img: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=900&q=70", emoji: "🪴", grad: SLIDE_GRADS[5], cap: "Your neighbourhood hearth" },
 ];
 
 const LANGS = [
@@ -132,6 +132,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} stamps — 5 earns a free filter coffee or donut",
     signin_to_collect: "Sign in to collect a stamp with every order", join_free: "Join the Bean Club — it's free",
     view_menu: "View the menu", in_basket: "{n} in basket", whats_on: "What's on today",
+    congrats_t: "You earned a free donut!", congrats_b: "5 stamps complete. Here's your reward — it's saved to your account.", free_donut: "Free Donut", coupon_sub: "Bean Club reward", copy: "Copy", copied: "Copied", coupon_how: "Show this code at the counter, or tap \"use reward\" in your basket next time.", see_my_coupons: "See my coupons", keep_ordering: "Keep ordering", my_coupons: "My coupons", coupon_used_on: "Used on {d}", active: "Active", used: "Used", coupons_ready_n: "{n} free donuts waiting", coupon_ready_1: "A free donut is waiting", coupon_tap_view: "Tap to see your coupon code", redeem_coupon: "Redeem a coupon", redeem_ph: "Enter coupon code", redeem_btn: "Check & redeem", redeem_ok: "Valid! Donut redeemed ✓", redeem_used: "This coupon was already used", redeem_bad: "No such coupon code",
     menu: "Menu", sold_out: "Sold out", view_basket: "View basket", items: "items", item: "item",
     your_basket: "Your basket", empty_basket_t: "Nothing here yet", empty_basket_b: "Add something tasty from the menu.",
     browse_menu: "Browse the menu", delivering_to: "Delivering to Table {n}",
@@ -141,7 +142,7 @@ const STR = {
     subtotal: "Subtotal", club_reward: "Bean Club reward", total: "Total",
     guest_1: "Ordering as a guest.", guest_2: "to earn a stamp on this order.", send_order: "Send order to kitchen",
     quick_order: "Order now", review_basket: "Review basket",
-    pay_title: "Pay the bill", pay_full_cta: "Pay the full bill", or_split: "or split it", choose_split: "How would you like to pay?", split_whole: "Pay the whole table", split_whole_d: "Settle everything that's owed on this table", split_mine: "Pay only my orders", split_mine_d: "Just the items you ordered", split_even: "Split evenly", split_even_d: "Divide the table bill into equal shares", split_custom: "Enter an amount", split_custom_d: "Type exactly how much you'd like to pay",
+    pay_title: "Pay the bill", pay_full_cta: "Pay the full bill", or_split: "or split it", choose_split: "How would you like to pay?", split_whole: "Pay the whole table", split_whole_d: "Settle everything that's owed on this table", split_mine: "Pay only my orders", split_mine_d: "Just the items you ordered", split_even: "Split evenly", split_even_d: "Divide the table bill into equal shares", split_custom: "Enter an amount", split_custom_d: "Type exactly how much you'd like to pay", split_items: "Pick items to pay", split_items_d: "Choose exactly what you're paying for", pick_items_t: "What are you paying for?", pick_items_b: "Tap the items you'd like to cover", selected_total: "Selected total", nothing_selected: "Select at least one item", pay_selected: "Pay for selected",
     how_many_people: "How many people?", per_person: "{amt} per person", your_share: "Your share", enter_amount: "Amount to pay", of_remaining: "of {amt} remaining",
     add_tip: "Add a tip", tip_none: "No tip", tip_custom: "Custom", subtotal_label: "Subtotal", tip_label: "Tip", to_pay: "To pay", continue_btn: "Continue", pay_now: "Pay {amt}", confirm_payment: "Confirm payment", payment_sent: "Payment recorded", payment_sent_d: "Your payment of {amt} has been sent to staff for Table {n}.", pay_at_register_note: "Online payment is coming soon. For now this notifies staff of your amount — settle at the counter or with your server.", back_to_options: "← Back to options", nothing_to_pay: "Nothing left to pay on this table.", paying_amount: "You're paying", remaining_after: "Remaining after this: {amt}",
     order_sent: "Order sent!", getting_ready: "We're getting it ready for Table {n}.", order_id: "Order {id}",
@@ -173,7 +174,7 @@ const STR = {
     nav_orders: "Orders", nav_tables: "Tables", nav_menu: "Menu", nav_gallery: "Gallery", nav_brand: "Brand", nav_stats: "Statistics", nav_customers: "Customers",
     brand_title: "Brand & theme", brand_sub: "Pick a look for your café — colors and shapes update everywhere instantly.", theme_applied: "{name} theme applied", current_theme: "Current",
     staff_login_title: "Staff login", staff_login_sub: "This area is for café staff only.", staff_password: "Password", staff_signin: "Sign in", staff_wrong: "Wrong email or password", staff_signout: "Sign out", staff_back_customer: "← Back to customer view",
-    staff_counter: "Staff · Counter", reset_demo: "Reset demo", new_order_in: "New order just came in!", sound_on: "Sound on", sound_off: "Sound off",
+    staff_counter: "Staff · Counter", reset_demo: "Reset demo", new_order_in: "New order just came in!", sound_on: "Sound on", auto_settled: "Settled automatically", sound_off: "Sound off",
     live_orders: "Live orders", live_orders_sub: "Tickets arrive the moment a guest sends them. Tap to move an order along.",
     n_new: "{n} new", f_active: "Active", f_new: "New", f_preparing: "Preparing", f_served: "Served", f_all: "All",
     no_orders_admin_t: "No orders here yet", no_orders_admin_b: "Switch to the Customer view below, place an order, and it lands here instantly.",
@@ -228,6 +229,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} damga — 5 damga ücretsiz filtre kahve veya donut kazandırır",
     signin_to_collect: "Her siparişte damga kazanmak için giriş yap", join_free: "Bean Club'a katıl — ücretsiz",
     view_menu: "Menüyü gör", in_basket: "sepette {n}", whats_on: "Bugün neler var",
+    congrats_t: "Bedava donut kazandın!", congrats_b: "5 damga tamamlandı. İşte ödülün — hesabına kaydedildi.", free_donut: "Bedava Donut", coupon_sub: "Bean Club ödülü", copy: "Kopyala", copied: "Kopyalandı", coupon_how: "Bu kodu kasada göster ya da bir dahaki sepetinde \"ödülü kullan\"a dokun.", see_my_coupons: "Kuponlarımı gör", keep_ordering: "Siparişe devam", my_coupons: "Kuponlarım", coupon_used_on: "{d} tarihinde kullanıldı", active: "Geçerli", used: "Kullanıldı", coupons_ready_n: "{n} bedava donut bekliyor", coupon_ready_1: "Bir bedava donut bekliyor", coupon_tap_view: "Kupon kodunu görmek için dokun", redeem_coupon: "Kupon kullan", redeem_ph: "Kupon kodunu gir", redeem_btn: "Kontrol et & kullan", redeem_ok: "Geçerli! Donut verildi ✓", redeem_used: "Bu kupon zaten kullanılmış", redeem_bad: "Böyle bir kupon kodu yok",
     menu: "Menü", sold_out: "Tükendi", view_basket: "Sepeti gör", items: "ürün", item: "ürün",
     your_basket: "Sepetin", empty_basket_t: "Henüz boş", empty_basket_b: "Menüden lezzetli bir şey ekle.",
     browse_menu: "Menüye göz at", delivering_to: "Masa {n}'e getirilecek",
@@ -237,7 +239,7 @@ const STR = {
     subtotal: "Ara toplam", club_reward: "Bean Club ödülü", total: "Toplam",
     guest_1: "Misafir olarak sipariş veriyorsun.", guest_2: "bu siparişte damga kazanmak için.", send_order: "Siparişi mutfağa gönder",
     quick_order: "Hemen sipariş ver", review_basket: "Sepeti gözden geçir",
-    pay_title: "Hesabı öde", pay_full_cta: "Tüm hesabı öde", or_split: "ya da böl", choose_split: "Nasıl ödemek istersin?", split_whole: "Masanın tamamını öde", split_whole_d: "Bu masada borçlu olan her şeyi kapat", split_mine: "Sadece kendi siparişlerimi öde", split_mine_d: "Yalnızca senin sipariş ettiklerin", split_even: "Eşit böl (Alman usulü)", split_even_d: "Masa hesabını eşit paylara böl", split_custom: "Tutar gir", split_custom_d: "Tam olarak ne kadar ödeyeceğini yaz",
+    pay_title: "Hesabı öde", pay_full_cta: "Tüm hesabı öde", or_split: "ya da böl", choose_split: "Nasıl ödemek istersin?", split_whole: "Masanın tamamını öde", split_whole_d: "Bu masada borçlu olan her şeyi kapat", split_mine: "Sadece kendi siparişlerimi öde", split_mine_d: "Yalnızca senin sipariş ettiklerin", split_even: "Eşit böl (Alman usulü)", split_even_d: "Masa hesabını eşit paylara böl", split_custom: "Tutar gir", split_custom_d: "Tam olarak ne kadar ödeyeceğini yaz", split_items: "Ürün seçerek öde", split_items_d: "Tam olarak neyin parasını ödediğini seç", pick_items_t: "Neyin parasını ödüyorsun?", pick_items_b: "Ödemek istediğin ürünlere dokun", selected_total: "Seçilen toplam", nothing_selected: "En az bir ürün seç", pay_selected: "Seçilenleri öde",
     how_many_people: "Kaç kişi?", per_person: "Kişi başı {amt}", your_share: "Senin payın", enter_amount: "Ödenecek tutar", of_remaining: "/ kalan {amt}",
     add_tip: "Bahşiş ekle", tip_none: "Bahşiş yok", tip_custom: "Özel", subtotal_label: "Ara toplam", tip_label: "Bahşiş", to_pay: "Ödenecek", continue_btn: "Devam et", pay_now: "{amt} öde", confirm_payment: "Ödemeyi onayla", payment_sent: "Ödeme kaydedildi", payment_sent_d: "{amt} tutarındaki ödemen Masa {n} için personele iletildi.", pay_at_register_note: "Online ödeme yakında geliyor. Şimdilik bu, tutarını personele bildirir — kasada veya garsonla öde.", back_to_options: "← Seçeneklere dön", nothing_to_pay: "Bu masada ödenecek bir şey kalmadı.", paying_amount: "Ödüyorsun", remaining_after: "Bundan sonra kalan: {amt}",
     order_sent: "Sipariş gönderildi!", getting_ready: "Masa {n} için hazırlıyoruz.", order_id: "Sipariş {id}",
@@ -269,7 +271,7 @@ const STR = {
     nav_orders: "Siparişler", nav_tables: "Masalar", nav_menu: "Menü", nav_gallery: "Galeri", nav_brand: "Marka", nav_stats: "İstatistik", nav_customers: "Müşteriler",
     brand_title: "Marka ve tema", brand_sub: "Kafen için bir görünüm seç — renkler ve şekiller her yerde anında güncellenir.", theme_applied: "{name} teması uygulandı", current_theme: "Geçerli",
     staff_login_title: "Personel girişi", staff_login_sub: "Bu alan yalnızca kafe personeli içindir.", staff_password: "Şifre", staff_signin: "Giriş yap", staff_wrong: "Hatalı e-posta veya şifre", staff_signout: "Çıkış yap", staff_back_customer: "← Müşteri görünümüne dön",
-    staff_counter: "Personel · Kasa", reset_demo: "Demoyu sıfırla", new_order_in: "Yeni sipariş geldi!", sound_on: "Ses açık", sound_off: "Ses kapalı",
+    staff_counter: "Personel · Kasa", reset_demo: "Demoyu sıfırla", new_order_in: "Yeni sipariş geldi!", sound_on: "Ses açık", auto_settled: "Otomatik kapandı", sound_off: "Ses kapalı",
     live_orders: "Canlı siparişler", live_orders_sub: "Misafir gönderir göndermez fişler buraya düşer. İlerletmek için dokun.",
     n_new: "{n} yeni", f_active: "Aktif", f_new: "Yeni", f_preparing: "Hazırlanıyor", f_served: "Servis edildi", f_all: "Tümü",
     no_orders_admin_t: "Henüz sipariş yok", no_orders_admin_b: "Aşağıdan Müşteri görünümüne geç, sipariş ver ve anında burada belirsin.",
@@ -324,6 +326,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} штампов — 5 дают бесплатный фильтр-кофе или пончик",
     signin_to_collect: "Войдите, чтобы получать штамп за каждый заказ", join_free: "Вступить в Bean Club — бесплатно",
     view_menu: "Открыть меню", in_basket: "{n} в корзине", whats_on: "Что сегодня",
+    congrats_t: "Вы получили бесплатный пончик!", congrats_b: "5 штампов собрано. Вот ваша награда — сохранена в аккаунте.", free_donut: "Бесплатный пончик", coupon_sub: "Награда Bean Club", copy: "Копировать", copied: "Скопировано", coupon_how: "Покажите код на кассе или нажмите \"использовать награду\" в корзине.", see_my_coupons: "Мои купоны", keep_ordering: "Продолжить заказ", my_coupons: "Мои купоны", coupon_used_on: "Использован {d}", active: "Активен", used: "Использован", coupons_ready_n: "{n} бесплатных пончиков ждут", coupon_ready_1: "Бесплатный пончик ждёт", coupon_tap_view: "Нажмите, чтобы увидеть код", redeem_coupon: "Использовать купон", redeem_ph: "Введите код купона", redeem_btn: "Проверить и списать", redeem_ok: "Верно! Пончик списан ✓", redeem_used: "Этот купон уже использован", redeem_bad: "Нет такого купона",
     menu: "Меню", sold_out: "Закончилось", view_basket: "Корзина", items: "поз.", item: "поз.",
     your_basket: "Ваша корзина", empty_basket_t: "Пока пусто", empty_basket_b: "Добавьте что-нибудь вкусное из меню.",
     browse_menu: "Открыть меню", delivering_to: "Доставим на стол {n}",
@@ -333,7 +336,7 @@ const STR = {
     subtotal: "Подытог", club_reward: "Награда Bean Club", total: "Итого",
     guest_1: "Заказ как гость.", guest_2: "чтобы получить штамп за этот заказ.", send_order: "Отправить на кухню",
     quick_order: "Заказать сейчас", review_basket: "Проверить корзину",
-    pay_title: "Оплата счёта", pay_full_cta: "Оплатить весь счёт", or_split: "или разделить", choose_split: "Как хотите оплатить?", split_whole: "Оплатить весь стол", split_whole_d: "Погасить всё, что причитается по столу", split_mine: "Оплатить только мои заказы", split_mine_d: "Только то, что вы заказали", split_even: "Разделить поровну", split_even_d: "Поделить счёт стола на равные части", split_custom: "Ввести сумму", split_custom_d: "Укажите, сколько именно хотите оплатить",
+    pay_title: "Оплата счёта", pay_full_cta: "Оплатить весь счёт", or_split: "или разделить", choose_split: "Как хотите оплатить?", split_whole: "Оплатить весь стол", split_whole_d: "Погасить всё, что причитается по столу", split_mine: "Оплатить только мои заказы", split_mine_d: "Только то, что вы заказали", split_even: "Разделить поровну", split_even_d: "Поделить счёт стола на равные части", split_custom: "Ввести сумму", split_custom_d: "Укажите, сколько именно хотите оплатить", split_items: "Выбрать блюда", split_items_d: "Выберите, за что именно платите", pick_items_t: "За что вы платите?", pick_items_b: "Нажмите на блюда, которые оплачиваете", selected_total: "Сумма выбранного", nothing_selected: "Выберите хотя бы одно блюдо", pay_selected: "Оплатить выбранное",
     how_many_people: "Сколько человек?", per_person: "{amt} с человека", your_share: "Ваша доля", enter_amount: "Сумма к оплате", of_remaining: "из {amt} остатка",
     add_tip: "Добавить чаевые", tip_none: "Без чаевых", tip_custom: "Своя сумма", subtotal_label: "Подытог", tip_label: "Чаевые", to_pay: "К оплате", continue_btn: "Продолжить", pay_now: "Оплатить {amt}", confirm_payment: "Подтвердить оплату", payment_sent: "Платёж записан", payment_sent_d: "Ваш платёж {amt} отправлен персоналу для стола {n}.", pay_at_register_note: "Онлайн-оплата скоро появится. Пока это уведомляет персонал о вашей сумме — рассчитайтесь на кассе или у официанта.", back_to_options: "← Назад к вариантам", nothing_to_pay: "По этому столу платить больше нечего.", paying_amount: "Вы оплачиваете", remaining_after: "Останется после этого: {amt}",
     order_sent: "Заказ отправлен!", getting_ready: "Готовим для стола {n}.", order_id: "Заказ {id}",
@@ -365,7 +368,7 @@ const STR = {
     nav_orders: "Заказы", nav_tables: "Столы", nav_menu: "Меню", nav_gallery: "Галерея", nav_brand: "Бренд", nav_stats: "Статистика", nav_customers: "Клиенты",
     brand_title: "Бренд и тема", brand_sub: "Выберите стиль для своего кафе — цвета и формы обновятся везде мгновенно.", theme_applied: "Тема «{name}» применена", current_theme: "Текущая",
     staff_login_title: "Вход для персонала", staff_login_sub: "Этот раздел только для сотрудников кафе.", staff_password: "Пароль", staff_signin: "Войти", staff_wrong: "Неверная почта или пароль", staff_signout: "Выйти", staff_back_customer: "← Назад к виду клиента",
-    staff_counter: "Персонал · Касса", reset_demo: "Сбросить демо", new_order_in: "Поступил новый заказ!", sound_on: "Звук вкл.", sound_off: "Звук выкл.",
+    staff_counter: "Персонал · Касса", reset_demo: "Сбросить демо", new_order_in: "Поступил новый заказ!", sound_on: "Звук вкл.", auto_settled: "Закрыто автоматически", sound_off: "Звук выкл.",
     live_orders: "Текущие заказы", live_orders_sub: "Чеки появляются сразу после отправки гостем. Нажмите, чтобы продвинуть заказ.",
     n_new: "{n} новых", f_active: "Активные", f_new: "Новые", f_preparing: "Готовятся", f_served: "Поданы", f_all: "Все",
     no_orders_admin_t: "Заказов пока нет", no_orders_admin_b: "Переключитесь на вид «Клиент» внизу, оформите заказ — и он мгновенно появится здесь.",
@@ -420,6 +423,7 @@ const STR = {
     bean_club: "Bean Club", stamps_progress: "{n}/{max} Stempel — 5 bringen einen gratis Filterkaffee oder Donut",
     signin_to_collect: "Melde dich an, um bei jeder Bestellung einen Stempel zu sammeln", join_free: "Dem Bean Club beitreten — gratis",
     view_menu: "Speisekarte ansehen", in_basket: "{n} im Korb", whats_on: "Heute im Angebot",
+    congrats_t: "Du hast einen Gratis-Donut!", congrats_b: "5 Stempel voll. Hier ist deine Belohnung — im Konto gespeichert.", free_donut: "Gratis-Donut", coupon_sub: "Bean-Club-Belohnung", copy: "Kopieren", copied: "Kopiert", coupon_how: "Zeige diesen Code an der Theke oder tippe im Korb auf \"Belohnung einlösen\".", see_my_coupons: "Meine Gutscheine", keep_ordering: "Weiter bestellen", my_coupons: "Meine Gutscheine", coupon_used_on: "Eingelöst am {d}", active: "Aktiv", used: "Eingelöst", coupons_ready_n: "{n} Gratis-Donuts warten", coupon_ready_1: "Ein Gratis-Donut wartet", coupon_tap_view: "Tippe für deinen Code", redeem_coupon: "Gutschein einlösen", redeem_ph: "Gutscheincode eingeben", redeem_btn: "Prüfen & einlösen", redeem_ok: "Gültig! Donut eingelöst ✓", redeem_used: "Dieser Gutschein wurde bereits eingelöst", redeem_bad: "Kein solcher Gutscheincode",
     menu: "Speisekarte", sold_out: "Ausverkauft", view_basket: "Korb ansehen", items: "Artikel", item: "Artikel",
     your_basket: "Dein Korb", empty_basket_t: "Noch leer", empty_basket_b: "Füge etwas Leckeres aus der Karte hinzu.",
     browse_menu: "Karte durchstöbern", delivering_to: "Lieferung an Tisch {n}",
@@ -429,7 +433,7 @@ const STR = {
     subtotal: "Zwischensumme", club_reward: "Bean-Club-Belohnung", total: "Summe",
     guest_1: "Bestellung als Gast.", guest_2: "um einen Stempel für diese Bestellung zu erhalten.", send_order: "An die Küche senden",
     quick_order: "Jetzt bestellen", review_basket: "Korb prüfen",
-    pay_title: "Rechnung zahlen", pay_full_cta: "Ganze Rechnung zahlen", or_split: "oder aufteilen", choose_split: "Wie möchtest du zahlen?", split_whole: "Ganzen Tisch zahlen", split_whole_d: "Alles Offene an diesem Tisch begleichen", split_mine: "Nur meine Bestellungen", split_mine_d: "Nur was du bestellt hast", split_even: "Gleichmäßig teilen", split_even_d: "Die Tischrechnung in gleiche Teile teilen", split_custom: "Betrag eingeben", split_custom_d: "Gib genau ein, wie viel du zahlen möchtest",
+    pay_title: "Rechnung zahlen", pay_full_cta: "Ganze Rechnung zahlen", or_split: "oder aufteilen", choose_split: "Wie möchtest du zahlen?", split_whole: "Ganzen Tisch zahlen", split_whole_d: "Alles Offene an diesem Tisch begleichen", split_mine: "Nur meine Bestellungen", split_mine_d: "Nur was du bestellt hast", split_even: "Gleichmäßig teilen", split_even_d: "Die Tischrechnung in gleiche Teile teilen", split_custom: "Betrag eingeben", split_custom_d: "Gib genau ein, wie viel du zahlen möchtest", split_items: "Artikel auswählen", split_items_d: "Wähle genau, wofür du zahlst", pick_items_t: "Wofür zahlst du?", pick_items_b: "Tippe die Artikel an, die du zahlen möchtest", selected_total: "Ausgewählte Summe", nothing_selected: "Wähle mindestens einen Artikel", pay_selected: "Ausgewählte zahlen",
     how_many_people: "Wie viele Personen?", per_person: "{amt} pro Person", your_share: "Dein Anteil", enter_amount: "Zu zahlender Betrag", of_remaining: "von {amt} offen",
     add_tip: "Trinkgeld geben", tip_none: "Kein Trinkgeld", tip_custom: "Eigen", subtotal_label: "Zwischensumme", tip_label: "Trinkgeld", to_pay: "Zu zahlen", continue_btn: "Weiter", pay_now: "{amt} zahlen", confirm_payment: "Zahlung bestätigen", payment_sent: "Zahlung erfasst", payment_sent_d: "Deine Zahlung von {amt} wurde dem Personal für Tisch {n} gemeldet.", pay_at_register_note: "Online-Zahlung kommt bald. Vorerst meldet dies dem Personal deinen Betrag — zahle an der Theke oder beim Kellner.", back_to_options: "← Zurück zu den Optionen", nothing_to_pay: "An diesem Tisch ist nichts mehr zu zahlen.", paying_amount: "Du zahlst", remaining_after: "Danach offen: {amt}",
     order_sent: "Bestellung gesendet!", getting_ready: "Wir bereiten sie für Tisch {n} vor.", order_id: "Bestellung {id}",
@@ -461,7 +465,7 @@ const STR = {
     nav_orders: "Bestellungen", nav_tables: "Tische", nav_menu: "Karte", nav_gallery: "Galerie", nav_brand: "Marke", nav_stats: "Statistik", nav_customers: "Kunden",
     brand_title: "Marke & Theme", brand_sub: "Wähle einen Look für dein Café — Farben und Formen aktualisieren sich überall sofort.", theme_applied: "Theme „{name}“ angewendet", current_theme: "Aktuell",
     staff_login_title: "Mitarbeiter-Login", staff_login_sub: "Dieser Bereich ist nur für Café-Personal.", staff_password: "Passwort", staff_signin: "Anmelden", staff_wrong: "Falsche E-Mail oder Passwort", staff_signout: "Abmelden", staff_back_customer: "← Zurück zur Kundenansicht",
-    staff_counter: "Personal · Theke", reset_demo: "Demo zurücksetzen", new_order_in: "Neue Bestellung eingegangen!", sound_on: "Ton an", sound_off: "Ton aus",
+    staff_counter: "Personal · Theke", reset_demo: "Demo zurücksetzen", new_order_in: "Neue Bestellung eingegangen!", sound_on: "Ton an", auto_settled: "Automatisch abgeschlossen", sound_off: "Ton aus",
     live_orders: "Live-Bestellungen", live_orders_sub: "Bons erscheinen, sobald ein Gast sendet. Tippe, um eine Bestellung weiterzuschalten.",
     n_new: "{n} neu", f_active: "Aktiv", f_new: "Neu", f_preparing: "In Zubereitung", f_served: "Serviert", f_all: "Alle",
     no_orders_admin_t: "Noch keine Bestellungen", no_orders_admin_b: "Unten zur Kundenansicht wechseln, bestellen — und es erscheint sofort hier.",
@@ -516,6 +520,7 @@ const STR = {
     bean_club: "نادي Bean", stamps_progress: "{n}/{max} ختم — 5 أختام تمنحك قهوة فلتر أو دونات مجانية",
     signin_to_collect: "سجّل الدخول لتجمع ختمًا مع كل طلب", join_free: "انضم إلى نادي Bean — مجانًا",
     view_menu: "عرض القائمة", in_basket: "{n} في السلة", whats_on: "عروض اليوم",
+    congrats_t: "حصلت على دونات مجانية!", congrats_b: "اكتملت 5 أختام. إليك مكافأتك — محفوظة في حسابك.", free_donut: "دونات مجانية", coupon_sub: "مكافأة Bean Club", copy: "نسخ", copied: "تم النسخ", coupon_how: "أظهر هذا الرمز عند الكاشير أو اضغط \"استخدام المكافأة\" في السلة.", see_my_coupons: "قسائمي", keep_ordering: "متابعة الطلب", my_coupons: "قسائمي", coupon_used_on: "استُخدمت في {d}", active: "فعّالة", used: "مستخدمة", coupons_ready_n: "{n} دونات مجانية بانتظارك", coupon_ready_1: "دونات مجانية بانتظارك", coupon_tap_view: "اضغط لرؤية الرمز", redeem_coupon: "استخدام قسيمة", redeem_ph: "أدخل رمز القسيمة", redeem_btn: "تحقق واستخدم", redeem_ok: "صحيح! تم صرف الدونات ✓", redeem_used: "هذه القسيمة مستخدمة بالفعل", redeem_bad: "لا يوجد رمز قسيمة كهذا",
     menu: "القائمة", sold_out: "نفد", view_basket: "عرض السلة", items: "عناصر", item: "عنصر",
     your_basket: "سلتك", empty_basket_t: "لا شيء بعد", empty_basket_b: "أضف شيئًا لذيذًا من القائمة.",
     browse_menu: "تصفح القائمة", delivering_to: "التوصيل إلى الطاولة {n}",
@@ -525,7 +530,7 @@ const STR = {
     subtotal: "المجموع الفرعي", club_reward: "مكافأة نادي Bean", total: "الإجمالي",
     guest_1: "الطلب كضيف.", guest_2: "لكسب ختم على هذا الطلب.", send_order: "أرسل الطلب إلى المطبخ",
     quick_order: "اطلب الآن", review_basket: "مراجعة السلة",
-    pay_title: "دفع الفاتورة", pay_full_cta: "ادفع الفاتورة كاملة", or_split: "أو قسّمها", choose_split: "كيف تريد الدفع؟", split_whole: "ادفع الطاولة كاملة", split_whole_d: "سدّد كل المستحق على هذه الطاولة", split_mine: "ادفع طلباتي فقط", split_mine_d: "فقط ما طلبته أنت", split_even: "قسّم بالتساوي", split_even_d: "قسّم فاتورة الطاولة إلى حصص متساوية", split_custom: "أدخل مبلغًا", split_custom_d: "اكتب بالضبط كم تريد أن تدفع",
+    pay_title: "دفع الفاتورة", pay_full_cta: "ادفع الفاتورة كاملة", or_split: "أو قسّمها", choose_split: "كيف تريد الدفع؟", split_whole: "ادفع الطاولة كاملة", split_whole_d: "سدّد كل المستحق على هذه الطاولة", split_mine: "ادفع طلباتي فقط", split_mine_d: "فقط ما طلبته أنت", split_even: "قسّم بالتساوي", split_even_d: "قسّم فاتورة الطاولة إلى حصص متساوية", split_custom: "أدخل مبلغًا", split_custom_d: "اكتب بالضبط كم تريد أن تدفع", split_items: "اختر أصنافًا للدفع", split_items_d: "اختر بالضبط ما تدفع ثمنه", pick_items_t: "ماذا تدفع ثمنه؟", pick_items_b: "اضغط على الأصناف التي تريد دفعها", selected_total: "إجمالي المحدد", nothing_selected: "اختر صنفًا واحدًا على الأقل", pay_selected: "ادفع المحدد",
     how_many_people: "كم عدد الأشخاص؟", per_person: "{amt} للشخص", your_share: "حصتك", enter_amount: "المبلغ المراد دفعه", of_remaining: "من {amt} المتبقّي",
     add_tip: "أضف بقشيشًا", tip_none: "بدون بقشيش", tip_custom: "مخصص", subtotal_label: "المجموع الفرعي", tip_label: "بقشيش", to_pay: "للدفع", continue_btn: "متابعة", pay_now: "ادفع {amt}", confirm_payment: "تأكيد الدفع", payment_sent: "تم تسجيل الدفع", payment_sent_d: "تم إرسال دفعتك البالغة {amt} إلى الموظفين للطاولة {n}.", pay_at_register_note: "الدفع الإلكتروني قريبًا. حاليًا يُعلِم هذا الموظفين بمبلغك — ادفع عند الكاشير أو مع النادل.", back_to_options: "← العودة إلى الخيارات", nothing_to_pay: "لا يوجد ما يُدفع على هذه الطاولة.", paying_amount: "أنت تدفع", remaining_after: "المتبقّي بعد ذلك: {amt}",
     order_sent: "تم إرسال الطلب!", getting_ready: "نحضّره للطاولة {n}.", order_id: "طلب {id}",
@@ -557,7 +562,7 @@ const STR = {
     nav_orders: "الطلبات", nav_tables: "الطاولات", nav_menu: "القائمة", nav_gallery: "المعرض", nav_brand: "الهوية", nav_stats: "الإحصاءات", nav_customers: "العملاء",
     brand_title: "الهوية والتصميم", brand_sub: "اختر مظهرًا لمقهاك — تتحدّث الألوان والأشكال في كل مكان فورًا.", theme_applied: "تم تطبيق تصميم {name}", current_theme: "الحالي",
     staff_login_title: "دخول الموظفين", staff_login_sub: "هذه المنطقة لموظفي المقهى فقط.", staff_password: "كلمة المرور", staff_signin: "تسجيل الدخول", staff_wrong: "البريد أو كلمة المرور غير صحيحة", staff_signout: "تسجيل الخروج", staff_back_customer: "← العودة إلى عرض العميل",
-    staff_counter: "الموظفون · الكاشير", reset_demo: "إعادة ضبط العرض", new_order_in: "وصل طلب جديد!", sound_on: "الصوت مفعّل", sound_off: "الصوت متوقف",
+    staff_counter: "الموظفون · الكاشير", reset_demo: "إعادة ضبط العرض", new_order_in: "وصل طلب جديد!", sound_on: "الصوت مفعّل", auto_settled: "تمت التسوية تلقائيًا", sound_off: "الصوت متوقف",
     live_orders: "الطلبات المباشرة", live_orders_sub: "تصل الفواتير لحظة إرسال الضيف. اضغط لتحريك الطلب.",
     n_new: "{n} جديدة", f_active: "نشطة", f_new: "جديدة", f_preparing: "قيد التحضير", f_served: "مُقدّمة", f_all: "الكل",
     no_orders_admin_t: "لا طلبات هنا بعد", no_orders_admin_b: "انتقل إلى عرض العميل بالأسفل، اطلب، وسيظهر هنا فورًا.",
@@ -622,7 +627,7 @@ function timeAgo(iso, t) {
 const K_ORDERS = "hb:orders";
 const K_CUSTOMERS = "hb:customers";
 const K_MENU = "hb:menu:v4";
-const K_SLIDES = "hb:slides";
+const K_SLIDES = "hb:slides:v3";
 const K_PAYMENTS = "hb:payments";
 const K_LANG = "hb:lang";
 const K_THEME = "hb:theme";
@@ -803,6 +808,27 @@ const CSS = `
 .eb-stamp.on{border-style:solid;border-color:var(--berry);background:var(--berry);color:#fff;animation:stamp .4s cubic-bezier(.2,1.4,.5,1);}
 @keyframes stamp{0%{transform:scale(.4) rotate(-18deg);opacity:0;}100%{transform:none;opacity:1;}}
 .eb-reward-banner{background:linear-gradient(100deg,#9C3B52,#b9526a);color:#fff;border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);}
+.eb-reward-screen{position:relative;overflow:hidden;min-height:560px;}
+.eb-confetti{position:absolute;inset:0;pointer-events:none;z-index:1;}
+.eb-confetti i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;opacity:.9;animation:conffall linear forwards;}
+@keyframes conffall{0%{transform:translateY(-20px) rotate(0);opacity:1;}100%{transform:translateY(620px) rotate(540deg);opacity:.7;}}
+.eb-reward-emoji{font-size:72px;animation:rewardpop .7s cubic-bezier(.2,1.5,.4,1) both;}
+@keyframes rewardpop{0%{transform:scale(0) rotate(-30deg);}70%{transform:scale(1.25) rotate(8deg);}100%{transform:scale(1) rotate(0);}}
+.eb-coupon{position:relative;z-index:2;margin:22px auto 0;max-width:300px;background:var(--paper);border:2px dashed var(--honey);border-radius:18px;padding:0;overflow:hidden;box-shadow:var(--shadow);}
+.eb-coupon-top{display:flex;align-items:center;gap:12px;padding:16px;}
+.eb-coupon-perf{height:0;border-top:2px dashed var(--line);margin:0 14px;position:relative;}
+.eb-coupon-perf::before,.eb-coupon-perf::after{content:"";position:absolute;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--bg);}
+.eb-coupon-perf::before{left:-23px;}.eb-coupon-perf::after{right:-23px;}
+.eb-coupon-code{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;background:var(--honey);}
+.eb-coupon-code span{font-family:'DM Mono',ui-monospace,monospace;font-size:18px;font-weight:600;letter-spacing:1px;color:var(--honey-ink);}
+.eb-copybtn{background:var(--honey-ink);color:var(--honey);font-size:12px;font-weight:600;padding:7px 12px;border-radius:9px;white-space:nowrap;}
+.eb-coupon-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:13px;padding:12px;margin-bottom:9px;background:var(--paper);}
+.eb-coupon-row.used{opacity:.55;}
+.eb-coupon-row.used .eb-mono{text-decoration:line-through;}
+.eb-pickrow{display:flex;align-items:center;gap:12px;width:100%;padding:13px 15px;border-radius:13px;border:1.5px solid var(--line);background:transparent;transition:.14s;}
+.eb-pickrow.on{border-color:var(--honey);background:var(--honey-soft, rgba(214,158,74,.1));}
+.eb-pickbox{width:24px;height:24px;border-radius:7px;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--honey-ink);flex:none;transition:.14s;}
+.eb-pickbox.on{background:var(--honey);border-color:var(--honey);}
 .eb-billrow{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;transition:.14s;}
 .eb-billrow:hover{border-color:var(--honey);}
 .eb-pp{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
@@ -818,6 +844,12 @@ const CSS = `
 .eb-item{display:flex;gap:14px;align-items:center;padding:12px 22px;}
 .eb-item.out{opacity:.5;}
 .eb-thumb{width:62px;height:62px;border-radius:15px;flex:none;display:flex;align-items:center;justify-content:center;font-size:30px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);background-image:linear-gradient(145deg,rgba(255,255,255,.5),rgba(255,255,255,0));background-blend-mode:overlay;}
+.eb-catcard{text-align:start;width:100%;transition:transform .15s ease;}
+.eb-catcard:active{transform:scale(.97);}
+.eb-catcard-img{width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);}
+.eb-catcard-img img{width:100%;height:100%;object-fit:cover;}
+.eb-catcard-title{font-size:14px;font-weight:600;margin-top:9px;color:var(--ink);line-height:1.2;}
+.eb-catcard-sub{font-size:11.5px;color:var(--ink-soft);margin-top:2px;line-height:1.25;}
 .eb-thumb img{width:100%;height:100%;object-fit:cover;}
 .eb-item-body{flex:1;min-width:0;}
 .eb-item-body h3{font-size:15.5px;font-weight:600;}
@@ -981,10 +1013,14 @@ const CSS = `
 
 export default function App() {
   const [orders, setOrders] = useState([]);
+  const ordersRef = useRef([]);
+  useEffect(() => { ordersRef.current = orders; }, [orders]);
   const [customers, setCustomers] = useState({});
   const [menu, setMenu] = useState(DEFAULT_MENU);
   const [slides, setSlides] = useState(DEFAULT_SLIDES);
   const [payments, setPayments] = useState({});
+  const paymentsRef = useRef({});
+  useEffect(() => { paymentsRef.current = payments; }, [payments]);
   const [lang, setLang] = useState("en");
   const [themeId, setThemeId] = useState("hearth");
   const [loaded, setLoaded] = useState(false);
@@ -1013,10 +1049,25 @@ export default function App() {
   }, []);
 
   // Canlı senkron: başka bir cihaz veriyi değiştirince buraya düşer.
-  // applyingRemote ref'i, gelen veriyi tekrar Supabase'e geri yazmamızı engeller.
+  // --- Realtime senkron + yerel yazma koruması ---
+  // Buton "geri alınması" sorununun sebebi: admin bir değişiklik yapınca, neredeyse aynı anda
+  // gelen (eski/echo) bir realtime güncellemesi yerel değişikliğin üstüne yazıp geri alıyordu.
+  // Çözüm: her anahtar için en son YAZDIĞIMIZ değeri ve zamanı hatırla; gelen güncelleme bizim
+  // yazdığımızın aynısıysa (echo) veya yakın zamanda yerel yazma yaptıysak, onu yok say.
   const applyingRemote = useRef(false);
+  const lastLocalWrite = useRef({});   // { key: timestamp }
+  const lastSentJSON = useRef({});     // { key: JSON.stringify(value) }
+  const WRITE_GUARD_MS = 4000;         // yerel yazmadan sonra bu süre içinde gelen echo'yu yut
+
   useEffect(() => {
     const unsub = subscribeShared((key, value) => {
+      const incoming = JSON.stringify(value);
+      // 1) Echo: bizim gönderdiğimiz değerle birebir aynıysa yok say
+      if (lastSentJSON.current[key] === incoming) return;
+      // 2) Yakın zamanda yerel yazma yaptıysak, gelen güncelleme muhtemelen eski — yut
+      const since = Date.now() - (lastLocalWrite.current[key] || 0);
+      if (since < WRITE_GUARD_MS) return;
+      // 3) Gerçekten başka bir cihazdan gelen yeni veri — uygula
       applyingRemote.current = true;
       if (key === K_ORDERS) setOrders(value || []);
       else if (key === K_CUSTOMERS) setCustomers(value || {});
@@ -1029,14 +1080,21 @@ export default function App() {
     return unsub;
   }, []);
 
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_ORDERS, orders); }, [orders, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_CUSTOMERS, customers); }, [customers, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_MENU, menu); }, [menu, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_SLIDES, slides); }, [slides, loaded]);
-  useEffect(() => { if (loaded && !applyingRemote.current) saveJSON(K_PAYMENTS, payments); }, [payments, loaded]);
+  // Kaydetme yardımcısı: yazdığımız değeri ve zamanı kaydeder (echo korumasını besler)
+  const persist = (key, value) => {
+    lastLocalWrite.current[key] = Date.now();
+    lastSentJSON.current[key] = JSON.stringify(value);
+    saveJSON(key, value);
+  };
+
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_ORDERS, orders); }, [orders, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_CUSTOMERS, customers); }, [customers, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_MENU, menu); }, [menu, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_SLIDES, slides); }, [slides, loaded]);
+  useEffect(() => { if (loaded && !applyingRemote.current) persist(K_PAYMENTS, payments); }, [payments, loaded]);
   useEffect(() => { if (loaded) saveJSON(K_LANG, lang); }, [lang, loaded]);
   // Tema artık ortak (Supabase). Yalnızca admin/personel ekranı yazabilir; müşteri sadece okur.
-  useEffect(() => { if (loaded && isStaffRoute && !applyingRemote.current) saveJSON(K_THEME, themeId); }, [themeId, loaded, isStaffRoute]);
+  useEffect(() => { if (loaded && isStaffRoute && !applyingRemote.current) persist(K_THEME, themeId); }, [themeId, loaded, isStaffRoute]);
   useEffect(() => { if (loaded) saveJSON(K_STAFF, staffAuthed); }, [staffAuthed, loaded]);
 
   const t = useMemo(() => makeT(lang), [lang]);
@@ -1068,7 +1126,7 @@ export default function App() {
           {!isStaffRoute ? (
             <CustomerApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} slides={slides} payments={payments} setPayments={setPayments} flash={flash} />
           ) : staffAuthed ? (
-            <AdminApp orders={orders} setOrders={setOrders} customers={customers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} payments={payments} setPayments={setPayments} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
+            <AdminApp orders={orders} setOrders={setOrders} customers={customers} setCustomers={setCustomers} menu={menu} setMenu={setMenu} slides={slides} setSlides={setSlides} payments={payments} setPayments={setPayments} flash={flash} resetDemo={resetDemo} onSignOut={signOutStaff} />
           ) : (
             <StaffLogin onSuccess={() => setStaffAuthed(true)} onBack={goCustomer} />
           )}
@@ -1089,11 +1147,15 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
   const [user, setUser] = useState(null);
   const [lastOrderId, setLastOrderId] = useState(null);
   const [useReward, setUseReward] = useState(false);
+  const [redeemCode, setRedeemCode] = useState(null);   // kullanılacak kuponun kodu
+  const [newCoupon, setNewCoupon] = useState(null);     // yeni kazanılan kupon (kutlama ekranı için)
 
   const itemsById = useMemo(() => Object.fromEntries(menu.map((i) => [i.id, i])), [menu]);
   const record = user ? customers[user] : null;
   const stamps = record ? record.stamps : 0;
-  const hasReward = stamps >= REWARD_THRESHOLD;
+  const myCoupons = (record && Array.isArray(record.coupons)) ? record.coupons : [];
+  const activeCoupons = myCoupons.filter((c) => !c.used);
+  const hasReward = activeCoupons.length > 0;
 
   const cartList = Object.entries(cart).map(([id, v]) => (itemsById[id] ? { ...itemsById[id], ...v } : null)).filter(Boolean);
   const cartCount = cartList.reduce((s, i) => s + i.qty, 0);
@@ -1101,6 +1163,9 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
   const subtotal = cartList.reduce((s, i) => s + i.price * i.qty, 0);
   const discount = rewardItem ? rewardItem.price : 0;
   const total = Math.max(0, subtotal - discount);
+
+  // Ödülü kullanmaya karar verince ilk aktif kuponu seç
+  useEffect(() => { if (useReward && hasReward && !redeemCode) setRedeemCode(activeCoupons[0].code); if (!useReward && redeemCode) setRedeemCode(null); }, [useReward, hasReward]); // eslint-disable-line
 
   const add = (id) => { setCart((c) => ({ ...c, [id]: { qty: (c[id]?.qty || 0) + 1, note: c[id]?.note || "" } })); flash(t("t_added", { name: itemsById[id]?.name })); };
   const dec = (id) => setCart((c) => { const q = (c[id]?.qty || 0) - 1; if (q <= 0) { const n = { ...c }; delete n[id]; return n; } return { ...c, [id]: { ...c[id], qty: q } }; });
@@ -1112,19 +1177,34 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
       id, table,
       items: cartList.map((i) => ({ id: i.id, name: i.name, price: i.price, qty: i.qty, note: i.note || "" })),
       orderNote: orderNote || "", customerEmail: user || null, customerName: record ? record.name : null,
-      rewardUsed: !!rewardItem, status: "new", paid: false, paidAt: null, billRequested: false,
+      rewardUsed: !!rewardItem, couponCode: rewardItem ? (redeemCode || null) : null, status: "new", paid: false, paidAt: null, billRequested: false,
       createdAt: new Date().toISOString(), subtotal, discount, total,
     };
     setOrders((o) => [order, ...o]);
+    let mintedCoupon = null;
     if (user) {
       setCustomers((cs) => {
-        const r = cs[user] || { email: user, name: record?.name || "", orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString() };
+        const r = cs[user] || { email: user, name: record?.name || "", orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString(), coupons: [] };
+        const coupons = Array.isArray(r.coupons) ? [...r.coupons] : [];
+        // Bu siparişte bir kupon kullanıldıysa onu "kullanıldı" işaretle
+        if (rewardItem && redeemCode) {
+          const idx = coupons.findIndex((c) => c.code === redeemCode && !c.used);
+          if (idx >= 0) coupons[idx] = { ...coupons[idx], used: true, usedAt: new Date().toISOString() };
+        }
         let newStamps = r.stamps + 1;
-        if (rewardItem) newStamps = Math.max(0, r.stamps - REWARD_THRESHOLD + 1);
-        return { ...cs, [user]: { ...r, orders: r.orders + 1, stamps: newStamps, totalSpent: r.totalSpent + total } };
+        // 5'e ulaşınca: benzersiz kupon üret, damgayı 5 düşür
+        if (newStamps >= REWARD_THRESHOLD) {
+          newStamps = newStamps - REWARD_THRESHOLD;
+          const code = "HB-" + Math.random().toString(36).slice(2, 6).toUpperCase() + Math.random().toString(36).slice(2, 4).toUpperCase();
+          mintedCoupon = { code, reward: "donut", issuedAt: new Date().toISOString(), used: false, usedAt: null };
+          coupons.push(mintedCoupon);
+        }
+        return { ...cs, [user]: { ...r, orders: r.orders + 1, stamps: newStamps, totalSpent: r.totalSpent + total, coupons } };
       });
     }
-    setLastOrderId(id); setCart({}); setUseReward(false); setScreen("placed");
+    setLastOrderId(id); setCart({}); setUseReward(false); setRedeemCode(null);
+    if (mintedCoupon) { setNewCoupon(mintedCoupon); setScreen("reward"); }
+    else setScreen("placed");
   };
 
   const requestBill = () => {
@@ -1136,57 +1216,80 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
     order.items.forEach((it) => { const m = itemsById[it.id]; if (m && m.available) { setCart((c) => ({ ...c, [it.id]: { qty: (c[it.id]?.qty || 0) + it.qty, note: c[it.id]?.note || "" } })); added += 1; } });
     if (added) { flash(t("t_to_basket")); setScreen("cart"); } else flash(t("t_unavailable"));
   };
-  const tableOrders = orders.filter((o) => o.table === table);
+  // Müşteri görünümü: önceki misafirin kapanmış hesabını YENİ misafire gösterme.
+  // Kural: ödenmemiş siparişler her zaman görünür; ödenmiş siparişler yalnızca son birkaç
+  // dakika içinde ödendiyse görünür (ödeyen kişi fişini görsün diye). Masa uzun süre önce
+  // tamamen ödendiyse, sonradan oturan misafir temiz bir masa görür.
+  const SESSION_MS = 8 * 60 * 1000; // 8 dk: ödeme sonrası fişin görünür kalma süresi
+  const allTableOrders = orders.filter((o) => o.table === table);
+  const sessionFresh = (o) => !o.paid || (o.paidAt && (Date.now() - new Date(o.paidAt).getTime()) < SESSION_MS);
+  const tableOrders = allTableOrders.filter(sessionFresh);
   const tablePayments = (payments && payments[table]) || [];
-  const paidViaOrders = tableOrders.filter((o) => o.paid).reduce((s, o) => s + o.total, 0);
-  const paidViaPartial = tablePayments.reduce((s, p) => s + (p.amount || 0), 0);
+  // Tutarları ürün-birim seviyesinden hesapla (kısmi ürün ödemeleri doğru düşsün diye).
+  // Bir siparişin ödenen kısmı: paidUnits varsa ödenen birimlerin değeri; yoksa paid ise tamamı.
+  const orderPaidValue = (o) => {
+    if (o.paidUnits && Object.keys(o.paidUnits).length) {
+      return o.items.reduce((s, it, i) => s + it.price * Math.min(it.qty, o.paidUnits[i] || 0), 0);
+    }
+    return o.paid ? o.total : 0;
+  };
   const tableGrand = tableOrders.reduce((s, o) => s + o.total, 0);
-  const tableDue = Math.max(0, tableGrand - paidViaOrders - paidViaPartial);
+  const paidViaItems = tableOrders.reduce((s, o) => s + orderPaidValue(o), 0);
+  // "tip"/"settled" dışındaki saf tutar bazlı kısmi ödemeler (even/custom). Ürün ödemeleri zaten yukarıda sayıldı.
+  const paidViaPartial = tablePayments.filter((p) => p.kind !== "items").reduce((s, p) => s + (p.amount || 0), 0);
+  const tableDue = Math.max(0, tableGrand - paidViaItems - paidViaPartial);
   const myUnpaid = tableOrders.filter((o) => !o.paid && user && o.customerEmail === user).reduce((s, o) => s + o.total, 0);
 
   // Bir ödemeyi kaydet. amount: anapara, tip: bahşiş.
-  // coversOrderIds verilirse o siparişler doğrudan "ödendi" işaretlenir (tüm hesap / kendi siparişlerim).
-  // Aksi halde kısmi ödeme olarak tabloya yazılır (Alman usulü / elle tutar).
-  // Kısmi ödemeler birikip kalan tüm tutarı kapatınca, tüm siparişler otomatik "ödendi" olur
-  // ve kısmi ödeme kayıtları temizlenir — böylece iki arayüzde de "ödendi" görünür.
-  const recordPayment = ({ amount = 0, tip = 0, coversOrderIds = null }) => {
-    const tip100 = Math.round((tip || 0) * 100);
-    const amt100 = Math.round((amount || 0) * 100);
+  // ÖNEMLİ: Tüm hesaplama EN GÜNCEL state üzerinden (functional update içinde) yapılır;
+  // böylece arka arkaya yapılan ödemelerde eski (stale) değer kullanılmaz ve "ödendi deyip
+  // statü güncellememe" sorunu ortadan kalkar.
+  const recordPayment = ({ amount = 0, tip = 0, coversOrderIds = null, paidUnits = null }) => {
+    // EN GÜNCEL state'i ref'lerden oku (arka arkaya ödemelerde stale değeri önler)
+    const freshOrders = ordersRef.current;
+    const freshPm = paymentsRef.current;
+    const to = freshOrders.filter((o) => o.table === table);
+    const opv = (o) => (o.paidUnits && Object.keys(o.paidUnits).length)
+      ? o.items.reduce((s, it, i) => s + it.price * Math.min(it.qty, o.paidUnits[i] || 0), 0)
+      : (o.paid ? o.total : 0);
+    const list = (freshPm && freshPm[table]) || [];
+    const grand = to.reduce((s, o) => s + o.total, 0);
+    const paidItems = to.reduce((s, o) => s + opv(o), 0);
+    const paidPartial = list.filter((p) => p.kind !== "items").reduce((s, p) => s + (p.amount || 0), 0);
+    const dueNow100 = Math.round(Math.max(0, grand - paidItems - paidPartial) * 100);
 
-    if (coversOrderIds && coversOrderIds.length) {
-      // Belirli siparişleri doğrudan ödendi işaretle, bahşişi kaydet
+    let pay100 = 0;
+    if (coversOrderIds && coversOrderIds.length) pay100 = to.filter((o) => coversOrderIds.includes(o.id) && !o.paid).reduce((s, o) => s + Math.round(o.total * 100), 0);
+    else if (paidUnits && Object.keys(paidUnits).length) to.forEach((o) => { const sel = paidUnits[o.id]; if (sel) Object.entries(sel).forEach(([idx, cnt]) => { const it = o.items[idx]; if (it) pay100 += Math.round(it.price * 100) * cnt; }); });
+    else pay100 = Math.round((amount || 0) * 100);
+
+    const coversAll = pay100 >= dueNow100 - 1; // 1 kuruş tolerans
+
+    if (coversAll) {
+      setOrders((os) => os.map((o) => (o.table === table && !o.paid ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
+      const priorTip = list.reduce((s, p) => s + (p.tip || 0), 0) + (tip || 0);
+      setPayments((pm) => ({ ...pm, [table]: priorTip > 0 ? [{ amount: 0, tip: priorTip, who: user || null, at: new Date().toISOString(), kind: "settled" }] : [] }));
+    } else if (paidUnits && Object.keys(paidUnits).length) {
+      setOrders((os) => os.map((o) => {
+        const sel = paidUnits[o.id]; if (!sel) return o;
+        const pu = { ...(o.paidUnits || {}) };
+        Object.entries(sel).forEach(([idx, cnt]) => { pu[idx] = (pu[idx] || 0) + cnt; });
+        const allPaid = o.items.every((it, i) => (pu[i] || 0) >= it.qty);
+        return { ...o, paidUnits: pu, paid: allPaid ? true : o.paid, paidAt: allPaid ? new Date().toISOString() : o.paidAt, billRequested: allPaid ? false : o.billRequested };
+      }));
+      if ((tip || 0) > 0) setPayments((pm) => { const l = (pm && pm[table]) || []; return { ...pm, [table]: [...l, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] }; });
+    } else if (coversOrderIds && coversOrderIds.length) {
       setOrders((os) => os.map((o) => (coversOrderIds.includes(o.id) ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
-      if (tip100 > 0) {
-        setPayments((pm) => {
-          const list = (pm && pm[table]) || [];
-          return { ...pm, [table]: [...list, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] };
-        });
-      }
+      if ((tip || 0) > 0) setPayments((pm) => { const l = (pm && pm[table]) || []; return { ...pm, [table]: [...l, { amount: 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "tip" }] }; });
     } else {
-      // Kısmi ödeme. Bu ödeme sonrası masanın tamamı kapanıyor mu kontrol et.
-      const unpaid = tableOrders.filter((o) => !o.paid);
-      const unpaidTotal100 = unpaid.reduce((s, o) => s + Math.round(o.total * 100), 0);
-      const alreadyPartial100 = tablePayments.reduce((s, p) => s + Math.round((p.amount || 0) * 100), 0);
-      const coversAll = alreadyPartial100 + amt100 >= unpaidTotal100 - 1; // 1 kuruş tolerans
-
-      if (coversAll) {
-        // Masa tamamlandı: tüm açık siparişleri ödendi yap, kısmi kayıtları temizle, bahşişi sakla
-        setOrders((os) => os.map((o) => (o.table === table && !o.paid ? { ...o, paid: true, paidAt: new Date().toISOString(), billRequested: false } : o)));
-        const totalTip = tablePayments.reduce((s, p) => s + (p.tip || 0), 0) + (tip || 0);
-        setPayments((pm) => ({ ...pm, [table]: totalTip > 0 ? [{ amount: 0, tip: totalTip, who: user || null, at: new Date().toISOString(), kind: "settled" }] : [] }));
-      } else {
-        setPayments((pm) => {
-          const list = (pm && pm[table]) || [];
-          return { ...pm, [table]: [...list, { amount: amount || 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "partial" }] };
-        });
-      }
+      setPayments((pm) => { const l = (pm && pm[table]) || []; return { ...pm, [table]: [...l, { amount: amount || 0, tip: tip || 0, who: user || null, at: new Date().toISOString(), kind: "partial" }] }; });
     }
     flash(t("payment_sent_d", { amt: money((amount || 0) + (tip || 0)), n: table }));
   };
 
   const signIn = (email, name) => {
     const key = email.trim().toLowerCase();
-    setCustomers((cs) => cs[key] ? cs : { ...cs, [key]: { email: key, name: name || key.split("@")[0], orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString() } });
+    setCustomers((cs) => cs[key] ? cs : { ...cs, [key]: { email: key, name: name || key.split("@")[0], orders: 0, stamps: 0, totalSpent: 0, joinedAt: new Date().toISOString(), coupons: [] } });
     setUser(key); flash(t("t_signed_in")); setScreen("home");
   };
 
@@ -1195,14 +1298,15 @@ function CustomerApp({ orders, setOrders, customers, setCustomers, menu, slides,
       <div className="eb-phone">
         <div className="eb-phone-bar"><i /></div>
         {screen === "scan" && <ScanScreen onDetect={(tb) => { setTable(tb); setScreen("home"); }} />}
-        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} menu={menu} slides={slides} tableOrders={tableOrders} tableDue={tableDue} go={setScreen} goToCat={(c) => { setMenuCat(c); setScreen("menu"); }} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
+        {screen === "home" && <HomeScreen table={table} user={user} record={record} stamps={stamps} hasReward={hasReward} couponCount={activeCoupons.length} menu={menu} slides={slides} tableOrders={tableOrders} tableDue={tableDue} go={setScreen} goToCat={(c) => { setMenuCat(c); setScreen("menu"); }} rescan={() => setScreen("scan")} onBill={() => setScreen("bill")} cartCount={cartCount} />}
         {screen === "menu" && <MenuScreen menu={menu} cart={cart} add={add} dec={dec} cartCount={cartCount} total={subtotal} back={() => setScreen("home")} toCart={() => setScreen("cart")} place={placeOrder} jumpCat={menuCat} clearJump={() => setMenuCat(null)} />}
-        {screen === "cart" && <CartScreen cartList={cartList} add={add} dec={dec} setNote={setNote} subtotal={subtotal} total={total} discount={discount} rewardItem={rewardItem} hasReward={hasReward} useReward={useReward} setUseReward={setUseReward} user={user} table={table} back={() => setScreen("menu")} place={placeOrder} toAuth={() => setScreen("auth")} />}
+        {screen === "cart" && <CartScreen cartList={cartList} add={add} dec={dec} setNote={setNote} subtotal={subtotal} total={total} discount={discount} rewardItem={rewardItem} hasReward={hasReward} couponCount={activeCoupons.length} useReward={useReward} setUseReward={setUseReward} user={user} table={table} back={() => setScreen("menu")} place={placeOrder} toAuth={() => setScreen("auth")} />}
         {screen === "bill" && <BillScreen table={table} orders={tableOrders} due={tableDue} requestBill={requestBill} back={() => setScreen("home")} toMenu={() => setScreen("menu")} toPay={() => setScreen("pay")} />}
         {screen === "pay" && <PayScreen table={table} due={tableDue} myUnpaid={myUnpaid} unpaidOrders={tableOrders.filter((o) => !o.paid)} user={user} recordPayment={recordPayment} back={() => setScreen("bill")} done={() => setScreen("bill")} />}
         {screen === "placed" && <PlacedScreen order={orders.find((o) => o.id === lastOrderId)} table={table} user={user} stamps={stamps} hasReward={hasReward} backToMenu={() => setScreen("menu")} toAccount={() => setScreen("account")} toAuth={() => setScreen("auth")} toBill={() => setScreen("bill")} />}
+        {screen === "reward" && <RewardScreen coupon={newCoupon} backToMenu={() => { setNewCoupon(null); setScreen("menu"); }} toAccount={() => { setNewCoupon(null); setScreen("account"); }} toBill={() => { setNewCoupon(null); setScreen("bill"); }} />}
         {screen === "auth" && <AuthScreen onSignIn={signIn} back={() => setScreen(cartCount ? "cart" : "home")} />}
-        {screen === "account" && <AccountScreen user={user} record={record} stamps={stamps} hasReward={hasReward} orders={orders.filter((o) => o.customerEmail === user)} reorder={reorder} back={() => setScreen("home")} signOut={() => { setUser(null); setScreen("home"); }} toAuth={() => setScreen("auth")} />}
+        {screen === "account" && <AccountScreen user={user} record={record} stamps={stamps} hasReward={hasReward} coupons={myCoupons} orders={orders.filter((o) => o.customerEmail === user)} reorder={reorder} back={() => setScreen("home")} signOut={() => { setUser(null); setScreen("home"); }} toAuth={() => setScreen("auth")} />}
       </div>
     </div>
   );
@@ -1266,7 +1370,7 @@ function Carousel({ slides }) {
 }
 
 
-function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tableOrders, tableDue, go, goToCat, rescan, onBill, cartCount }) {
+function HomeScreen({ table, user, record, stamps, hasReward, couponCount, menu, slides, tableOrders, tableDue, go, goToCat, rescan, onBill, cartCount }) {
   const { t } = useT();
   const due = tableDue != null ? tableDue : tableOrders.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
   const hasOrders = tableOrders.length > 0;
@@ -1300,23 +1404,24 @@ function HomeScreen({ table, user, record, stamps, hasReward, menu, slides, tabl
         )}
       </div>
       <div className="eb-pad" style={{ marginTop: 14 }}>
-        {hasReward && <div className="eb-reward-banner" style={{ marginBottom: 14 }}><span style={{ fontSize: 26 }}>🎁</span><div><b style={{ fontSize: 14 }}>{t("reward_ready_t")}</b><div style={{ fontSize: 12.5, opacity: .9 }}>{t("reward_ready_b")}</div></div></div>}
+        {hasReward && <button onClick={() => go("account")} className="eb-reward-banner" style={{ marginBottom: 14, width: "100%", textAlign: "start" }}><span style={{ fontSize: 26 }}>🎟️</span><div><b style={{ fontSize: 14 }}>{couponCount > 1 ? t("coupons_ready_n", { n: couponCount }) : t("coupon_ready_1")}</b><div style={{ fontSize: 12.5, opacity: .9 }}>{t("coupon_tap_view")}</div></div></button>}
         <div className="eb-stampcard">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div><b className="eb-serif" style={{ fontSize: 17 }}>{t("bean_club")}</b><div style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{user ? t("stamps_progress", { n: stamps, max: REWARD_THRESHOLD }) : t("signin_to_collect")}</div></div>
             <span style={{ fontSize: 22 }}>{hasReward ? "🎉" : "⭐"}</span>
           </div>
-          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${(hasReward && i < REWARD_THRESHOLD) || i < (stamps % (REWARD_THRESHOLD + 1)) ? "on" : ""}`}>☕</div>)}</div>
+          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${i < stamps ? "on" : ""}`}>☕</div>)}</div>
           {!user && <button className="eb-btn ghost" style={{ marginTop: 14 }} onClick={() => go("account")}>{t("join_free")}</button>}
         </div>
         <button className="eb-btn honey" style={{ marginTop: 18, fontSize: 16, padding: 16 }} onClick={() => go("menu")}>🍽️ {t("view_menu")} {cartCount > 0 ? `· ${t("in_basket", { n: cartCount })}` : ""}</button>
-        <div style={{ marginTop: 22 }}>
-          <h3 className="eb-serif" style={{ fontSize: 16, fontWeight: 600, marginBottom: 10 }}>{t("whats_on")}</h3>
-          <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingBottom: 4 }}>
+        <div style={{ marginTop: 24 }}>
+          <h3 className="eb-serif" style={{ fontSize: 17, fontWeight: 600, marginBottom: 12 }}>{t("whats_on")}</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 13 }}>
             {CATS.map((c) => (
-              <button key={c.key} onClick={() => goToCat(c.key)} style={{ flex: "none", width: 96, textAlign: "start" }}>
-                <div className="eb-thumb" style={{ width: 96, height: 74, borderRadius: 13, background: CAT_TINT[c.key] }}><SmartImg src={CAT_IMG[c.key]} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 32 }}>{CAT_EMOJI[c.key]}</span>} /></div>
-                <div style={{ fontSize: 12, fontWeight: 600, marginTop: 6 }}>{t("cat_" + c.key)}</div>
+              <button key={c.key} className="eb-catcard" onClick={() => goToCat(c.key)}>
+                <div className="eb-catcard-img" style={{ background: CAT_TINT[c.key] }}><SmartImg src={CAT_IMG[c.key]} alt={t("cat_" + c.key)} fallback={<span style={{ fontSize: 40 }}>{CAT_EMOJI[c.key]}</span>} /></div>
+                <div className="eb-catcard-title">{t("cat_" + c.key)}</div>
+                <div className="eb-catcard-sub">{t("cat_" + c.key + "_b")}</div>
               </button>
             ))}
           </div>
@@ -1436,7 +1541,12 @@ function BillScreen({ table, orders, due, requestBill, back, toMenu, toPay }) {
           {sorted.map((o) => (
             <div key={o.id} style={{ border: "1px solid var(--line)", borderRadius: 14, padding: 14, marginBottom: 12, background: "var(--paper)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><b className="eb-mono" style={{ fontSize: 13 }}>{o.id}</b><span className={`eb-pp ${o.paid ? "paid" : "unpaid"}`}>{o.paid ? t("paid") : t("unpaid")}</span></div>
-              {o.items.map((i, k) => (<div key={k} style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginTop: 5 }}><span><span className="eb-mono" style={{ color: "var(--berry)", fontWeight: 700, marginInlineEnd: 6 }}>{i.qty}×</span>{i.name}</span><span>{money(i.price * i.qty)}</span></div>))}
+              {o.items.map((i, k) => { const paidU = (o.paidUnits && o.paidUnits[k]) || (o.paid ? i.qty : 0); const unpaidU = Math.max(0, i.qty - paidU); return (
+                <div key={k} style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginTop: 5, opacity: unpaidU === 0 ? .5 : 1 }}>
+                  <span><span className="eb-mono" style={{ color: "var(--berry)", fontWeight: 700, marginInlineEnd: 6 }}>{i.qty}×</span>{i.name}{paidU > 0 && unpaidU > 0 && <span style={{ fontSize: 11, color: "var(--pine)", marginInlineStart: 6 }}>({paidU} {t("paid").toLowerCase()})</span>}{unpaidU === 0 && <span style={{ fontSize: 11, color: "var(--pine)", marginInlineStart: 6 }}>✓</span>}</span>
+                  <span>{money(i.price * i.qty)}</span>
+                </div>
+              ); })}
               {o.discount > 0 && <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, color: "var(--berry)", marginTop: 4 }}><span>{t("reward_word")}</span><span>−{money(o.discount)}</span></div>}
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, fontWeight: 700, marginTop: 7, paddingTop: 7, borderTop: "1px dashed var(--line)" }}><span>{t("order_total")}</span><span>{money(o.total)}</span></div>
             </div>
@@ -1472,6 +1582,8 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
   const [coversIds, setCoversIds] = useState(null);
   const [tipPct, setTipPct] = useState(null);     // seçili yüzde
   const [tipCustom, setTipCustom] = useState(""); // elle bahşiş
+  const [picked, setPicked] = useState({});        // ürün seçimi: { "orderId|itemIndex" : true }
+  const [pickedUnits, setPickedUnits] = useState(null); // { orderId: { itemIndex: adet } }
   const TIP_PCTS = [10, 15, 20];
 
   if (due <= 0) {
@@ -1492,6 +1604,7 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
     }
     else if (m === "even") { setCoversIds(null); setStage("amount"); }
     else if (m === "custom") { setCoversIds(null); setStage("amount"); }
+    else if (m === "items") { setPicked({}); setCoversIds(null); setStage("items"); }
   };
 
   const evenShare = Math.round((due / Math.max(1, people)) * 100) / 100;
@@ -1499,13 +1612,13 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
   const grandPay = base + tipAmount;
 
   const confirmPay = () => {
-    recordPayment({ amount: base, tip: tipAmount, coversOrderIds: coversIds });
+    recordPayment({ amount: base, tip: tipAmount, coversOrderIds: coversIds, paidUnits: pickedUnits });
     setStage("sent");
   };
 
   const header = (title) => (
     <div className="eb-pad" style={{ paddingTop: 6, display: "flex", alignItems: "center", gap: 12 }}>
-      <button onClick={() => { if (stage === "choose") back(); else if (stage === "tip") setStage(method === "even" || method === "custom" ? "amount" : "choose"); else if (stage === "amount") setStage("choose"); else back(); }} style={{ fontSize: 22 }}>‹</button>
+      <button onClick={() => { if (stage === "choose") back(); else if (stage === "tip") setStage(method === "even" || method === "custom" ? "amount" : method === "items" ? "items" : "choose"); else if (stage === "amount" || stage === "items") setStage("choose"); else back(); }} style={{ fontSize: 22 }}>‹</button>
       <h2 className="eb-serif" style={{ fontSize: 22, fontWeight: 600 }}>{title}</h2>
     </div>
   );
@@ -1513,6 +1626,7 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
   // STAGE: yöntem seçimi
   if (stage === "choose") {
     const splitOpts = [
+      { id: "items", icon: "🧾", title: t("split_items") },
       ...(user && myUnpaid > 0 ? [{ id: "mine", icon: "🙋", title: t("split_mine") }] : []),
       { id: "even", icon: "👥", title: t("split_even") },
       { id: "custom", icon: "✏️", title: t("split_custom") },
@@ -1545,6 +1659,63 @@ function PayScreen({ table, due, myUnpaid, unpaidOrders, user, recordPayment, ba
               </button>
             ))}
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // STAGE: ürün seçerek öde
+  if (stage === "items") {
+    // Her siparişin item'larını adet adet listele; daha önce ödenmiş birimleri (paidUnits) atla.
+    const rows = [];
+    unpaidOrders.forEach((o) => {
+      const paidUnits = o.paidUnits || {};
+      o.items.forEach((it, idx) => {
+        const already = paidUnits[idx] || 0;
+        for (let q = 0; q < it.qty; q++) {
+          if (q < already) continue; // bu birim zaten ödenmiş — gösterme
+          rows.push({ key: `${o.id}|${idx}|${q}`, orderId: o.id, idx, name: it.name, price: it.price });
+        }
+      });
+    });
+    const pickedRows = rows.filter((r) => picked[r.key]);
+    const pickedTotal = pickedRows.reduce((s, r) => s + r.price, 0);
+    const anyPicked = pickedTotal > 0;
+    const toggle = (k) => setPicked((p) => ({ ...p, [k]: !p[k] }));
+    const goNext = () => {
+      // Seçilen birimleri sipariş+index bazında grupla: { orderId: { idx: adet } }
+      const sel = {};
+      pickedRows.forEach((r) => { sel[r.orderId] = sel[r.orderId] || {}; sel[r.orderId][r.idx] = (sel[r.orderId][r.idx] || 0) + 1; });
+      setBase(Math.round(pickedTotal * 100) / 100);
+      setCoversIds(null);
+      setPickedUnits(sel);
+      setStage("tip");
+    };
+    if (rows.length === 0) {
+      return (<div className="eb-screen">{header(t("pick_items_t"))}<div className="eb-empty"><div className="em">✅</div><h3>{t("all_settled_thanks")}</h3><p>{t("nothing_to_pay")}</p></div></div>);
+    }
+    return (
+      <div className="eb-screen">
+        {header(t("pick_items_t"))}
+        <div className="eb-pad">
+          <p style={{ fontSize: 13, color: "var(--ink-soft)", marginTop: -4, marginBottom: 14 }}>{t("pick_items_b")}</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {rows.map((r) => { const on = !!picked[r.key]; return (
+              <button key={r.key} onClick={() => toggle(r.key)} className={`eb-pickrow ${on ? "on" : ""}`}>
+                <span className={`eb-pickbox ${on ? "on" : ""}`}>{on ? "✓" : ""}</span>
+                <span style={{ flex: 1, textAlign: "start", fontSize: 14.5, fontWeight: on ? 600 : 500 }}>{r.name}</span>
+                <span style={{ fontSize: 14, fontWeight: 600 }}>{money(r.price)}</span>
+              </button>
+            ); })}
+          </div>
+          <div style={{ height: 120 }} />
+        </div>
+        <div className="eb-bar" style={{ flexDirection: "column", gap: 10 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+            <span style={{ fontSize: 13, color: "var(--ink-soft)" }}>{t("selected_total")}</span>
+            <span className="eb-serif" style={{ fontSize: 22, fontWeight: 700 }}>{money(pickedTotal)}</span>
+          </div>
+          <button className="eb-btn honey" disabled={!anyPicked} style={{ opacity: anyPicked ? 1 : .5 }} onClick={goNext}>{anyPicked ? `${t("pay_selected")} · ${money(pickedTotal)}` : t("nothing_selected")}</button>
         </div>
       </div>
     );
@@ -1703,7 +1874,36 @@ function AuthScreen({ onSignIn, back }) {
   );
 }
 
-function AccountScreen({ user, record, stamps, hasReward, orders, reorder, back, signOut, toAuth }) {
+function RewardScreen({ coupon, backToMenu, toAccount, toBill }) {
+  const { t } = useT();
+  const [copied, setCopied] = useState(false);
+  const code = coupon?.code || "HB-XXXX";
+  const confetti = useMemo(() => Array.from({ length: 28 }).map((_, i) => ({
+    left: Math.random() * 100, delay: Math.random() * 0.6, dur: 1.6 + Math.random() * 1.4,
+    bg: ["var(--honey)", "var(--berry)", "var(--pine)", "var(--honey-2)"][i % 4], rot: Math.random() * 360,
+  })), []);
+  const copy = () => { try { navigator.clipboard?.writeText(code); } catch { /* ignore */ } setCopied(true); setTimeout(() => setCopied(false), 1800); };
+  return (
+    <div className="eb-screen eb-reward-screen">
+      <div className="eb-confetti">{confetti.map((c, i) => <i key={i} style={{ left: c.left + "%", animationDelay: c.delay + "s", animationDuration: c.dur + "s", background: c.bg, transform: `rotate(${c.rot}deg)` }} />)}</div>
+      <div className="eb-pad" style={{ textAlign: "center", paddingTop: 40 }}>
+        <div className="eb-reward-emoji">🍩</div>
+        <h1 className="eb-serif" style={{ fontSize: 27, fontWeight: 600, marginTop: 12 }}>{t("congrats_t")}</h1>
+        <p style={{ color: "var(--ink-soft)", fontSize: 14, marginTop: 8, lineHeight: 1.5 }}>{t("congrats_b")}</p>
+        <div className="eb-coupon">
+          <div className="eb-coupon-top"><span style={{ fontSize: 28 }}>🍩</span><div style={{ textAlign: "start" }}><b style={{ fontSize: 15 }}>{t("free_donut")}</b><div style={{ fontSize: 11.5, opacity: .85 }}>{t("coupon_sub")}</div></div></div>
+          <div className="eb-coupon-perf" />
+          <div className="eb-coupon-code"><span>{code}</span><button onClick={copy} className="eb-copybtn">{copied ? "✓ " + t("copied") : t("copy")}</button></div>
+        </div>
+        <p style={{ fontSize: 12, color: "var(--ink-soft)", marginTop: 16, lineHeight: 1.5 }}>{t("coupon_how")}</p>
+        <button className="eb-btn honey" style={{ marginTop: 20 }} onClick={toAccount}>{t("see_my_coupons")}</button>
+        <button className="eb-btn ghost" style={{ marginTop: 10 }} onClick={backToMenu}>{t("keep_ordering")}</button>
+      </div>
+    </div>
+  );
+}
+
+function AccountScreen({ user, record, stamps, hasReward, coupons = [], orders, reorder, back, signOut, toAuth }) {
   const { t } = useT();
   if (!user) return (
     <div className="eb-screen">
@@ -1718,9 +1918,22 @@ function AccountScreen({ user, record, stamps, hasReward, orders, reorder, back,
       <div className="eb-pad">
         <div className="eb-stampcard">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><b className="eb-serif" style={{ fontSize: 17 }}>{t("bean_club")}</b><span className="eb-pill-mini">{t("orders_count", { n: record?.orders || 0 })}</span></div>
-          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${(hasReward || i < stamps) ? "on" : ""}`}>☕</div>)}</div>
-          <div style={{ fontSize: 12.5, color: "var(--ink-soft)", marginTop: 10 }}>{hasReward ? t("reward_ready_short") : t("more_until", { n: REWARD_THRESHOLD - stamps })}</div>
+          <div className="eb-stamps">{Array.from({ length: REWARD_THRESHOLD }).map((_, i) => <div key={i} className={`eb-stamp ${i < stamps ? "on" : ""}`}>☕</div>)}</div>
+          <div style={{ fontSize: 12.5, color: "var(--ink-soft)", marginTop: 10 }}>{t("more_until", { n: REWARD_THRESHOLD - stamps })}</div>
         </div>
+        {coupons.length > 0 && (<>
+          <h3 className="eb-serif" style={{ fontSize: 16, fontWeight: 600, margin: "22px 0 10px" }}>🎟️ {t("my_coupons")}</h3>
+          {[...coupons].reverse().map((c) => (
+            <div key={c.code} className={`eb-coupon-row ${c.used ? "used" : ""}`}>
+              <span style={{ fontSize: 24 }}>🍩</span>
+              <div style={{ flex: 1, textAlign: "start" }}>
+                <b className="eb-mono" style={{ fontSize: 14 }}>{c.code}</b>
+                <div style={{ fontSize: 11.5, color: "var(--ink-soft)" }}>{c.used ? t("coupon_used_on", { d: new Date(c.usedAt).toLocaleDateString() }) : t("free_donut")}</div>
+              </div>
+              <span className={`eb-pp ${c.used ? "" : "paid"}`}>{c.used ? t("used") : t("active")}</span>
+            </div>
+          ))}
+        </>)}
         <h3 className="eb-serif" style={{ fontSize: 16, fontWeight: 600, margin: "22px 0 10px" }}>{t("order_history")}</h3>
         {sorted.length === 0 ? <p style={{ color: "var(--ink-soft)", fontSize: 14 }}>{t("no_orders_hist")}</p> : sorted.map((o) => (
           <div key={o.id} style={{ border: "1px solid var(--line)", borderRadius: 13, padding: 13, marginBottom: 10, background: "var(--paper)" }}>
@@ -1771,7 +1984,7 @@ function StaffLogin({ onSuccess, onBack }) {
   );
 }
 
-function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlides, payments, setPayments, flash, resetDemo, onSignOut }) {
+function AdminApp({ orders, setOrders, customers, setCustomers, menu, setMenu, slides, setSlides, payments, setPayments, flash, resetDemo, onSignOut }) {
   const { t } = useT();
   const [tab, setTab] = useState("orders");
   const newCount = orders.filter((o) => o.status === "new").length;
@@ -1850,7 +2063,7 @@ function AdminApp({ orders, setOrders, customers, menu, setMenu, slides, setSlid
         {tab === "gallery" && <AdminGallery slides={slides} setSlides={setSlides} flash={flash} />}
         {tab === "brand" && <AdminBrand flash={flash} />}
         {tab === "stats" && <AdminStats orders={orders} customers={customers} menu={menu} payments={payments} />}
-        {tab === "customers" && <AdminCustomers customers={customers} flash={flash} />}
+        {tab === "customers" && <AdminCustomers customers={customers} setCustomers={setCustomers} flash={flash} />}
       </div>
     </div>
   );
@@ -1898,14 +2111,21 @@ function AdminOrders({ orders, setStatus, setPaid }) {
 
 function AdminTables({ orders, payments, setTablePaid }) {
   const { t } = useT();
+  const orderPaidValue = (o) => {
+    if (o.paidUnits && Object.keys(o.paidUnits).length) {
+      return o.items.reduce((s, it, i) => s + it.price * Math.min(it.qty, o.paidUnits[i] || 0), 0);
+    }
+    return o.paid ? o.total : 0;
+  };
   const byTable = {};
   orders.forEach((o) => { if (!byTable[o.table]) byTable[o.table] = []; byTable[o.table].push(o); });
   const tables = Object.entries(byTable).map(([table, os]) => {
-    const partial = ((payments && payments[table]) || []).reduce((s, p) => s + (p.amount || 0), 0);
-    const tips = ((payments && payments[table]) || []).reduce((s, p) => s + (p.tip || 0), 0);
-    const dueRaw = os.filter((o) => !o.paid).reduce((s, o) => s + o.total, 0);
-    const due = Math.max(0, dueRaw - partial);
+    const pays = (payments && payments[table]) || [];
+    const partial = pays.filter((p) => p.kind !== "items").reduce((s, p) => s + (p.amount || 0), 0);
+    const tips = pays.reduce((s, p) => s + (p.tip || 0), 0);
     const grand = os.reduce((s, o) => s + o.total, 0);
+    const paidVal = os.reduce((s, o) => s + orderPaidValue(o), 0);
+    const due = Math.max(0, grand - paidVal - partial);
     const called = os.some((o) => !o.paid && o.billRequested);
     const active = os.filter((o) => o.status !== "served").length;
     return { table: Number(table), os, due, grand, tips, called, active };
@@ -1925,7 +2145,7 @@ function AdminTables({ orders, payments, setTablePaid }) {
               <div key={tb.table} className={`eb-tablecard ${tb.due > 0 ? "owing" : ""} ${tb.called ? "called" : ""}`}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><span className="eb-table-badge">{t("table_n", { n: tb.table })}</span>{tb.active > 0 && <span className="eb-pill-mini">{tb.active} {t("in_kitchen")}</span>}</div>
                 <div style={{ marginTop: 12 }}>
-                  {tb.due > 0 ? (<><div style={{ fontSize: 22, fontWeight: 700, color: "var(--berry)" }}>{money(tb.due)}</div><div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("of_total", { total: money(tb.grand) })}</div></>) : (<div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ fontSize: 20 }}>✅</span><div style={{ fontSize: 15, fontWeight: 600, color: "var(--pine)" }}>{t("paid_in_full", { total: money(tb.grand) })}</div></div>)}
+                  {tb.due > 0 ? (<><div style={{ fontSize: 22, fontWeight: 700, color: "var(--berry)" }}>{money(tb.due)}</div><div style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t("of_total", { total: money(tb.grand) })}</div></>) : (<div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ fontSize: 20 }}>✅</span><div><div style={{ fontSize: 15, fontWeight: 600, color: "var(--pine)" }}>{t("paid_in_full", { total: money(tb.grand) })}</div><div style={{ fontSize: 11, color: "var(--ink-soft)" }}>{t("auto_settled")}</div></div></div>)}
                 </div>
                 {tb.called && <div className="eb-called">{t("bill_requested_alert")}</div>}
                 {tb.tips > 0 && <div style={{ marginTop: 8, fontSize: 12.5, color: "var(--pine)", fontWeight: 600 }}>💝 {t("tip_label")}: {money(tb.tips)}</div>}
@@ -2163,15 +2383,48 @@ function AdminStats({ orders, customers, menu, payments }) {
 }
 
 
-function AdminCustomers({ customers, flash }) {
+function AdminCustomers({ customers, setCustomers, flash }) {
   const { t } = useT();
   const list = Object.values(customers).sort((a, b) => new Date(b.joinedAt) - new Date(a.joinedAt));
   const [composing, setComposing] = useState(false);
   const [subject, setSubject] = useState(""); const [msg, setMsg] = useState("");
+  const [redeem, setRedeem] = useState("");
   const send = () => { flash(t("t_promo_queued", { n: list.length })); setComposing(false); setSubject(""); setMsg(""); };
+  // Toplam aktif/kullanılan kupon sayıları
+  const allCoupons = list.flatMap((c) => (Array.isArray(c.coupons) ? c.coupons.map((cp) => ({ ...cp, owner: c.email })) : []));
+  const activeCount = allCoupons.filter((c) => !c.used).length;
+  const doRedeem = () => {
+    const code = redeem.trim().toUpperCase();
+    if (!code) return;
+    let result = "bad";
+    setCustomers((cs) => {
+      const next = { ...cs };
+      for (const email of Object.keys(next)) {
+        const r = next[email];
+        const coupons = Array.isArray(r.coupons) ? r.coupons : [];
+        const idx = coupons.findIndex((c) => c.code === code);
+        if (idx >= 0) {
+          if (coupons[idx].used) { result = "used"; return cs; }
+          const nc = [...coupons]; nc[idx] = { ...nc[idx], used: true, usedAt: new Date().toISOString() };
+          result = "ok";
+          next[email] = { ...r, coupons: nc };
+          return next;
+        }
+      }
+      return cs;
+    });
+    setTimeout(() => { flash(t(result === "ok" ? "redeem_ok" : result === "used" ? "redeem_used" : "redeem_bad")); if (result === "ok") setRedeem(""); }, 0);
+  };
   return (
     <div>
       <div className="eb-ahead"><div><h1 className="eb-serif">{t("customers")}</h1><p>{t("customers_sub")}</p></div>{list.length > 0 && <button className="eb-btn honey" style={{ width: "auto", padding: "12px 20px" }} onClick={() => setComposing(true)}>✉️ {t("email_all")}</button>}</div>
+      <div className="eb-panel" style={{ marginBottom: 16, padding: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}><b style={{ fontSize: 14 }}>🎟️ {t("redeem_coupon")}</b><span className="eb-pill-mini">{activeCount} {t("active")}</span></div>
+        <div style={{ display: "flex", gap: 8 }}>
+          <input className="eb-input" style={{ flex: 1, fontFamily: "'DM Mono',monospace", textTransform: "uppercase" }} placeholder={t("redeem_ph")} value={redeem} onChange={(e) => setRedeem(e.target.value)} onKeyDown={(e) => e.key === "Enter" && doRedeem()} />
+          <button className="eb-btn honey" style={{ width: "auto", padding: "12px 18px" }} onClick={doRedeem}>{t("redeem_btn")}</button>
+        </div>
+      </div>
       {list.length === 0 ? (
         <div className="eb-empty"><div className="em">👥</div><h3>{t("no_members_t")}</h3><p>{t("no_members_b")}</p></div>
       ) : (
@@ -2182,7 +2435,7 @@ function AdminCustomers({ customers, flash }) {
               {list.map((c) => (
                 <tr key={c.email}>
                   <td><b>{c.name}</b></td><td className="eb-mono" style={{ fontSize: 12.5 }}>{c.email}</td><td>{c.orders}</td>
-                  <td><span className="eb-pill-mini">☕ {c.stamps}</span></td><td>{money(c.totalSpent)}</td><td style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{new Date(c.joinedAt).toLocaleDateString()}</td>
+                  <td><span className="eb-pill-mini">☕ {c.stamps}</span>{Array.isArray(c.coupons) && c.coupons.filter((x) => !x.used).length > 0 && <span className="eb-pill-mini" style={{ marginInlineStart: 5, background: "var(--honey)", color: "var(--honey-ink)" }}>🎟️ {c.coupons.filter((x) => !x.used).length}</span>}</td><td>{money(c.totalSpent)}</td><td style={{ fontSize: 12.5, color: "var(--ink-soft)" }}>{new Date(c.joinedAt).toLocaleDateString()}</td>
                   <td><button className="eb-link" style={{ fontSize: 12.5 }} onClick={() => setComposing(c.email)}>{t("email_btn")}</button></td>
                 </tr>
               ))}
